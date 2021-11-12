@@ -85,6 +85,7 @@ html_theme_options = {
             "icon": "fas fa-rss-square",
         },
     ],
+    "google_analytics_id": "UA-179336561-1",
 }
 
 html_extra_path = ["feed.xml"]
