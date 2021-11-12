@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://stephlin.github.io</id>
+  <title>StephLin's Personal Blog - Posts by Yu-Kai Lin</title>
+  <updated>2021-11-12T12:56:29.441912+00:00</updated>
+  <link href="https://stephlin.github.io"/>
+  <link href="https://stephlin.github.io/blog/author/yu-kai-lin/atom.xml" rel="self"/>
+  <generator uri="https://ablog.readthedocs.org/" version="0.10.20">ABlog</generator>
+  <entry>
+    <id>https://stephlin.github.io/post/convex-optimization/sum-of-squares-polynomials-with-cvxpy/</id>
+    <title>Checking Sum of Squares (SOS) Polynomials with CVXPY</title>
+    <updated>2020-10-03T00:00:00+00:00</updated>
+    <author>
+      <name>Yu-Kai Lin</name>
+    </author>
+    <content type="html">&lt;p&gt;This post aims at introducing a programming way to check if a polynomial is sum of squares.&lt;/p&gt;
+</content>
+    <link href="https://stephlin.github.io/post/convex-optimization/sum-of-squares-polynomials-with-cvxpy/" rel="alternate"/>
+    <summary>This post aims at introducing a programming way to check if a polynomial is sum of squares.</summary>
+    <category term="ConvexOptimization" label="Convex Optimization"/>
+    <category term="Optimization" label="Optimization"/>
+    <category term="SumofSquares" label="Sum of Squares"/>
+    <category term="SemidefiniteProgramming" label="Semidefinite Programming"/>
+    <category term="Python" label="Python"/>
+    <published>2020-10-03T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://stephlin.github.io/post/python/context-management-in-python/</id>
+    <title>Context Management in Python</title>
+    <updated>2021-01-02T00:00:00+00:00</updated>
+    <author>
+      <name>Yu-Kai Lin</name>
+    </author>
+    <content type="html">&lt;p&gt;在執行程式的時候通常會需要存取資源，一般來說資源的來源可能是檔案、遠端連線、或是某種 Socket。本篇我們將整理在 Python 中面對資源存取問題時，透過 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;with&lt;/span&gt;&lt;/code&gt; 的常見作法、其物件意涵、以及內建套件 &lt;code class="docutils literal notranslate"&gt;&lt;span class="pre"&gt;contextlib&lt;/span&gt;&lt;/code&gt; 的一些使用時機。&lt;/p&gt;
+</content>
+    <link href="https://stephlin.github.io/post/python/context-management-in-python/" rel="alternate"/>
+    <summary>在執行程式的時候通常會需要存取資源，一般來說資源的來源可能是檔案、遠端連線、或是某種 Socket。本篇我們將整理在 Python 中面對資源存取問題時，透過 with 的常見作法、其物件意涵、以及內建套件 contextlib 的一些使用時機。</summary>
+    <category term="Python" label="Python"/>
+    <category term="ContextManagement" label="Context Management"/>
+    <published>2021-01-02T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://stephlin.github.io/post/factor-graph/isam-part1/</id>
+    <title>iSAM2 演算法筆記 (1)：問題定義與 Bayes Tree</title>
+    <updated>2021-08-09T00:00:00+00:00</updated>
+    <author>
+      <name>Yu-Kai Lin</name>
+    </author>
+    <content type="html">&lt;p&gt;圖模型統計推論 (graphical model inference) 應用在 SLAM 問題當中算是行之有年，其中一派由 Kaess 和 Dellaert 等高手開發之 iSAM2 (IJRR 2012) 是一個基於因子圖的最佳化方法，重點是他高度改善了當新增變數到因子圖時的最佳化過程，這件事情使得說由因子圖描述的大型稀疏問題在面對增量變數時，依舊能實現近乎實時的運算效能；同時他們也有釋出 C++ 函式庫。本篇算是筆者對於此方法的回顧，同時也是因為中文的介紹文章比較少，因此也順水推舟地用中文來記錄這個閱讀過程。&lt;/p&gt;
+</content>
+    <link href="https://stephlin.github.io/post/factor-graph/isam-part1/" rel="alternate"/>
+    <summary>圖模型統計推論 (graphical model inference) 應用在 SLAM 問題當中算是行之有年，其中一派由 Kaess 和 Dellaert 等高手開發之 iSAM2 (IJRR 2012) 是一個基於因子圖的最佳化方法，重點是他高度改善了當新增變數到因子圖時的最佳化過程，這件事情使得說由因子圖描述的大型稀疏問題在面對增量變數時，依舊能實現近乎實時的運算效能；同時他們也有釋出 C++ 函式庫。本篇算是筆者對於此方法的回顧，同時也是因為中文的介紹文章比較少，因此也順水推舟地用中文來記錄這個閱讀過程。</summary>
+    <category term="Optimization" label="Optimization"/>
+    <category term="FactorGraph" label="Factor Graph"/>
+    <category term="BayesTree" label="Bayes Tree"/>
+    <category term="SLAM" label="SLAM"/>
+    <published>2021-08-09T00:00:00+00:00</published>
+  </entry>
+</feed>
