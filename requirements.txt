@@ -1,0 +1,7 @@
+sphinx
+sphinxcontrib-youtube
+sphinxcontrib-mermaid
+sphinx_fontawesome
+myst_nb
+ablog
+pydata-sphinx-theme

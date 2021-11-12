@@ -1,0 +1,123 @@
+table.highlighttable td.linenos {
+  padding-right: 0;
+}
+
+table.highlighttable td.linenos pre {
+  box-shadow: none;
+  color: black;
+  border-radius: 0;
+  padding-right: 0;
+}
+
+table.highlighttable td.code pre {
+  box-shadow: none;
+  border: 0;
+  border-radius: 0;
+}
+
+table.highlighttable tbody {
+  background-color: rgba(var(--pst-color-preformatted-background),1);
+  border-radius: 0.2rem;
+  border: 1px solid #c9c9c9;
+}
+
+pre, code {
+  font-size: 100%;
+}
+
+span.caption-text {
+  color: var(--secondary);
+}
+
+/* Bio area */
+/* Ref: https://github.com/choldgraf/choldgraf.github.io/blob/main/_static/custom.css */
+div.profile-pic {
+    margin-top: 1em;
+}
+
+div.profile-pic img {
+    border-radius: 500px;
+    width: 80%;
+    max-width: 190px;
+    margin: 0 auto;
+    display: block;
+}
+
+.bio-info {
+    margin: 1em auto;
+    max-width: 220px;
+}
+
+.name {
+    font-size: 1.5em;
+}
+
+.jobtitle {
+    font-size: .9em;
+    font-weight: bold;
+}
+
+.whatido {
+    margin-top: 1em;
+}
+
+/* Sidebar for blog archive / each post */
+/* Ref: https://github.com/choldgraf/choldgraf.github.io/blob/main/_static/custom.css */
+.bd-sidebar {
+  height: auto;
+}
+
+ul.ablog-archive {
+    padding-left: 0px;
+}
+
+.bd-sidebar h2 {
+    font-size: 1.4em;
+}
+
+.bd-sidebar ul {
+    padding-left: 0;
+    list-style-type: none;
+}
+
+.bd-sidebar li {
+    padding-bottom: .5em;
+}
+
+div.bd-sidebar h3, div.bd-sidebar h2, div.bd-sidebar ul {
+    padding-left: 5%;
+}
+
+/* In-page post lists */
+/* Ref: https://github.com/choldgraf/choldgraf.github.io/blob/main/_static/custom.css */
+ul.postlist {
+    padding-left: 0;
+}
+
+ul.postlist > li > p:first-child {
+    font-size: 1.3em;
+}
+
+ul.postlist li + li {
+    margin-top: 2em;
+}
+
+ul.postlist li > p > a {
+    font-style: normal;
+    font-size: 1.3em;
+}
+
+ul.postlist li > p > a:nth-child(2) {
+    font-size: 1em;
+}
+
+ul.postlist li > p > a:nth-child(2) > em {
+    font-style: normal;
+}
+
+/* About */
+@media (max-width: 767.98px) {
+    figure.me {
+        float: none;
+    }
+}
