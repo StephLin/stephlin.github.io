@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://stephlin.github.io</id>
   <title>StephLin's Personal Blog - Posts tagged Factor Graph</title>
-  <updated>2021-12-01T08:43:30.346019+00:00</updated>
+  <updated>2021-12-01T08:52:39.194351+00:00</updated>
   <link href="https://stephlin.github.io"/>
   <link href="https://stephlin.github.io/blog/tag/factor-graph/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.org/" version="0.10.20">ABlog</generator>

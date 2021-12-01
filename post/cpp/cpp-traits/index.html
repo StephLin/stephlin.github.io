@@ -771,7 +771,7 @@
 <p>此時我們已經可以稍微感受到「黏貼」的味道：在 <code class="docutils literal notranslate"><span class="pre">t.cpp</span></code> 當中，我們把 <code class="docutils literal notranslate"><span class="pre">impl.h</span></code> 裡面的實作細節，貼到 <code class="docutils literal notranslate"><span class="pre">lib.h</span></code> 裡面的函數當中。這個基本上就是 C++ Trait 的主要想法，不過實際操作上更多的是活用 C++ Template 的特性。</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
-<p>以至於這篇文章用另一個角度來看就是另類的 C++ template 複習篇 XD</p>
+<p>以至於這篇文章用某種角度來看就是 C++ template 複習篇 XD</p>
 </div>
 </section>
 <section id="id2">
@@ -780,7 +780,7 @@
 <p>不過這個案例有點太超過了 (數學方面的那種)，我們舉一個比較通俗的案例：單變數微分的連鎖律 (chain rule)。</p>
 <p>避免可能有讀者不太清楚微積分，快速複習一下單變數的連鎖律：給定兩個函數 <span class="math notranslate nohighlight">\(f, g:\mathbb{R}\to\mathbb{R}\)</span>，滿足以下定律：</p>
 <div class="math notranslate nohighlight">
-\[\Big( f \circ g \Big)'(x) = f'(g(x))\]</div>
+\[\Big( f \circ g \Big)'(x) = f'(g(x)) g'(x)\]</div>
 <p>其中那個 <span class="math notranslate nohighlight">\('\)</span> 代表的是對 <span class="math notranslate nohighlight">\(x\)</span> 微分的意思。</p>
 <p>為求簡便，我們預計來實作兩個簡單的函數，一個是二次多項式函數 <span class="math notranslate nohighlight">\(f_1(x) = x^2\)</span>，另一個是指數函數 <span class="math notranslate nohighlight">\(f_2(x) = e^x\)</span>. 所以我們有 <span class="math notranslate nohighlight">\(f_1'(x) = 2x\)</span> 和 <span class="math notranslate nohighlight">\(f_2'(x) = e^x\)</span>. 有這些先備知識後我們就可以來實作了：</p>
 <div class="literal-block-wrapper docutils container" id="id8">
