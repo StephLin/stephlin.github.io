@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Posts from Taiwan &#8212; StephLin&#39;s Personal Blog  documentation</title>
+    <title>Posts in C++ &#8212; StephLin&#39;s Personal Blog  documentation</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet">
   <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -62,8 +62,8 @@
 <link
   rel="alternate"
   type="application/atom+xml"
-  href="../taiwan/atom.xml"
-  title="Posts from Taiwan"
+  href="../c/atom.xml"
+  title="Posts in C++"
 />
  
 <link href="http://localhost:5510/_static/vendor/fontawesome/5.13.0/css/all.min.css" rel="stylesheet" />
@@ -213,9 +213,9 @@
 <div class="section">
   <h1>
     
-    <a href="../taiwan/atom.xml"
+    <a href="../c/atom.xml"
       ><i class="fa fa-rss fa-rotate-270"></i></a
-    > Posts from  Taiwan 
+    > Posts in  C++ 
   </h1>
    
 
@@ -244,7 +244,7 @@
     ><i class="fa-fw fa fa-location-arrow"></i></span
   >
    
-  <a href="#">Taiwan</a>  
+  <a href="../../location/taiwan/">Taiwan</a>  
 </li>
  
 <li id="language">
@@ -260,7 +260,7 @@
     ><i class="fa-fw fa fa-folder-open"></i></span
   >
    
-  <a href="../../category/c/">C++</a>  
+  <a href="#">C++</a>  
 </li>
  
 <li id="tags">
@@ -277,194 +277,6 @@
     <p>近期在閱讀一些 C++ Library 的過程中發現了 C++ Traits 的使用概念，於是乎來整理一下他的想法以及實現方法。</p>
 
     <p><a href="../../../post/cpp/cpp-traits/">Read more ...</a></p>
-    <hr />
-  </div>
-  
-
-  <div class="section">
-    <h2>
-      <a href="../../../post/factor-graph/isam-part1/"
-        >iSAM2 演算法筆記 (1)：問題定義與 Bayes Tree</a
-      >
-    </h2>
-
-    <ul class="ablog-archive">
-      <li>
-         <i class="fa fa-calendar"></i> 09 August 2021 
-      </li>
-       
-<li id="author">
-  <span
-    ><i class="fa-fw fa fa-user"></i></span
-  >
-   
-  <a href="../../author/yu-kai-lin/">Yu-Kai Lin</a>  
-</li>
- 
-<li id="location">
-  <span
-    ><i class="fa-fw fa fa-location-arrow"></i></span
-  >
-   
-  <a href="#">Taiwan</a>  
-</li>
- 
-<li id="language">
-  <span
-    ><i class="fa-fw fa fa-language"></i></span
-  >
-   
-  <a href="../../language/中文/">中文</a>  
-</li>
- 
-<li id="category">
-  <span
-    ><i class="fa-fw fa fa-folder-open"></i></span
-  >
-   
-  <a href="../../category/optimization/">Optimization</a>  
-</li>
- 
-<li id="tags">
-  <span
-    ><i class="fa-fw fa fa-tags"></i> </span
-  >
-   
-  <a href="../../tag/optimization/">Optimization</a>   
-  <a href="../../tag/factor-graph/">Factor Graph</a>   
-  <a href="../../tag/bayes-tree/">Bayes Tree</a>   
-  <a href="../../tag/slam/">SLAM</a>  
-</li>
- 
-    </ul>
-    <p>圖模型統計推論 (graphical model inference) 應用在 SLAM 問題當中算是行之有年，其中一派由 Kaess 和 Dellaert 等高手開發之 iSAM2 (IJRR 2012) 是一個基於因子圖的最佳化方法，重點是他高度改善了當新增變數到因子圖時的最佳化過程，這件事情使得說由因子圖描述的大型稀疏問題在面對增量變數時，依舊能實現近乎實時的運算效能；同時他們也有釋出 C++ 函式庫。本篇算是筆者對於此方法的回顧，同時也是因為中文的介紹文章比較少，因此也順水推舟地用中文來記錄這個閱讀過程。</p>
-
-    <p><a href="../../../post/factor-graph/isam-part1/">Read more ...</a></p>
-    <hr />
-  </div>
-  
-
-  <div class="section">
-    <h2>
-      <a href="../../../post/python/context-management-in-python/"
-        >Context Management in Python</a
-      >
-    </h2>
-
-    <ul class="ablog-archive">
-      <li>
-         <i class="fa fa-calendar"></i> 02 January 2021 
-      </li>
-       
-<li id="author">
-  <span
-    ><i class="fa-fw fa fa-user"></i></span
-  >
-   
-  <a href="../../author/yu-kai-lin/">Yu-Kai Lin</a>  
-</li>
- 
-<li id="location">
-  <span
-    ><i class="fa-fw fa fa-location-arrow"></i></span
-  >
-   
-  <a href="#">Taiwan</a>  
-</li>
- 
-<li id="language">
-  <span
-    ><i class="fa-fw fa fa-language"></i></span
-  >
-   
-  <a href="../../language/中文/">中文</a>  
-</li>
- 
-<li id="category">
-  <span
-    ><i class="fa-fw fa fa-folder-open"></i></span
-  >
-   
-  <a href="../../category/python/">Python</a>  
-</li>
- 
-<li id="tags">
-  <span
-    ><i class="fa-fw fa fa-tags"></i> </span
-  >
-   
-  <a href="../../tag/python/">Python</a>   
-  <a href="../../tag/context-management/">Context Management</a>  
-</li>
- 
-    </ul>
-    <p>在執行程式的時候通常會需要存取資源，一般來說資源的來源可能是檔案、遠端連線、或是某種 Socket。本篇我們將整理在 Python 中面對資源存取問題時，透過 <code class="docutils literal notranslate"><span class="pre">with</span></code> 的常見作法、其物件意涵、以及內建套件 <code class="docutils literal notranslate"><span class="pre">contextlib</span></code> 的一些使用時機。</p>
-
-    <p><a href="../../../post/python/context-management-in-python/">Read more ...</a></p>
-    <hr />
-  </div>
-  
-
-  <div class="section">
-    <h2>
-      <a href="../../../post/convex-optimization/sum-of-squares-polynomials-with-cvxpy/"
-        >Checking Sum of Squares (SOS) Polynomials with CVXPY</a
-      >
-    </h2>
-
-    <ul class="ablog-archive">
-      <li>
-         <i class="fa fa-calendar"></i> 03 October 2020 
-      </li>
-       
-<li id="author">
-  <span
-    ><i class="fa-fw fa fa-user"></i></span
-  >
-   
-  <a href="../../author/yu-kai-lin/">Yu-Kai Lin</a>  
-</li>
- 
-<li id="location">
-  <span
-    ><i class="fa-fw fa fa-location-arrow"></i></span
-  >
-   
-  <a href="#">Taiwan</a>  
-</li>
- 
-<li id="language">
-  <span
-    ><i class="fa-fw fa fa-language"></i></span
-  >
-   
-  <a href="../../language/english/">English</a>  
-</li>
- 
-<li id="category">
-  <span
-    ><i class="fa-fw fa fa-folder-open"></i></span
-  >
-   
-  <a href="../../category/optimization/">Optimization</a>  
-</li>
- 
-<li id="tags">
-  <span
-    ><i class="fa-fw fa fa-tags"></i> </span
-  >
-   
-  <a href="../../tag/convex-optimization/">Convex Optimization</a>   
-  <a href="../../tag/optimization/">Optimization</a>   
-  <a href="../../tag/sum-of-squares/">Sum of Squares</a>   
-  <a href="../../tag/semidefinite-programming/">Semidefinite Programming</a>   
-  <a href="../../tag/python/">Python</a>  
-</li>
- 
-    </ul>
-    <p>This post aims at introducing a programming way to check if a polynomial is sum of squares.</p>
-
-    <p><a href="../../../post/convex-optimization/sum-of-squares-polynomials-with-cvxpy/">Read more ...</a></p>
     <hr />
   </div>
    

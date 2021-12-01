@@ -1,0 +1,1168 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>C++ Traits 使用心得 &#8212; StephLin&#39;s Personal Blog  documentation</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/blank.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/color.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/style.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../../about/" />
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-179336561-1', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+ 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../../blog/atom.xml"
+  title="StephLin's Personal Blog"
+/>
+ 
+<link href="http://localhost:5510/_static/vendor/fontawesome/5.13.0/css/all.min.css" rel="stylesheet" />
+
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../../../">
+  <img src="../../../_static/logo.png" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../about/">
+  About
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../projects/">
+  Projects
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../blog/">
+  Blog
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <form class="bd-search d-flex align-items-center" action="../../../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/StephLin" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/blog/atom.xml" rel="noopener" target="_blank" title="RSS">
+            <span><i class="fas fa-rss-square"></i></span>
+            <label class="sr-only">RSS</label>
+          </a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">  
+<h2>
+   <i class="fa fa-calendar"></i>
+  13 November 2021 
+</h2>
+
+<ul>
+   
+<li id="author">
+  <span
+    ><i class="fa-fw fa fa-user"></i></span
+  >
+   
+  <a href="../../../blog/author/yu-kai-lin/">Yu-Kai Lin</a>  
+</li>
+ 
+<li id="location">
+  <span
+    ><i class="fa-fw fa fa-location-arrow"></i></span
+  >
+   
+  <a href="../../../blog/location/taiwan/">Taiwan</a>  
+</li>
+ 
+<li id="language">
+  <span
+    ><i class="fa-fw fa fa-language"></i></span
+  >
+   
+  <a href="../../../blog/language/中文/">中文</a>  
+</li>
+ 
+<li id="category">
+  <span
+    ><i class="fa-fw fa fa-folder-open"></i></span
+  >
+   
+  <a href="../../../blog/category/c/">C++</a>  
+</li>
+ 
+<li id="tags">
+  <span
+    ><i class="fa-fw fa fa-tags"></i> </span
+  >
+   
+  <a href="../../../blog/tag/traits/">Traits</a>   
+  <a href="../../../blog/tag/c/">C++</a>   
+  <a href="../../../blog/tag/template/">Template</a>  
+</li>
+ 
+</ul>
+
+<h3>
+  <a href="../../../blog/">Recent Posts</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../factor-graph/isam-part1/"
+      >09 August - iSAM2 演算法筆記 (1)：問題定義與 Bayes Tree</a
+    >
+  </li>
+  
+  <li>
+    <a href="../../python/context-management-in-python/"
+      >02 January - Context Management in Python</a
+    >
+  </li>
+  
+  <li>
+    <a href="../../convex-optimization/sum-of-squares-polynomials-with-cvxpy/"
+      >03 October - Checking Sum of Squares (SOS) Polynomials with CVXPY</a
+    >
+  </li>
+  
+</ul>
+
+<h3><a href="../../../blog/tag/">Tags</a></h3>
+<style type="text/css">
+  ul.ablog-cloud {
+    list-style: none;
+    overflow: auto;
+  }
+  ul.ablog-cloud li {
+    float: left;
+    height: 20pt;
+    line-height: 18pt;
+    margin-right: 5px;
+  }
+  ul.ablog-cloud a {
+    text-decoration: none;
+    vertical-align: middle;
+  }
+  li.ablog-cloud-1 {
+    font-size: 80%;
+  }
+  li.ablog-cloud-2 {
+    font-size: 95%;
+  }
+  li.ablog-cloud-3 {
+    font-size: 110%;
+  }
+  li.ablog-cloud-4 {
+    font-size: 125%;
+  }
+  li.ablog-cloud-5 {
+    font-size: 140%;
+  }
+</style>
+<ul class="ablog-cloud">
+   
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/bayes-tree/">Bayes Tree</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/c/">C++</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/context-management/">Context Management</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/convex-optimization/">Convex Optimization</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/factor-graph/">Factor Graph</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-5">
+    <a href="../../../blog/tag/optimization/">Optimization</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-5">
+    <a href="../../../blog/tag/python/">Python</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/slam/">SLAM</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/semidefinite-programming/">Semidefinite Programming</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/sum-of-squares/">Sum of Squares</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/template/">Template</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/traits/">Traits</a>
+  </li>
+   
+</ul>
+
+<h3>
+  <a href="../../../blog/category/">Categories</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../../blog/category/c/">C++ (1)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/category/optimization/">Optimization (2)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/category/python/">Python (1)</a>
+  </li>
+   
+</ul>
+
+<h3>
+  <a href="../../../blog/archive/">Archives</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../../blog/2021/">2021 (3)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/2020/">2020 (1)</a>
+  </li>
+   
+</ul>
+
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   實作案例
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   舉一個更實際的案例
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   型態檢查
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   結論
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                 <section id="c-traits">
+<h1>C++ Traits 使用心得<a class="headerlink" href="#c-traits" title="Permalink to this headline">¶</a></h1>
+<p>Traits 簡單來講就是一個程式碼片段，而我們希望透過一些機制，把他當作補丁一般地，貼到某塊程式碼內。</p>
+<p>這個概念若使用得當，最大的好處在於我們不用重複實作相同的功能 (或是相似的架構)，進而提升程式碼的重複利用度、以及簡潔程度。</p>
+<blockquote>
+<div><p><em>Think of a trait as a small object whose main purpose is to carry information used by another object or algorithm to determine “policy” or “implementation details”.</em></p>
+<p class="attribution">—<em class="fa fa-user"></em> Bjarne Stroustrup</p>
+</div></blockquote>
+<p>我們先看最簡單的案例，PHP，他有一個關鍵字就直接叫做 <code class="docutils literal notranslate"><span class="pre">trait</span></code>，只要在其中定義想要打包的程式碼，就可以再利用 <code class="docutils literal notranslate"><span class="pre">use</span></code> 貼到任何類別：</p>
+<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+<span class="hll"><span class="k">trait</span> <span class="nx">ezcReflectionReturnInfo</span> <span class="p">{</span>
+</span><span class="hll">    <span class="k">function</span> <span class="nf">getReturnType</span><span class="p">()</span> <span class="p">{</span> <span class="cm">/*1*/</span> <span class="p">}</span>
+</span><span class="hll">    <span class="k">function</span> <span class="nf">getReturnDescription</span><span class="p">()</span> <span class="p">{</span> <span class="cm">/*2*/</span> <span class="p">}</span>
+</span><span class="hll"><span class="p">}</span>
+</span>
+<span class="k">class</span> <span class="nc">ezcReflectionMethod</span> <span class="k">extends</span> <span class="nx">ReflectionMethod</span> <span class="p">{</span>
+<span class="hll">    <span class="k">use</span> <span class="nx">ezcReflectionReturnInfo</span><span class="p">;</span>
+</span>    <span class="cm">/* ... */</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">ezcReflectionFunction</span> <span class="k">extends</span> <span class="nx">ReflectionFunction</span> <span class="p">{</span>
+<span class="hll">    <span class="k">use</span> <span class="nx">ezcReflectionReturnInfo</span><span class="p">;</span>
+</span>    <span class="cm">/* ... */</span>
+<span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</td></tr></table></div>
+<p>在這個例子當中，<code class="docutils literal notranslate"><span class="pre">ezcReflectionMethod</span></code> 和 <code class="docutils literal notranslate"><span class="pre">ezcReflectionFunction</span></code> 都同時擁有 <code class="docutils literal notranslate"><span class="pre">getReturnType()</span></code> 和 <code class="docutils literal notranslate"><span class="pre">getReturnDescription()</span></code> 這兩個方法，就這方面來講 PHP 真的是滿直觀的，不過你會發現他就真的只是複製貼上而已。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Trait 跟 inheritance (繼承) 最大的差異是：trait 更接近於文本的複製貼上 (只是這個過程是編譯器幫你完成的)，而繼承則是一個物件導向的概念，具備更多類別之間的相互關係。</p>
+</div>
+<p>如果是 C++ 的話，我們稱之為 <strong>trait class</strong>，他依靠了 C++ template (generic programming) 去實現這個想法，而仰賴模板偏特化 (partial template specialization) 的特性，我們可以進一步允許當使用者輸入不同的類別時，他會貼上個別對應的實作方法。</p>
+<section id="id1">
+<h2>實作案例<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>先來看一個例子：</p>
+<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="c1">// generic type</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">struct</span> <span class="nc">traits</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">is_void</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="c1">// partial template specialization</span>
+<span class="k">template</span><span class="o">&lt;&gt;</span><span class="w"></span>
+<span class="k">struct</span> <span class="nc">traits</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">is_void</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">traits</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">is_void</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;True&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;False&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">traits</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;::</span><span class="n">is_void</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;True&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;False&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">traits</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;::</span><span class="n">is_void</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;True&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;False&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</td></tr></table></div>
+<p>在這個例子中，我們使用了 template struct 宣告並定義在一般情況 (非 <code class="docutils literal notranslate"><span class="pre">void</span></code> 的其他所有型態) 與特定情況 (<code class="docutils literal notranslate"><span class="pre">void</span></code> 型態) 在 <code class="docutils literal notranslate"><span class="pre">is_void()</span></code> 函數中的行為，並且很簡易地在主函數中直接呼叫。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>在 C++ 當中， <code class="docutils literal notranslate"><span class="pre">struct</span></code> 跟 <code class="docutils literal notranslate"><span class="pre">class</span></code> 基本上是在講同樣的東西 (從編譯器的角度也是)，差異是 <code class="docutils literal notranslate"><span class="pre">struct</span></code> 中的成員預設為 <code class="docutils literal notranslate"><span class="pre">public</span></code>，而 <code class="docutils literal notranslate"><span class="pre">class</span></code> 中的成員預設為 <code class="docutils literal notranslate"><span class="pre">private</span></code>.</p>
+<p>你可能不知道的是，C++ 的 <code class="docutils literal notranslate"><span class="pre">struct</span></code> 跟 C 的 <code class="docutils literal notranslate"><span class="pre">struct</span></code> 反而不是同樣的東西。</p>
+</div>
+<p>這個例子的輸出結果是滿直覺的：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kc">False</span>
+<span class="kc">False</span>
+<span class="kc">True</span>
+</pre></div>
+</div>
+<p>我們可以進一步將主函數當中的行為包裝成一個 template function：</p>
+<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="c1">// generic type</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">struct</span> <span class="nc">traits</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">is_void</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="c1">// partial template specialization</span>
+<span class="k">template</span><span class="o">&lt;&gt;</span><span class="w"></span>
+<span class="k">struct</span> <span class="nc">traits</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">is_void</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="hll"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
+</span><span class="hll"><span class="kt">void</span><span class="w"> </span><span class="n">print_type_is_void</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+</span><span class="hll"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">traits</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">is_void</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;True&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;False&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
+</span><span class="hll"><span class="p">}</span><span class="w"></span>
+</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">print_type_is_void</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="n">print_type_is_void</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="n">print_type_is_void</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</td></tr></table></div>
+<p>在這個例子裡，我們已經可以看到 <code class="docutils literal notranslate"><span class="pre">print_type_is_void&lt;T&gt;()</span></code> 會根據他接收到的型態 <code class="docutils literal notranslate"><span class="pre">T</span></code> 去決定要實際向誰取得實作內容。按照這個例子的話，如果 <code class="docutils literal notranslate"><span class="pre">T</span></code> 是 <code class="docutils literal notranslate"><span class="pre">void</span></code> ，他會把含有 <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">true;</span></code> 的那個函數拿來使用，其他的則是會把含有 <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">false;</span></code> 的另外一個來使用。</p>
+<p>我們再把 C++ template 玩深一點，實際上更多的使用情境是：我們不是很希望說隨便一個型態都可以直接套用相同的實作。因此我們只要有 <code class="docutils literal notranslate"><span class="pre">trait</span></code> 那個皮就好，裡面的料我們自己一個個型態各自定義：</p>
+<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="hll"><span class="c1">// declaration</span>
+</span><span class="hll"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="k">struct</span> <span class="nc">traits</span><span class="p">;</span><span class="w"></span>
+</span>
+<span class="k">template</span><span class="o">&lt;&gt;</span><span class="w"></span>
+<span class="k">struct</span> <span class="nc">traits</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">is_void</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">template</span><span class="o">&lt;&gt;</span><span class="w"></span>
+<span class="k">struct</span> <span class="nc">traits</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">is_void</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">template</span><span class="o">&lt;&gt;</span><span class="w"></span>
+<span class="k">struct</span> <span class="nc">traits</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">is_void</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="n">print_type_is_void</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">traits</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">is_void</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;True&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;False&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">print_type_is_void</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="n">print_type_is_void</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="n">print_type_is_void</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</td></tr></table></div>
+<p>這個時候 <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">traits&lt;T&gt;</span></code> 就只剩下宣告而已，至於 <code class="docutils literal notranslate"><span class="pre">print_type_is_void&lt;T&gt;()</span></code> 其實只要知道有 <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">traits&lt;T&gt;</span></code> 的存在就可以寫程式了。意思是說，你只需要在 <code class="docutils literal notranslate"><span class="pre">print_type_is_void&lt;T&gt;()</span></code> 要抓 <code class="docutils literal notranslate"><span class="pre">T=int</span></code>, <code class="docutils literal notranslate"><span class="pre">T=float</span></code>, <code class="docutils literal notranslate"><span class="pre">T=void</span></code> 的實際行為時，你再告訴他定義就好了，程式碼不見得需要寫在一起。</p>
+<p>抓住這個想法，我們把程式碼拆解成三個檔案：</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">lib.h</span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
+<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="c1">// forward declaration</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="k">struct</span> <span class="nc">traits</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
+<span class="kt">void</span><span class="w"> </span><span class="n">print_type_is_void</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">traits</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">is_void</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;True&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;False&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">impl.h</span><a class="headerlink" href="#id6" title="Permalink to this code">¶</a></div>
+<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
+
+<span class="c1">// declaration</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="k">struct</span> <span class="nc">traits</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">template</span><span class="o">&lt;&gt;</span><span class="w"></span>
+<span class="k">struct</span> <span class="nc">traits</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">is_void</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">template</span><span class="o">&lt;&gt;</span><span class="w"></span>
+<span class="k">struct</span> <span class="nc">traits</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">is_void</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">template</span><span class="o">&lt;&gt;</span><span class="w"></span>
+<span class="k">struct</span> <span class="nc">traits</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">is_void</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">t.cpp</span><a class="headerlink" href="#id7" title="Permalink to this code">¶</a></div>
+<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;lib.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;impl.h&quot;</span><span class="cp"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">print_type_is_void</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="n">print_type_is_void</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="n">print_type_is_void</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>其中在 <code class="docutils literal notranslate"><span class="pre">lib.h</span></code> 我們使用了 forward declaration，不過想得單純一點，其實就是我把 <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&quot;impl.h&quot;</span></code> 替換成 <code class="docutils literal notranslate"><span class="pre">template&lt;typename</span> <span class="pre">T&gt;</span> <span class="pre">struct</span> <span class="pre">traits;</span></code> 這樣。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Forward declaration 的最大幫助在於可以降低程式碼之間的耦合程度，縮短編譯時間 (我不需要改一個小區塊，就把全部的程式碼都重新編譯)。</p>
+<p>他的合法使用時機在於編譯器是否需要知道他的實際結構 (記憶體、函數等)。在不需要知道實際結構，而只取其指標來用的前提下，我們才能透過 forward declaration 將編譯行為拆解成數個子區塊。嚴格來講，上述我們的例子並沒有做到這件事情，所以他們還是需要一起編譯。</p>
+</div>
+<p>此時我們已經可以稍微感受到「黏貼」的味道：在 <code class="docutils literal notranslate"><span class="pre">t.cpp</span></code> 當中，我們把 <code class="docutils literal notranslate"><span class="pre">impl.h</span></code> 裡面的實作細節，貼到 <code class="docutils literal notranslate"><span class="pre">lib.h</span></code> 裡面的函數當中。這個基本上就是 C++ Trait 的主要想法，不過實際操作上更多的是活用 C++ Template 的特性。</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>以至於這篇文章用另一個角度來看就是另類的 C++ template 複習篇 XD</p>
+</div>
+</section>
+<section id="id2">
+<h2>舉一個更實際的案例<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>筆者當初是在閱讀 <a class="reference external" href="https://github.com/borglab/gtsam">GTSAM</a> 時認識到這個用法，在這份實作當中他們的應用情境是在不同李群當中 Lie group <span class="math notranslate nohighlight">\(\mathcal{M}\)</span> 與 Lie algebra <span class="math notranslate nohighlight">\(\mathfrak{m}\)</span> 之間的映射關係 (<span class="math notranslate nohighlight">\(\exp: \mathcal{M} \to \mathfrak{m}\)</span> 和 <span class="math notranslate nohighlight">\(\log: \mathfrak{m} \to \mathcal{M}\)</span>)，不同的李群包含旋轉群 (special orthogonal group, rotation group) <span class="math notranslate nohighlight">\(\mathrm{SO}(n)\)</span> 或特殊歐基里德群 (special Euclidean group) <span class="math notranslate nohighlight">\(\mathrm{SE}(n)\)</span>，他們對應的函數 <span class="math notranslate nohighlight">\(\exp\)</span> 和 <span class="math notranslate nohighlight">\(\log\)</span> 不盡相同，但也是存在一些李群內泛用的公式，比如說李群對應到微分流形 (differentiable manifold) 之微積分行為這類的，在這種情境底下套用 trait 的概念就還滿方便的。</p>
+<p>不過這個案例有點太超過了 (數學方面的那種)，我們舉一個比較通俗的案例：單變數微分的連鎖律 (chain rule)。</p>
+<p>避免可能有讀者不太清楚微積分，快速複習一下單變數的連鎖律：給定兩個函數 <span class="math notranslate nohighlight">\(f, g:\mathbb{R}\to\mathbb{R}\)</span>，滿足以下定律：</p>
+<div class="math notranslate nohighlight">
+\[\Big( f \circ g \Big)'(x) = f'(g(x))\]</div>
+<p>其中那個 <span class="math notranslate nohighlight">\('\)</span> 代表的是對 <span class="math notranslate nohighlight">\(x\)</span> 微分的意思。</p>
+<p>為求簡便，我們預計來實作兩個簡單的函數，一個是二次多項式函數 <span class="math notranslate nohighlight">\(f_1(x) = x^2\)</span>，另一個是指數函數 <span class="math notranslate nohighlight">\(f_2(x) = e^x\)</span>. 所以我們有 <span class="math notranslate nohighlight">\(f_1'(x) = 2x\)</span> 和 <span class="math notranslate nohighlight">\(f_2'(x) = e^x\)</span>. 有這些先備知識後我們就可以來實作了：</p>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">lib.h</span><a class="headerlink" href="#id8" title="Permalink to this code">¶</a></div>
+<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="k">struct</span> <span class="nc">traits</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">F</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span> <span class="nc">G</span><span class="o">&gt;</span><span class="w"></span>
+<span class="kt">double</span><span class="w"> </span><span class="n">derivative_of</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">traits</span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;::</span><span class="n">derivative_of</span><span class="p">(</span><span class="w"> </span><span class="n">traits</span><span class="o">&lt;</span><span class="n">G</span><span class="o">&gt;::</span><span class="n">of</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">traits</span><span class="o">&lt;</span><span class="n">G</span><span class="o">&gt;::</span><span class="n">derivative_of</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">impl.h</span><a class="headerlink" href="#id9" title="Permalink to this code">¶</a></div>
+<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cmath&gt;</span><span class="cp"></span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="k">struct</span> <span class="nc">traits</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">class</span> <span class="nc">Square</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<span class="k">class</span> <span class="nc">Exp</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+
+<span class="k">template</span><span class="o">&lt;&gt;</span><span class="w"></span>
+<span class="k">struct</span> <span class="nc">traits</span><span class="o">&lt;</span><span class="n">Square</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">of</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">derivative_of</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">template</span><span class="o">&lt;&gt;</span><span class="w"></span>
+<span class="k">struct</span> <span class="nc">traits</span><span class="o">&lt;</span><span class="n">Exp</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">of</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">derivative_of</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">of</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">t.cpp</span><a class="headerlink" href="#id10" title="Permalink to this code">¶</a></div>
+<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;lib.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;impl.h&quot;</span><span class="cp"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Square ( Exp (x) )</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;derivative of exp(x)^2 at x=0: &quot;</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">derivative_of</span><span class="o">&lt;</span><span class="n">Square</span><span class="p">,</span><span class="w"> </span><span class="n">Exp</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// Exp ( Square (x) )</span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;derivative of exp(x^2) at x=0: &quot;</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">derivative_of</span><span class="o">&lt;</span><span class="n">Exp</span><span class="p">,</span><span class="w"> </span><span class="n">Square</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>在這個實作方式下，兩個類別 <code class="docutils literal notranslate"><span class="pre">Square</span></code> 和 <code class="docutils literal notranslate"><span class="pre">Exp</span></code> 會變成是空的類別，內部並沒有任何函數。輸出如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">derivative</span> <span class="n">of</span> <span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span> <span class="n">at</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">:</span> <span class="mi">2</span>
+<span class="n">derivative</span> <span class="n">of</span> <span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span> <span class="n">at</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">:</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>讀者可以快速驗算一下，應該是正確的。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>筆者在這邊澄清一點是：並不是只有一個實作方法可以實現上述案例，比如說你可以把 <code class="docutils literal notranslate"><span class="pre">of()</span></code> 和 <code class="docutils literal notranslate"><span class="pre">derivative_of()</span></code> 直接定義在 <code class="docutils literal notranslate"><span class="pre">Square</span></code> 跟 <code class="docutils literal notranslate"><span class="pre">Exp</span></code> 裡面，不過當你基於某些理由，不希望破壞類別內部方法結構時，trait 會變成是一個還不錯的選擇。</p>
+</div>
+</section>
+<section id="id3">
+<h2>型態檢查<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>接著我們進一步探討：如何限制型態結構？</p>
+<p>C++11 引進了 type traits 的概念，提供了一些關於型態的檢查工具。從傳統物件導向的角度來說，我們可以透過多型去選擇參數的可輸入型態，然而這邊「傳統」的意思是說，正常的物件導向裡面並沒有模板的概念。</p>
+<p>不過 type traits 幫了我們一把，使得我們可以實踐這個想法，例子如下：</p>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">base.h</span><a class="headerlink" href="#id11" title="Permalink to this code">¶</a></div>
+<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
+<span class="k">class</span> <span class="nc">Function</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="code-block-caption"><span class="caption-text">lib.h</span><a class="headerlink" href="#id12" title="Permalink to this code">¶</a></div>
+<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
+<span class="hll"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;type_traits&gt;</span><span class="cp"></span>
+</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;base.h&quot;</span><span class="cp"></span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="k">struct</span> <span class="nc">traits</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">F</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span> <span class="nc">G</span><span class="o">&gt;</span><span class="w"></span>
+<span class="kt">double</span><span class="w"> </span><span class="n">derivative_of</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="hll"><span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_base_of</span><span class="o">&lt;</span><span class="n">Function</span><span class="p">,</span><span class="w"> </span><span class="n">F</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;F should be a Function&quot;</span><span class="p">);</span><span class="w"></span>
+</span><span class="hll"><span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_base_of</span><span class="o">&lt;</span><span class="n">Function</span><span class="p">,</span><span class="w"> </span><span class="n">G</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;G should be a Function&quot;</span><span class="p">);</span><span class="w"></span>
+</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">traits</span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;::</span><span class="n">derivative_of</span><span class="p">(</span><span class="w"> </span><span class="n">traits</span><span class="o">&lt;</span><span class="n">G</span><span class="o">&gt;::</span><span class="n">of</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">traits</span><span class="o">&lt;</span><span class="n">G</span><span class="o">&gt;::</span><span class="n">derivative_of</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>其中 <code class="docutils literal notranslate"><span class="pre">std::is_base_of&lt;OO,</span> <span class="pre">XX&gt;</span></code> 是 <code class="docutils literal notranslate"><span class="pre">type_traits</span></code> 標頭裡面提供的 structure，他會告訴我們 <code class="docutils literal notranslate"><span class="pre">XX</span></code> 是否繼承 <code class="docutils literal notranslate"><span class="pre">OO</span></code>，而檢查的結果會回饋在 <code class="docutils literal notranslate"><span class="pre">::value</span></code> 上。以我們的例子來說，這邊又定義了一個基底類別 <code class="docutils literal notranslate"><span class="pre">Function</span></code> 讓其他型態繼承，而我們希望輸入進來的型態 <code class="docutils literal notranslate"><span class="pre">F</span></code> 跟 <code class="docutils literal notranslate"><span class="pre">G</span></code> 有繼承 <code class="docutils literal notranslate"><span class="pre">Function</span></code>.</p>
+<p>接著另一個重點是 <code class="docutils literal notranslate"><span class="pre">static_assert</span></code>，以前我們熟知的是 <code class="docutils literal notranslate"><span class="pre">assert</span></code>，他的行為是在執行期間 (runtime) 動態的檢查，而 <code class="docutils literal notranslate"><span class="pre">static_assert</span></code> 的關鍵特性是他會在編譯期間 (compile-time) 做檢查，這個特性使得模板中的型態 (同樣也是在編譯期間就完成處理) 可以被檢查。</p>
+<p>加上這個條件後，因為我們還沒有修改 <code class="docutils literal notranslate"><span class="pre">impl.h</span></code>，所以照理講他們都是不符合條件的，此時編譯 <code class="docutils literal notranslate"><span class="pre">g++</span> <span class="pre">-std=c++11</span> <span class="pre">t.cpp</span> <span class="pre">-o</span> <span class="pre">t</span></code> 會噴以下錯誤訊息：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>In file included from t.cpp:3:0:
+lib.h: In instantiation of ‘double derivative_of(double) [with F = Square; G = Exp]’:
+t.cpp:9:44:   required from here
+<span class="hll">lib.h:10:3: error: static assertion failed: F should be a Function
+</span>  static_assert(std::is_base_of&lt;Function, F&gt;::value, &quot;F should be a Function&quot;);
+  ^~~~~~~~~~~~~
+<span class="hll">lib.h:11:3: error: static assertion failed: G should be a Function
+</span>  static_assert(std::is_base_of&lt;Function, G&gt;::value, &quot;G should be a Function&quot;);
+  ^~~~~~~~~~~~~
+lib.h: In instantiation of ‘double derivative_of(double) [with F = Exp; G = Square]’:
+t.cpp:13:44:   required from here
+<span class="hll">lib.h:10:3: error: static assertion failed: F should be a Function
+</span>  static_assert(std::is_base_of&lt;Function, F&gt;::value, &quot;F should be a Function&quot;);
+  ^~~~~~~~~~~~~
+<span class="hll">lib.h:11:3: error: static assertion failed: G should be a Function
+</span>  static_assert(std::is_base_of&lt;Function, G&gt;::value, &quot;G should be a Function&quot;);
+  ^~~~~~~~~~~~~
+</pre></div>
+</div>
+<p>因此我們需要再調整一下 <code class="docutils literal notranslate"><span class="pre">Square</span></code> 跟 <code class="docutils literal notranslate"><span class="pre">Exp</span></code> 才能滿足我們剛剛給定的條件：</p>
+<div class="literal-block-wrapper docutils container" id="id13">
+<div class="code-block-caption"><span class="caption-text">impl.h</span><a class="headerlink" href="#id13" title="Permalink to this code">¶</a></div>
+<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cmath&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;base.h&quot;</span><span class="cp"></span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="k">struct</span> <span class="nc">traits</span><span class="p">;</span><span class="w"></span>
+
+<span class="hll"><span class="k">class</span> <span class="nc">Square</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Function</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+</span><span class="hll"><span class="k">class</span> <span class="nc">Exp</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Function</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+</span>
+<span class="k">template</span><span class="o">&lt;&gt;</span><span class="w"></span>
+<span class="k">struct</span> <span class="nc">traits</span><span class="o">&lt;</span><span class="n">Square</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">of</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">derivative_of</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">template</span><span class="o">&lt;&gt;</span><span class="w"></span>
+<span class="k">struct</span> <span class="nc">traits</span><span class="o">&lt;</span><span class="n">Exp</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">of</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">derivative_of</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">of</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>但是這個招數不是萬能的，除了方法的侷限 (你總不能叫 <code class="docutils literal notranslate"><span class="pre">int</span></code> 也繼承自 <code class="docutils literal notranslate"><span class="pre">Function</span></code>，他只是型態不是類別) 外，他強制了該模板的型態必須具備相同的繼承關係，而不是強制他必須具備某種「結構」或「特性」。就這個角度來說，比起限制類型的繼承關係，限制他是否擁有這個函數顯然更靠譜一些。</p>
+<p>抱著這個想法，我們換個做法：</p>
+<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;type_traits&gt;</span><span class="cp"></span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="k">struct</span> <span class="nc">traits</span><span class="p">;</span><span class="w"></span>
+
+<span class="hll"><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
+</span><span class="hll"><span class="k">class</span> <span class="nc">has_of</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+</span><span class="hll"><span class="w">  </span><span class="k">typedef</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">expected</span><span class="p">;</span><span class="w"></span>
+</span><span class="hll"><span class="w">  </span><span class="k">struct</span> <span class="nc">not_expected</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+</span><span class="hll">
+</span><span class="hll"><span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">C</span><span class="o">&gt;</span><span class="w"></span>
+</span><span class="hll"><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="n">expected</span><span class="w"> </span><span class="n">test</span><span class="p">(</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="n">traits</span><span class="o">&lt;</span><span class="n">C</span><span class="o">&gt;::</span><span class="n">of</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">declval</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">()))</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+</span><span class="hll">
+</span><span class="hll"><span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">C</span><span class="o">&gt;</span><span class="w"></span>
+</span><span class="hll"><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="n">not_expected</span><span class="w"> </span><span class="n">test</span><span class="p">(...)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+</span><span class="hll">
+</span><span class="hll"><span class="k">public</span><span class="o">:</span><span class="w"></span>
+</span><span class="hll"><span class="w">  </span><span class="k">enum</span> <span class="p">{</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">test</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">expected</span><span class="p">)</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+</span><span class="hll"><span class="p">};</span><span class="w"></span>
+</span>
+<span class="hll"><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
+</span><span class="hll"><span class="k">class</span> <span class="nc">has_derivative_of</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+</span><span class="hll"><span class="w">  </span><span class="k">typedef</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">expected</span><span class="p">;</span><span class="w"></span>
+</span><span class="hll"><span class="w">  </span><span class="k">struct</span> <span class="nc">not_expected</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+</span><span class="hll">
+</span><span class="hll"><span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">C</span><span class="o">&gt;</span><span class="w"></span>
+</span><span class="hll"><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="n">expected</span><span class="w"> </span><span class="n">test</span><span class="p">(</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="n">traits</span><span class="o">&lt;</span><span class="n">C</span><span class="o">&gt;::</span><span class="n">derivative_of</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">declval</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">()))</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+</span><span class="hll">
+</span><span class="hll"><span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">C</span><span class="o">&gt;</span><span class="w"></span>
+</span><span class="hll"><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="n">not_expected</span><span class="w"> </span><span class="n">test</span><span class="p">(...);</span><span class="w"></span>
+</span><span class="hll">
+</span><span class="hll"><span class="k">public</span><span class="o">:</span><span class="w"></span>
+</span><span class="hll"><span class="w">  </span><span class="k">enum</span> <span class="p">{</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">test</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">expected</span><span class="p">)</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+</span><span class="hll"><span class="p">};</span><span class="w"></span>
+</span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">F</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span> <span class="nc">G</span><span class="o">&gt;</span><span class="w"></span>
+<span class="kt">double</span><span class="w"> </span><span class="n">derivative_of</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="hll"><span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">has_of</span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;F should implement the member function `double of(double)`.&quot;</span><span class="p">);</span><span class="w"></span>
+</span><span class="hll"><span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">has_of</span><span class="o">&lt;</span><span class="n">G</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;G should implement the member function `double of(double)`.&quot;</span><span class="p">);</span><span class="w"></span>
+</span>
+<span class="hll"><span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">has_derivative_of</span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;F should implement the member function `double derivative_of(double)`.&quot;</span><span class="p">);</span><span class="w"></span>
+</span><span class="hll"><span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="n">has_derivative_of</span><span class="o">&lt;</span><span class="n">G</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;G should implement the member function `double derivative_of(double)`.&quot;</span><span class="p">);</span><span class="w"></span>
+</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">traits</span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;::</span><span class="n">derivative_of</span><span class="p">(</span><span class="w"> </span><span class="n">traits</span><span class="o">&lt;</span><span class="n">G</span><span class="o">&gt;::</span><span class="n">of</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">traits</span><span class="o">&lt;</span><span class="n">G</span><span class="o">&gt;::</span><span class="n">derivative_of</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</td></tr></table></div>
+<p>這次我們利用了 SFINAE (替換失敗並非錯誤, substitution failure is not an error) 去判斷型態是否有指定的靜態函數 <code class="docutils literal notranslate"><span class="pre">of</span></code> 與 <code class="docutils literal notranslate"><span class="pre">derivative_of</span></code>，此時我們就不需要局限於繼承的手法，而且可以執行更精準的判斷。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>留意到目前階段我們只有檢查函數是否存在，但還沒有檢查輸出格式。</p>
+</div>
+</section>
+<section id="id4">
+<h2>結論<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>在本篇我們大致了解 C++ trait 的想法以及實現方式，除了我們可以更順暢地閱讀外面的一些實作，免得說出現「我不知道他在寫什麼鬼東西哭阿」的這種窘境之外，也可以讓我們未來在實作 C++ 相關專案的時候，手上可以有更多的工具或手法讓專案更簡潔或更強健！</p>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/header/type_traits">Standard library header &lt;type_traits&gt; - cppreference.com</a></p></li>
+<li><p><a class="reference external" href="https://accu.org/journals/overload/9/43/frogley_442/">An introduction to C++ Traits - ACCU Blog</a></p></li>
+<li><p><a class="reference external" href="https://stackoverflow.com/questions/257288/templated-check-for-the-existence-of-a-class-member-function">Templated check for the existence of a class member function - Stack Overflow</a></p></li>
+</ol>
+</section>
+</section>
+
+<div class="section">
+     
+<div class="section">
+  <span style="float: left">
+     
+    <a href="../../factor-graph/isam-part1/">
+      <i class="fa fa-arrow-circle-left"></i> iSAM2 演算法筆記 (1)：問題定義與 Bayes Tree
+    </a>
+    
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right">
+    
+  </span>
+</div>
+  
+</div>
+
+              </div>
+              
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2021, Yu-Kai Lin.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.3.1.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>
