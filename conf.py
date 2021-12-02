@@ -151,9 +151,7 @@ blog_path = "blog"
 
 blog_feed_archives = True
 
-fontawesome_link_cdn = (
-    "http://localhost:5510/_static/vendor/fontawesome/5.13.0/css/all.min.css"
-)
+fontawesome_link_cdn = "https://pro.fontawesome.com/releases/v5.13.0/css/all.css"
 fontawesome_included = True
 
 disqus_shortname = "stephlin-github-io"
