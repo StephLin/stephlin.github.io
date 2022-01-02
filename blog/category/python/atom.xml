@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id>https://stephlin.github.io</id>
   <title>StephLin's Personal Blog - Posts in Python</title>
-  <updated>2021-12-02T05:43:35.733778+00:00</updated>
+  <updated>2022-01-02T11:13:03.911106+00:00</updated>
   <link href="https://stephlin.github.io"/>
   <link href="https://stephlin.github.io/blog/category/python/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.org/" version="0.10.20">ABlog</generator>
