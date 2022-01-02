@@ -38,6 +38,7 @@ extensions = [
     "ablog",
     "sphinx.ext.intersphinx",
     "sphinxcontrib.mermaid",
+    "sphinx_sitemap",
     "myst_nb",
     "emoji",
     "color",
@@ -88,7 +89,9 @@ html_theme_options = {
     "google_analytics_id": "UA-179336561-1",
 }
 
-html_extra_path = ["feed.xml"]
+html_baseurl = "https://stephlin.github.io"
+
+html_extra_path = ["feed.xml", "robots.txt"]
 
 html_sidebars = {
     "index": [

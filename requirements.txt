@@ -1,6 +1,7 @@
 sphinx
 sphinxcontrib-youtube
 sphinxcontrib-mermaid
+sphinx-sitemap
 sphinx_fontawesome
 myst_nb
 ablog
