@@ -65,12 +65,13 @@ Publication
 - **Yu-Kai Lin**, Wen-Chieh Lin, Chieh-Chih Wang,
   **K-Closest Points and Maximum Clique Pruning for Efficient and Effective 3-D Laser Scan Matching**.
   *IEEE Robotics and Automation Letters (RA-L)*, vol. 7, no. 2, pp. 1471 -- 1477, Apr. 2022.
-  (pdf)
+  (`paper <https://doi.org/10.1109/LRA.2021.3140130>`__)
+  (`preprint <https://gpl.cs.nctu.edu.tw/Steve-Lin/KCP/preprint.pdf>`__)
   (`code <https://github.com/StephLin/KCP>`__)
   (`video <https://youtu.be/ZaDLEOz_yYc>`__)
 
 - 俞韋亘, **林育愷**, 李家妤,
-  **三維吻球數探悉**,
+  **三維吻球數探悉**.
   中研院數學傳播, vol. 45, no. 1, pp. 33 -- 50, Mar. 2021.
   (`pdf <https://web.math.sinica.edu.tw/math_media/d451/45104.pdf>`__)
   (`code <https://github.com/StephLin/kissing-number-problem-r3>`__)
