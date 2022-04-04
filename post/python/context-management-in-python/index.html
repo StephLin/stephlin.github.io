@@ -1,12 +1,12 @@
 
 <!DOCTYPE html>
 
-<html lang="zh">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Context Management in Python &#8212; StephLin&#39;s Personal Blog  文档</title>
+    <title>Context Management in Python &#8212; StephLin&#39;s Personal Blog  documentation</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet">
   <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -45,11 +45,11 @@
     <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="canonical" href="https://stephlin.github.io/post/python/context-management-in-python.html" />
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
-    <link rel="author" title="关于这些文档" href="../../../about/" />
-    <link rel="index" title="索引" href="../../../genindex/" />
-    <link rel="search" title="搜索" href="../../../search/" /> 
+    <link rel="author" title="About these documents" href="../../../about/" />
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="zh">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -493,7 +493,7 @@
               
               <div>
                  <section id="context-management-in-python">
-<h1>Context Management in Python<a class="headerlink" href="#context-management-in-python" title="永久链接至标题">¶</a></h1>
+<h1>Context Management in Python<a class="headerlink" href="#context-management-in-python" title="Permalink to this headline">¶</a></h1>
 <p>在執行程式的時候通常會需要存取資源，一般來說資源的來源可能是檔案、遠端連線、或是某種 Socket。當程式在調用資源的時候基本上包含兩個動作：</p>
 <ul class="simple">
 <li><p>請求資源使用權 (以檔案來說就是讀或寫之類的)、以及</p></li>
@@ -501,7 +501,7 @@
 </ul>
 <p>本篇我們將整理在 Python 中面對資源存取問題時，透過 <code class="docutils literal notranslate"><span class="pre">with</span></code> 的常見作法、其物件意涵、以及內建套件 <code class="docutils literal notranslate"><span class="pre">contextlib</span></code> 的一些使用時機。</p>
 <section id="id1">
-<h2>單一檔案存取<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<h2>單一檔案存取<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>假設我們有一個檔案 <code class="docutils literal notranslate"><span class="pre">input.txt</span></code>：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Hello world! I am a file.
 This is a new line.
@@ -534,7 +534,7 @@ This is a new line.
 <p>到目前為止是大家在學習 Python 的時候幾乎會碰觸到的課題，接下來我們將討論 <code class="docutils literal notranslate"><span class="pre">with</span></code> 在 Python 當中的物件意涵。</p>
 </section>
 <section id="with-python">
-<h2>With 關鍵字在 Python 中的物件意涵<a class="headerlink" href="#with-python" title="永久链接至标题">¶</a></h2>
+<h2>With 關鍵字在 Python 中的物件意涵<a class="headerlink" href="#with-python" title="Permalink to this headline">¶</a></h2>
 <p>我們同樣盯著上面的範例程式碼看，實際上他相當於以下語法結構：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -591,7 +591,7 @@ This is a new line.
 <li><p>而當程序離開 <code class="docutils literal notranslate"><span class="pre">with</span></code> 區塊時，Python 會觸發 <code class="docutils literal notranslate"><span class="pre">obj</span></code> 物件的 <code class="docutils literal notranslate"><span class="pre">__exit__</span></code> 方法以釋放資源。</p></li>
 </ul>
 <div class="admonition note">
-<p class="admonition-title">备注</p>
+<p class="admonition-title">Note</p>
 <p>在檔案的例子中，<code class="docutils literal notranslate"><span class="pre">obj.__enter__</span></code> 的回傳值實際上就是物件 <code class="docutils literal notranslate"><span class="pre">obj</span></code> 本身，而
 <code class="docutils literal notranslate"><span class="pre">obj.__exit__</span></code> 方法就相當於呼叫 <code class="docutils literal notranslate"><span class="pre">obj.close</span></code> 方法。</p>
 </div>
@@ -699,7 +699,7 @@ This is a new line.
 <p>此時我們已經具備設計自定義資源管理器的基礎技能了，現在我們要藉由 Python 強大內建套件來實現更靈活的操作。</p>
 </section>
 <section id="contextlib">
-<h2>使用 contextlib<a class="headerlink" href="#contextlib" title="永久链接至标题">¶</a></h2>
+<h2>使用 contextlib<a class="headerlink" href="#contextlib" title="Permalink to this headline">¶</a></h2>
 <p>這個強大內建套件就是 <a class="reference external" href="https://docs.python.org/3/library/contextlib.html">contextlib</a>，實務上他可以幫助 Python 在處理資源管理的時候可以更加優雅。</p>
 <p>我們以 <code class="docutils literal notranslate"><span class="pre">FileResource</span></code> 為例，在 contextlib 的加持下它可以被簡化成以下形式：</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
@@ -786,7 +786,7 @@ This is a new line.
 <p>此時會發現說我們不用自行宣告類別就可以實現同樣的功能，且不只是更短的行數，程式碼的邏輯也變得更清晰。</p>
 <p>以下我們透過一些案例來介紹 <code class="docutils literal notranslate"><span class="pre">contextlib</span></code> 的一些使用方法、以及額外功能。</p>
 <section id="case-study-1">
-<h3>Case Study #1: 包裝函數<a class="headerlink" href="#case-study-1" title="永久链接至标题">¶</a></h3>
+<h3>Case Study #1: 包裝函數<a class="headerlink" href="#case-study-1" title="Permalink to this headline">¶</a></h3>
 <p>當有些語法比較彆扭的時候可以包裝起來讓程式更美觀</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -815,7 +815,7 @@ This is a new line.
 </td></tr></table></div>
 </section>
 <section id="case-study-2-stdout">
-<h3>Case Study #2: 轉導 stdout 到檔案流<a class="headerlink" href="#case-study-2-stdout" title="永久链接至标题">¶</a></h3>
+<h3>Case Study #2: 轉導 stdout 到檔案流<a class="headerlink" href="#case-study-2-stdout" title="Permalink to this headline">¶</a></h3>
 <p>將在 stdout 接到的字串流當作資源，轉導引到其他檔案流 (如空裝置或標準錯誤流)。</p>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -839,12 +839,12 @@ This is a new line.
 </pre></div>
 </td></tr></table></div>
 <div class="admonition warning">
-<p class="admonition-title">警告</p>
+<p class="admonition-title">Warning</p>
 <p>Python 的 <code class="docutils literal notranslate"><span class="pre">redirect_stdout</span></code> 並無法捕捉所有 stdout 接收到的字串流，就算是 <code class="docutils literal notranslate"><span class="pre">sys.stdout</span></code> 也有同樣的問題，若要捕捉全部資料，需要去呼叫到底層的 file descriptor. 若有興趣的讀者請參考 <a class="reference external" href="https://github.com/eliben">Eli Bendersky</a> 的文章： <a class="reference external" href="ttps://eli.thegreenplace.net/2015/redirecting-all-kinds-of-stdout-in-python/">Redirecting all kinds of stdout in Python</a>.</p>
 </div>
 </section>
 <section id="case-study-3-exitstack">
-<h3>Case Study #3: 複數資源管理 ExitStack<a class="headerlink" href="#case-study-3-exitstack" title="永久链接至标题">¶</a></h3>
+<h3>Case Study #3: 複數資源管理 ExitStack<a class="headerlink" href="#case-study-3-exitstack" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>複數資源的調用過程相當於 stack 的操作過程</p></li>
 <li><p>contextlib 已經實作好了，不要重造輪子</p></li>
@@ -867,10 +867,10 @@ This is a new line.
 </section>
 </section>
 <section id="id3">
-<h2>資源管理的深層應用<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<h2>資源管理的深層應用<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>在上面的案例中的資源都是十分具體的，比如說一個檔案或是一個流，而透過上述程式碼所形成的結構我們都可以稱作資源管理，意思是說「資源」也可以是一個抽象概念，比如說一個程式執行的狀態。</p>
 <div class="admonition note">
-<p class="admonition-title">备注</p>
+<p class="admonition-title">Note</p>
 <p>或者直接將這個結構理解成：對內部區塊程式碼的前處理及後處理方法也可以。</p>
 </div>
 <p>這樣的想法實際上也被應用在 Python 中的許多場景，舉例來說：</p>
@@ -881,13 +881,13 @@ This is a new line.
 </ul>
 </section>
 <section id="id4">
-<h2>結論<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<h2>結論<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <p>理解 Python 的資源管理後，一方面可以讓我們在之後使用 <code class="docutils literal notranslate"><span class="pre">with</span></code> 的時候可以更有自信，另一方面也可以更加體會 Python 的一些機制、認識好用的內建套件、建立對 Python 更正確的認知、進而撰寫更漂亮的程式結構。</p>
 </section>
 <section id="references">
-<h2>References<a class="headerlink" href="#references" title="永久链接至标题">¶</a></h2>
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://www.python.org/dev/peps/pep-0343/">PEP 0343 -- The &quot;with&quot; Statement</a></p></li>
+<li><p><a class="reference external" href="https://www.python.org/dev/peps/pep-0343/">PEP 0343 – The “with” Statement</a></p></li>
 <li><p><a class="reference external" href="https://docs.python.org/3/library/contextlib.html">contextlib — Utilities for with-statement contexts</a></p></li>
 <li><p><a class="reference external" href="https://docs.python.org/3/library/unittest.html">unittest — Unit testing framework</a></p></li>
 </ul>

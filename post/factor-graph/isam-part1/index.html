@@ -1,12 +1,12 @@
 
 <!DOCTYPE html>
 
-<html lang="zh">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>iSAM2 演算法筆記 (1)：問題定義與 Bayes Tree &#8212; StephLin&#39;s Personal Blog  文档</title>
+    <title>iSAM2 演算法筆記 (1)：問題定義與 Bayes Tree &#8212; StephLin&#39;s Personal Blog  documentation</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet">
   <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -47,11 +47,11 @@
     <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="canonical" href="https://stephlin.github.io/post/factor-graph/isam-part1.html" />
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
-    <link rel="author" title="关于这些文档" href="../../../about/" />
-    <link rel="index" title="索引" href="../../../genindex/" />
-    <link rel="search" title="搜索" href="../../../search/" /> 
+    <link rel="author" title="About these documents" href="../../../about/" />
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="zh">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -492,39 +492,39 @@
               
               <div>
                  <section id="isam2-1-bayes-tree">
-<h1>iSAM2 演算法筆記 (1)：問題定義與 Bayes Tree<a class="headerlink" href="#isam2-1-bayes-tree" title="永久链接至标题">¶</a></h1>
+<h1>iSAM2 演算法筆記 (1)：問題定義與 Bayes Tree<a class="headerlink" href="#isam2-1-bayes-tree" title="Permalink to this headline">¶</a></h1>
 <p>圖模型統計推論 (graphical model inference) 應用在 SLAM 問題當中算是行之有年，其中一派由 Kaess 和 Dellaert 等高手開發之 iSAM2 (IJRR 2012) 是一個基於因子圖的最佳化方法，重點是他高度改善了當新增變數到因子圖時的最佳化過程，這件事情使得說由因子圖描述的大型稀疏問題在面對增量變數時，依舊能實現近乎實時的運算效能；同時他們也有釋出 C++ 函式庫。本篇算是筆者對於此方法的回顧，同時也是因為中文的介紹文章比較少，因此也順水推舟地用中文來記錄這個閱讀過程。</p>
 <section id="id1">
-<h2>前言<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<h2>前言<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>對筆者而言，SLAM (Simultaneous Localization and Mapping, 同時定位與地圖構建) 是一個意外有點緣份的題目。第一次是在三、四年前第一次從博班學長口中認識這個名詞；第二次是兩年前，大三仔挑戰碩班課程中稍微碰觸到 EKF-SLAM 和 FastSLAM 的一些技術細節，不到信手拈來，但多少有些基本概念；第三次則是現在，因為目前碩士班的研究方向就是這個部分。</p>
 <p>原本以為卡爾曼濾波器 (Kalman filter) 就是 SLAM 問題的解答，但藉由蒐集文獻的過程，以及經過些指點後才意識到：當機器人在行走時，實際上存在 <strong>變數跟矩陣維度逐漸上升、缺乏利用稀疏性等問題</strong>。以 landmark-based SLAM 而言，除了表自身位姿的變數維度不變之外，地標的數量會隨著移動範圍變廣而增加，因此需要評估的地標數量變多，儘管多數地標通常只對周圍的軌跡有明顯影響，但卡爾曼濾波器在優化過程只能對所有變數進行運算，而忽略了問題本身具備的稀疏性，這件事情比較嚴重的影響在他較難應付大型的場景，畢竟當變數維度突破天際的同時，電腦也要扛不住了。</p>
 <p>因此在 SLAM 研究的中後期，大概是十幾年前左右，開始有人轉向用圖優化 (graph-based SLAM) 的方式去處理這個問題：意思是說，我們會把同樣的問題刻劃成一個圖，其中我們把圖的頂點視為變數 (機器人本身的位姿或是地標位置)、邊視為兩個變數之間的相關性 (觀測到的相對位姿或是地標相對位置)。</p>
 <figure class="align-default" id="id9">
 <img alt="../../../_images/slam-graph-representation.png" src="../../../_images/slam-graph-representation.png" />
 <figcaption>
-<p><span class="caption-text">SLAM 問題示意圖。其中粉色點代表機器人起始位姿，行徑流程是逆時針繞了一圈後停在起始點之前，其中有五個靜態地標 (十三次地標資訊)、六次連續相對位姿資訊、以及兩次閉迴圈相對位姿資訊。圖是筆者自己畫的。</span><a class="headerlink" href="#id9" title="永久链接至图片">¶</a></p>
+<p><span class="caption-text">SLAM 問題示意圖。其中粉色點代表機器人起始位姿，行徑流程是逆時針繞了一圈後停在起始點之前，其中有五個靜態地標 (十三次地標資訊)、六次連續相對位姿資訊、以及兩次閉迴圈相對位姿資訊。圖是筆者自己畫的。</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>相較於直接把問題看成是一個超大且稀疏的線性化矩陣，他精準地表達了問題中各個變數之間的關聯性，同時保持了本身的稀疏性。如果用資料結構中圖的觀點來看，有一點 adjacency matrix 與 adjacency list 對照的意味。</p>
 <div class="admonition note">
-<p class="admonition-title">备注</p>
+<p class="admonition-title">Note</p>
 <p>實際上 EKF-SLAM 也可以用圖來表達，而基於卡爾曼濾波的方法都需要建立在隱性馬可夫模型 (Hidden Markov Model, HMM) 的假設。</p>
 </div>
 <p>其中我們進一步用因子頂點 (factor node) 去表達變數之間的關聯性，此時一個圖中就同時存在變數頂點 (variable node) 和因子頂點 (factor node)，而所有邊的一端為因子頂點時，另一端必為變數頂點。這個表達方式比起前者更能描繪由多個變數共同組成之關聯性，我們稱這種類型的圖為因子圖 (factor graph)。</p>
 <div class="admonition note">
-<p class="admonition-title">备注</p>
+<p class="admonition-title">Note</p>
 <p>儘管在我們的例子中沒有出現由多變數共同決定的因子，但理論上我們是可以這樣玩的。</p>
 </div>
 <figure class="align-default" id="id10">
 <img alt="../../../_images/slam-factor-graph.png" src="../../../_images/slam-factor-graph.png" />
 <figcaption>
-<p><span class="caption-text">使用因子圖表達的 SLAM 問題。其中圓形點代表變數頂點 (variable node)、方形點代表因子頂點 (factor node)。我們先不要陷入圖中一些數學式的細節，重點是先感受前輩們究竟是如何看待這些問題的。圖是筆者自己畫的。</span><a class="headerlink" href="#id10" title="永久链接至图片">¶</a></p>
+<p><span class="caption-text">使用因子圖表達的 SLAM 問題。其中圓形點代表變數頂點 (variable node)、方形點代表因子頂點 (factor node)。我們先不要陷入圖中一些數學式的細節，重點是先感受前輩們究竟是如何看待這些問題的。圖是筆者自己畫的。</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>雖然我們把問題描述成一個稀疏的因子圖了，但如果我們還是用通用的演算法 (如 Levenberg–Marquardt algorithm, Gauss-Newton method 等) 逐次去解，那麼就只是換湯不換藥。因此這就是本篇文章的主要重點：透過設計貝式樹 (Bayes Tree) 資料結構以及引進稀疏矩陣分解方法，iSAM2 <a class="reference internal" href="#isam2" id="id2"><span>[isam2]</span></a> 建構出了一套允許近乎實時計算的稀疏非線性增量最佳化方法 (sparse nonlinear incremental optimization)，並且保障一定程度的計算品質。</p>
 </section>
 <section id="id3">
-<h2>問題描述<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<h2>問題描述<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>給定一個因子圖 (factor graph)，實際上他會是一個二分圖 (bipartite graph) <span class="math notranslate nohighlight">\(G = (\mathscr{F}, \Theta, \mathscr{E})\)</span>，其中有</p>
 <ul class="simple">
 <li><p>因子節點 (factor node) <span class="math notranslate nohighlight">\(f_i \in\mathscr{F}\)</span>,</p></li>
@@ -554,13 +554,13 @@
 \end{aligned}\end{split}\]</div>
 <p>其中 <span class="math notranslate nohighlight">\(H\)</span> 相當於觀測模型的 Jacobian matrix (本身會很稀疏)，<span class="math notranslate nohighlight">\(\Delta\)</span> 則是一個由變數組成的向量。一般來說，當有新的變數 <span class="math notranslate nohighlight">\(\Delta\)</span> 進來的時候，我們會將變數直接串接在 <span class="math notranslate nohighlight">\(\Delta\)</span> 向量的後面 (有點類似增廣矩陣的形式)，只是說如果變數是旋轉矩陣的話，通常會用他的 exponential map (Lie group theory) 去刻劃。</p>
 <div class="admonition note">
-<p class="admonition-title">备注</p>
+<p class="admonition-title">Note</p>
 <p>關於旋轉矩陣的變數表達方式，可參考 GTSAM 的官方部落格：Reducing the uncertainty about the uncertainties <a class="reference external" href="https://gtsam.org/2021/02/23/uncertainties-part1.html">Part 1</a>, <a class="reference external" href="https://gtsam.org/2021/02/23/uncertainties-part2.html">Part 2</a>, <a class="reference external" href="https://gtsam.org/2021/02/23/uncertainties-part3.html">Part 3</a>，未來有機會的話筆者再嘗試整理起來。</p>
 </div>
 <p>一般來講，接下來就可以結合一些常見的矩陣分解方法 (e.g. Cholesky or QR factorization) 去找到對應之 normal equation 的解。而 iSAM2 在處理的同時又考慮了變數之間的相依性 (從機率統計的觀點來看就是條件機率)，使得說當讓新變數進來時，對應的最佳化流程不會對全部的 Graph 做計算，而是只針對有關聯的變數做更新。</p>
 </section>
 <section id="bayes-tree">
-<h2>Bayes Tree<a class="headerlink" href="#bayes-tree" title="永久链接至标题">¶</a></h2>
+<h2>Bayes Tree<a class="headerlink" href="#bayes-tree" title="Permalink to this headline">¶</a></h2>
 <div class="mermaid">
             flowchart LR
   fg[/&quot;Factor Graph&quot;/]:::blue
@@ -582,11 +582,11 @@
         </div><p>架構 iSAM2 演算法當中最核心的資料結構就是 Bayes tree，他的特色在於利用樹狀結構表達變數之間的相依性，然而樹狀圖上的點並不是變數，而是 Bayes net 當中的 clique，其中更深層的涵義是序列性條件機率作為樹狀結構的基本單位。因此我們可以把 Bayes tree 理解成是一個某種形式的相依樹。</p>
 <p>建構流程上，我們會先透過推論與剪枝 (inference and elimination) 的形式，把一個 factor graph 變成一個相對應的 Bayes net，接著我們會基於 Bayes net 建構出 Bayes tree.</p>
 <section id="inference-and-elimination-bipartite-elimination-game">
-<h3>Inference and Elimination (Bipartite Elimination Game)<a class="headerlink" href="#inference-and-elimination-bipartite-elimination-game" title="永久链接至标题">¶</a></h3>
+<h3>Inference and Elimination (Bipartite Elimination Game)<a class="headerlink" href="#inference-and-elimination-bipartite-elimination-game" title="Permalink to this headline">¶</a></h3>
 <figure class="align-default" id="id11">
 <img alt="../../../_images/inference-and-elimination.png" src="../../../_images/inference-and-elimination.png" />
 <figcaption>
-<p><span class="caption-text">從 (a) factor graph 演變為 (f) Bayes net 的分解步驟。在此例當中，依序產生之條件機率是為：(b) <span class="math notranslate nohighlight">\(P(l_1 \vert x_1, x_2)\)</span> (c) <span class="math notranslate nohighlight">\(P(l_2 \vert x_3)\)</span> (d) <span class="math notranslate nohighlight">\(P(x_1 \vert x_2)\)</span> (e) <span class="math notranslate nohighlight">\(P(x_2 \vert x_3)\)</span> (f) <span class="math notranslate nohighlight">\(P(x_3)\)</span>。圖片摘自原始論文。</span><a class="headerlink" href="#id11" title="永久链接至图片">¶</a></p>
+<p><span class="caption-text">從 (a) factor graph 演變為 (f) Bayes net 的分解步驟。在此例當中，依序產生之條件機率是為：(b) <span class="math notranslate nohighlight">\(P(l_1 \vert x_1, x_2)\)</span> (c) <span class="math notranslate nohighlight">\(P(l_2 \vert x_3)\)</span> (d) <span class="math notranslate nohighlight">\(P(x_1 \vert x_2)\)</span> (e) <span class="math notranslate nohighlight">\(P(x_2 \vert x_3)\)</span> (f) <span class="math notranslate nohighlight">\(P(x_3)\)</span>。圖片摘自原始論文。</span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>在 factor graph 這個例子中，這個行為也可以被理解成 Bipartite Elimination Game <a class="reference internal" href="#bipartite-elimination-game" id="id4"><span>[bipartite-elimination-game]</span></a>，不過總而言之，它的核心想法是：逐步將變數節點及其相鄰的因子節點從 factor graph 抽出，並且針對該變數轉換成 Bayes net 的形式 (透過方向表達條件機率的關係)，並且視情況對可能波及到的因子節點做調整。</p>
@@ -628,25 +628,25 @@
 <p>其上三角矩陣 <span class="math notranslate nohighlight">\(R\)</span> (又稱為 square root information matrix) 的第 <span class="math notranslate nohighlight">\(j\)</span> 個列向量，而此向量在 Bayes net 中又可視為 <span class="math notranslate nohighlight">\(\theta_j\)</span> 所相依的變數指標向量 <a class="reference internal" href="#bayes-net-textbook" id="id5"><span>[bayes-net-textbook]</span></a>！</p>
 <p>這件事情讓我們意識到說：目前在進行的動作，實際上最終的結論就相當於對 <span class="math notranslate nohighlight">\(A^T A\)</span> 做 Cholesky factorization 的結果！</p>
 <div class="admonition note">
-<p class="admonition-title">备注</p>
+<p class="admonition-title">Note</p>
 <p>如果我們想對大型線性系統 <span class="math notranslate nohighlight">\(Ax = b\)</span> 求解，一般也會透過解 normal equation <span class="math notranslate nohighlight">\(A^T A x = A^T b\)</span> 的方式去做，此時對 <span class="math notranslate nohighlight">\(A^T A\)</span> 矩陣做 QR 或是 Cholesky 分解，接著就可以透過 backsubstitution 逐步求解。而根據上面的結論，筆者個人的解讀是說： <strong>從 factor graph 轉換成 Bayes net 的過程，在線性代數的觀點就相當於把大型線性系統轉換成 normal equation 的過程</strong>。</p>
 </div>
 <figure class="align-default" id="id12">
 <img alt="../../../_images/inference-and-elimination-demo.png" src="../../../_images/inference-and-elimination-demo.png" />
 <figcaption>
-<p><span class="caption-text">從 (a) factor graph 演變為 (f) Bayes net 的示意圖，以及對應的 <span class="math notranslate nohighlight">\(A\)</span> 與 <span class="math notranslate nohighlight">\(R\)</span> 矩陣。圖片摘自原始論文。</span><a class="headerlink" href="#id12" title="永久链接至图片">¶</a></p>
+<p><span class="caption-text">從 (a) factor graph 演變為 (f) Bayes net 的示意圖，以及對應的 <span class="math notranslate nohighlight">\(A\)</span> 與 <span class="math notranslate nohighlight">\(R\)</span> 矩陣。圖片摘自原始論文。</span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="creating-the-bayes-tree">
-<h3>Creating the Bayes Tree<a class="headerlink" href="#creating-the-bayes-tree" title="永久链接至标题">¶</a></h3>
+<h3>Creating the Bayes Tree<a class="headerlink" href="#creating-the-bayes-tree" title="Permalink to this headline">¶</a></h3>
 <p>透過上述流程所建構出來的 Bayes net，無視方向性的前提下，本身會是一個 chordal graph，而這類的 Bayes net 本身必定存在一種 clique-based tree structure <a class="reference internal" href="#cowell-probabilistic-networks-and-expert-systems" id="id6"><span>[cowell-probabilistic-networks-and-expert-systems]</span></a> <a class="reference internal" href="#mit-ocw-junction-tree-algorithm" id="id7"><span>[mit-ocw-junction-tree-algorithm]</span></a>，其中樹狀結構的好處在於說他對於相依性的結構表現更為簡潔，而最佳化的過程也會更為簡易。</p>
 <div class="admonition note">
-<p class="admonition-title">备注</p>
+<p class="admonition-title">Note</p>
 <p>Chordal graph 的定義是說：一個無向圖中任意四點以上組成的環中必定有弦 (chord)；弦的意思是說：他不是組成環的邊，但他是一個連接其中兩個節點的邊。所以這類的圖又被稱為 triangulated graph.</p>
 </div>
 <div class="admonition note">
-<p class="admonition-title">备注</p>
+<p class="admonition-title">Note</p>
 <p>Bayes net 本身是一個有向無環圖 (directed acyclic graph, DAG)。</p>
 </div>
 <p>這邊所要介紹的是為 Bayes tree：其中邊方向性的概念接近於 Bayes net 中所傳達的條件機率，而節點則是一個潛在的 chordal Bayes net，同時也是一個 clique.</p>
@@ -664,7 +664,7 @@
 <figure class="align-default" id="id13">
 <img alt="../../../_images/creating-bayes-tree-demo.png" src="../../../_images/creating-bayes-tree-demo.png" />
 <figcaption>
-<p><span class="caption-text">從 (b) Bayes net 演變為 (c) Bayes tree 的示意圖。圖片摘自原始論文。</span><a class="headerlink" href="#id13" title="永久链接至图片">¶</a></p>
+<p><span class="caption-text">從 (b) Bayes net 演變為 (c) Bayes tree 的示意圖。圖片摘自原始論文。</span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>若以上述圖為例，我們先挖出先前 elimination 步驟所產生的條件機率順序：<span class="math notranslate nohighlight">\(P(l_1 \vert x_1, x_2)\)</span>, <span class="math notranslate nohighlight">\(P(l_2 \vert x_3)\)</span>, <span class="math notranslate nohighlight">\(P(x_1 \vert x_2)\)</span>, <span class="math notranslate nohighlight">\(P(x_2 \vert x_3)\)</span>, <span class="math notranslate nohighlight">\(P(x_3)\)</span>, 然後反方向開始逐步建構 Bayes tree：</p>
@@ -725,7 +725,7 @@ classDef blue fill:#dbedff,stroke:#0c86ff
 </ol>
 </section>
 <section id="incremental-inference">
-<h3>Incremental Inference<a class="headerlink" href="#incremental-inference" title="永久链接至标题">¶</a></h3>
+<h3>Incremental Inference<a class="headerlink" href="#incremental-inference" title="Permalink to this headline">¶</a></h3>
 <p>雖然我們闡述了 Bayes tree 的建構方法，然而須留意的是：上述的建構方法與 Bayes net 的建構順序是相反的，意思是說，當有新的 factor <span class="math notranslate nohighlight">\(f(\Theta)\)</span> 加入系統時，可能會對 Bayes net 的建構順序產生影響，而若我們將以上流程重走一遍，將會導致整個 tree 都需要重建，但這不是我們希望的作法 ── 理想上應該是使用某種編輯機制，使得說只有部分會受到影響的子樹會被改動，而其餘部分依然可以保持不變。</p>
 <p>其中我們觀察 Bayes tree 的設計，實際上他反應了 Bayes net 的逆向建構過程：若排除新增的 factor 所引發之條件機率及其後續相關的 Bayes net 建構順序，在這些步驟以前所建構出來的 Bayes net 實際上是不受影響的。這件事情從 Bayes tree 的觀點來看，就是從 root node 沿路到變數集合與 <span class="math notranslate nohighlight">\(\Theta\)</span> 有重疊的 clique node 所形成的 sub-tree 會被更動，而其餘部分則是不受影響。</p>
 <p>抱持這個想法，接著我們來看演算法概念就比較容易了 ── 把這些被影響的 sub-tree 重新以 factor graph 的方式描述、加入新的節點、再重新描述成 Bayes tree：給定一 Bayes tree <span class="math notranslate nohighlight">\(\mathscr{T}\)</span> 以及一個新的 factor <span class="math notranslate nohighlight">\(f(\Theta)\)</span>，</p>
@@ -747,14 +747,14 @@ classDef blue fill:#dbedff,stroke:#0c86ff
 <figure class="align-default" id="id14">
 <img alt="../../../_images/incremental-inference-bayes-tree-demo.png" src="../../../_images/incremental-inference-bayes-tree-demo.png" />
 <figcaption>
-<p><span class="caption-text">對 Bayes tree 進行 incremental inference 的步驟示意圖。在本例中所新增的 factor 為 <span class="math notranslate nohighlight">\(f(\{x_1, x_3\})\)</span>，紅色虛線匡列為受影響的子樹，綠色節點則是不受影響的子樹之集合. 圖片摘自原始論文。</span><a class="headerlink" href="#id14" title="永久链接至图片">¶</a></p>
+<p><span class="caption-text">對 Bayes tree 進行 incremental inference 的步驟示意圖。在本例中所新增的 factor 為 <span class="math notranslate nohighlight">\(f(\{x_1, x_3\})\)</span>，紅色虛線匡列為受影響的子樹，綠色節點則是不受影響的子樹之集合. 圖片摘自原始論文。</span><a class="headerlink" href="#id14" title="Permalink to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>到目前為止是簡易的編輯方法，而關於重排序的部分目前還沒有提及。實際上一個好的排序可以讓 Bayes tree 的編輯成本下降，但這部分就留給下一篇再講吧。</p>
 </section>
 </section>
 <section id="id8">
-<h2>結語<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<h2>結語<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
 <p>我們從一個稀疏的最小平方問題，先是以機率的觀點，用 factor graph 的形式表達後，接著循序引出此篇筆記的重點，Bayes tree 的建構方法。雖然目前還沒有提到，但讀者可以先自行想像，在後續的增量最佳化過程基本上會不斷維護這棵樹，並且以此樹為基礎進行計算。</p>
 <p>下一篇筆記的開頭預計會講關於重排序的細節。老實說筆者也不確定需要花多少篇幅才能搞定他們，如果最終太佔篇幅，那麼核心最佳化演算法就會擺到第三篇去 XD</p>
 <p>最後提供原作者之一 Kaess 教授在 YouTube 上的相關演講影片、以及該研究團隊開發之公開套件，裡面有包含一些概念和實際應用的例子，筆者覺得都滿值得參考的：</p>
@@ -764,7 +764,7 @@ classDef blue fill:#dbedff,stroke:#0c86ff
 </ul>
 </section>
 <section id="references">
-<h2>References<a class="headerlink" href="#references" title="永久链接至标题">¶</a></h2>
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <dl class="citation">
 <dt class="label" id="isam2"><span class="brackets"><a class="fn-backref" href="#id2">isam2</a></span></dt>
 <dd><p>Kaess, M., Johannsson, H., Roberts, R., Ila, V., Leonard, J. J., &amp;

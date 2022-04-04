@@ -1,12 +1,12 @@
 
 <!DOCTYPE html>
 
-<html lang="zh">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Checking Sum of Squares (SOS) Polynomials with CVXPY &#8212; StephLin&#39;s Personal Blog  文档</title>
+    <title>Checking Sum of Squares (SOS) Polynomials with CVXPY &#8212; StephLin&#39;s Personal Blog  documentation</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet">
   <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -47,11 +47,11 @@
     <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="canonical" href="https://stephlin.github.io/post/convex-optimization/sum-of-squares-polynomials-with-cvxpy.html" />
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
-    <link rel="author" title="关于这些文档" href="../../../about/" />
-    <link rel="index" title="索引" href="../../../genindex/" />
-    <link rel="search" title="搜索" href="../../../search/" /> 
+    <link rel="author" title="About these documents" href="../../../about/" />
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="zh">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -471,10 +471,10 @@
               
               <div>
                  <section id="checking-sum-of-squares-sos-polynomials-with-cvxpy">
-<h1>Checking Sum of Squares (SOS) Polynomials with CVXPY<a class="headerlink" href="#checking-sum-of-squares-sos-polynomials-with-cvxpy" title="永久链接至标题">¶</a></h1>
+<h1>Checking Sum of Squares (SOS) Polynomials with CVXPY<a class="headerlink" href="#checking-sum-of-squares-sos-polynomials-with-cvxpy" title="Permalink to this headline">¶</a></h1>
 <p>This post aims at introducing a programming way to check if a polynomial is sum of squares.</p>
 <section id="background-knowledge-of-sum-of-squares-polynomials">
-<h2>Background Knowledge of Sum of Squares Polynomials<a class="headerlink" href="#background-knowledge-of-sum-of-squares-polynomials" title="永久链接至标题">¶</a></h2>
+<h2>Background Knowledge of Sum of Squares Polynomials<a class="headerlink" href="#background-knowledge-of-sum-of-squares-polynomials" title="Permalink to this headline">¶</a></h2>
 <p>Formally we say a polynomial <span class="math notranslate nohighlight">\(f\in\mathbb{R}[x]\)</span> is sum of squares if
 exist several polynomials <span class="math notranslate nohighlight">\(g\in\mathbb{R}[x]\)</span> such that</p>
 <div class="math notranslate nohighlight">
@@ -490,7 +490,7 @@ if and only if there is a positive semidefinite matrix <span class="math notrans
 performing a semidefinite programming.</p>
 </section>
 <section id="semidefinite-programming-by-python">
-<h2>Semidefinite Programming by Python<a class="headerlink" href="#semidefinite-programming-by-python" title="永久链接至标题">¶</a></h2>
+<h2>Semidefinite Programming by Python<a class="headerlink" href="#semidefinite-programming-by-python" title="Permalink to this headline">¶</a></h2>
 <p>From here we use <a class="reference external" href="https://www.sympy.org/en/index.html">SymPy</a> for algebraic
 calculation and <a class="reference external" href="https://www.cvxpy.org/">CVXPY</a> for semidefinite programming.</p>
 <p>This program (in primal form) does not need any energy function since we only
@@ -528,7 +528,7 @@ check the feasibility under constraints <span class="math notranslate nohighligh
 </td></tr></table></div>
 <p>and corresponding (expected) sum of squares representation</p>
 <div class="admonition note">
-<p class="admonition-title">备注</p>
+<p class="admonition-title">Note</p>
 <p><span class="math notranslate nohighlight">\(z^t Q z = \langle Q, z z^t \rangle\)</span>.</p>
 </div>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
@@ -723,7 +723,7 @@ and we can get the following result</p>
 <p>which is infeasible.</p>
 </section>
 <section id="conclusion">
-<h2>Conclusion<a class="headerlink" href="#conclusion" title="永久链接至标题">¶</a></h2>
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
 <p>From this post we are able to check if a function is a sum of squares polynomial
 by performing a corresponding semidefinite programming. It means that we do not
 need to find such polynomials manually but just simply run some optimization
@@ -731,7 +731,7 @@ algorithm (e.g. interior-point method). However we note that the matrix space
 complexity w.r.t. total degree is exponential.</p>
 </section>
 <section id="references">
-<h2>References<a class="headerlink" href="#references" title="永久链接至标题">¶</a></h2>
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://yalmip.github.io/tutorial/sumofsquaresprogramming/">Sum-of-squares programming - YALMIP</a></p></li>
 <li><p><a class="reference external" href="https://www.sympy.org/en/index.html">SymPy</a></p></li>
