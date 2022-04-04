@@ -1,12 +1,12 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="zh">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>C++ Traits 使用心得 &#8212; StephLin&#39;s Personal Blog  documentation</title>
+    <title>C++ Traits 使用心得 &#8212; StephLin&#39;s Personal Blog  文档</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet">
   <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -36,19 +36,22 @@
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="canonical" href="https://stephlin.github.io/post/cpp/cpp-traits.html" />
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
-    <link rel="author" title="About these documents" href="../../../about/" />
-    <link rel="index" title="Index" href="../../../genindex/" />
-    <link rel="search" title="Search" href="../../../search/" /> 
+    <link rel="author" title="关于这些文档" href="../../../about/" />
+    <link rel="index" title="索引" href="../../../genindex/" />
+    <link rel="search" title="搜索" href="../../../search/" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
+    <meta name="docsearch:language" content="zh">
     
 
     <!-- Google Analytics -->
@@ -471,11 +474,11 @@
               
               <div>
                  <section id="c-traits">
-<h1>C++ Traits 使用心得<a class="headerlink" href="#c-traits" title="Permalink to this headline">¶</a></h1>
+<h1>C++ Traits 使用心得<a class="headerlink" href="#c-traits" title="永久链接至标题">¶</a></h1>
 <p>Traits 簡單來講就是一個程式碼片段，而我們希望透過一些機制，把他當作補丁一般地，貼到某塊程式碼內。</p>
 <p>這個概念若使用得當，最大的好處在於我們不用重複實作相同的功能 (或是相似的架構)，進而提升程式碼的重複利用度、以及簡潔程度。</p>
 <blockquote>
-<div><p><em>Think of a trait as a small object whose main purpose is to carry information used by another object or algorithm to determine “policy” or “implementation details”.</em></p>
+<div><p><em>Think of a trait as a small object whose main purpose is to carry information used by another object or algorithm to determine &quot;policy&quot; or &quot;implementation details&quot;.</em></p>
 <p class="attribution">—<em class="fa fa-user"></em> Bjarne Stroustrup</p>
 </div></blockquote>
 <p>我們先看最簡單的案例，PHP，他有一個關鍵字就直接叫做 <code class="docutils literal notranslate"><span class="pre">trait</span></code>，只要在其中定義想要打包的程式碼，就可以再利用 <code class="docutils literal notranslate"><span class="pre">use</span></code> 貼到任何類別：</p>
@@ -514,12 +517,12 @@
 </td></tr></table></div>
 <p>在這個例子當中，<code class="docutils literal notranslate"><span class="pre">ezcReflectionMethod</span></code> 和 <code class="docutils literal notranslate"><span class="pre">ezcReflectionFunction</span></code> 都同時擁有 <code class="docutils literal notranslate"><span class="pre">getReturnType()</span></code> 和 <code class="docutils literal notranslate"><span class="pre">getReturnDescription()</span></code> 這兩個方法，就這方面來講 PHP 真的是滿直觀的，不過你會發現他就真的只是複製貼上而已。</p>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
+<p class="admonition-title">备注</p>
 <p>Trait 跟 inheritance (繼承) 最大的差異是：trait 更接近於文本的複製貼上 (只是這個過程是編譯器幫你完成的)，而繼承則是一個物件導向的概念，具備更多類別之間的相互關係。</p>
 </div>
 <p>如果是 C++ 的話，我們稱之為 <strong>trait class</strong>，他依靠了 C++ template (generic programming) 去實現這個想法，而仰賴模板偏特化 (partial template specialization) 的特性，我們可以進一步允許當使用者輸入不同的類別時，他會貼上個別對應的實作方法。</p>
 <section id="id1">
-<h2>實作案例<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>實作案例<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
 <p>先來看一個例子：</p>
 <div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -566,7 +569,7 @@
 </td></tr></table></div>
 <p>在這個例子中，我們使用了 template struct 宣告並定義在一般情況 (非 <code class="docutils literal notranslate"><span class="pre">void</span></code> 的其他所有型態) 與特定情況 (<code class="docutils literal notranslate"><span class="pre">void</span></code> 型態) 在 <code class="docutils literal notranslate"><span class="pre">is_void()</span></code> 函數中的行為，並且很簡易地在主函數中直接呼叫。</p>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
+<p class="admonition-title">备注</p>
 <p>在 C++ 當中， <code class="docutils literal notranslate"><span class="pre">struct</span></code> 跟 <code class="docutils literal notranslate"><span class="pre">class</span></code> 基本上是在講同樣的東西 (從編譯器的角度也是)，差異是 <code class="docutils literal notranslate"><span class="pre">struct</span></code> 中的成員預設為 <code class="docutils literal notranslate"><span class="pre">public</span></code>，而 <code class="docutils literal notranslate"><span class="pre">class</span></code> 中的成員預設為 <code class="docutils literal notranslate"><span class="pre">private</span></code>.</p>
 <p>你可能不知道的是，C++ 的 <code class="docutils literal notranslate"><span class="pre">struct</span></code> 跟 C 的 <code class="docutils literal notranslate"><span class="pre">struct</span></code> 反而不是同樣的東西。</p>
 </div>
@@ -631,7 +634,7 @@
 </pre></div>
 </td></tr></table></div>
 <p>在這個例子裡，我們已經可以看到 <code class="docutils literal notranslate"><span class="pre">print_type_is_void&lt;T&gt;()</span></code> 會根據他接收到的型態 <code class="docutils literal notranslate"><span class="pre">T</span></code> 去決定要實際向誰取得實作內容。按照這個例子的話，如果 <code class="docutils literal notranslate"><span class="pre">T</span></code> 是 <code class="docutils literal notranslate"><span class="pre">void</span></code> ，他會把含有 <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">true;</span></code> 的那個函數拿來使用，其他的則是會把含有 <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">false;</span></code> 的另外一個來使用。</p>
-<p>我們再把 C++ template 玩深一點，實際上更多的使用情境是：我們不是很希望說隨便一個型態都可以直接套用相同的實作。因此我們只要有 <code class="docutils literal notranslate"><span class="pre">trait</span></code> 那個皮就好，裡面的料我們自己一個個型態各自定義：</p>
+<p>我們再把 C++ template 玩深一點，實際上更多的使用情境是：不見得每個型態都有相同的行為，而在抽象層面上我們也不是很介意各自實作細節。因此我們只要有 <code class="docutils literal notranslate"><span class="pre">trait</span></code> 那個皮就好，裡面的餡料我們晚點再一個個型態各自定義：</p>
 <div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -700,7 +703,7 @@
 <p>這個時候 <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">traits&lt;T&gt;</span></code> 就只剩下宣告而已，至於 <code class="docutils literal notranslate"><span class="pre">print_type_is_void&lt;T&gt;()</span></code> 其實只要知道有 <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">traits&lt;T&gt;</span></code> 的存在就可以寫程式了。意思是說，你只需要在 <code class="docutils literal notranslate"><span class="pre">print_type_is_void&lt;T&gt;()</span></code> 要抓 <code class="docutils literal notranslate"><span class="pre">T=int</span></code>, <code class="docutils literal notranslate"><span class="pre">T=float</span></code>, <code class="docutils literal notranslate"><span class="pre">T=void</span></code> 的實際行為時，你再告訴他定義就好了，程式碼不見得需要寫在一起。</p>
 <p>抓住這個想法，我們把程式碼拆解成三個檔案：</p>
 <div class="literal-block-wrapper docutils container" id="id5">
-<div class="code-block-caption"><span class="caption-text">lib.h</span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">lib.h</span><a class="headerlink" href="#id5" title="永久链接至代码">¶</a></div>
 <div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -724,7 +727,7 @@
 </td></tr></table></div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id6">
-<div class="code-block-caption"><span class="caption-text">impl.h</span><a class="headerlink" href="#id6" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">impl.h</span><a class="headerlink" href="#id6" title="永久链接至代码">¶</a></div>
 <div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -766,7 +769,7 @@
 </td></tr></table></div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id7">
-<div class="code-block-caption"><span class="caption-text">t.cpp</span><a class="headerlink" href="#id7" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">t.cpp</span><a class="headerlink" href="#id7" title="永久链接至代码">¶</a></div>
 <div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -791,18 +794,18 @@
 </div>
 <p>其中在 <code class="docutils literal notranslate"><span class="pre">lib.h</span></code> 我們使用了 forward declaration，不過想得單純一點，其實就是我把 <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&quot;impl.h&quot;</span></code> 替換成 <code class="docutils literal notranslate"><span class="pre">template&lt;typename</span> <span class="pre">T&gt;</span> <span class="pre">struct</span> <span class="pre">traits;</span></code> 這樣。</p>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
+<p class="admonition-title">备注</p>
 <p>Forward declaration 的最大幫助在於可以降低程式碼之間的耦合程度，縮短編譯時間 (我不需要改一個小區塊，就把全部的程式碼都重新編譯)。</p>
 <p>他的合法使用時機在於編譯器是否需要知道他的實際結構 (記憶體、函數等)。在不需要知道實際結構，而只取其指標來用的前提下，我們才能透過 forward declaration 將編譯行為拆解成數個子區塊。嚴格來講，上述我們的例子並沒有做到這件事情，所以他們還是需要一起編譯。</p>
 </div>
 <p>此時我們已經可以稍微感受到「黏貼」的味道：在 <code class="docutils literal notranslate"><span class="pre">t.cpp</span></code> 當中，我們把 <code class="docutils literal notranslate"><span class="pre">impl.h</span></code> 裡面的實作細節，貼到 <code class="docutils literal notranslate"><span class="pre">lib.h</span></code> 裡面的函數當中。這個基本上就是 C++ Trait 的主要想法，不過實際操作上更多的是活用 C++ Template 的特性。</p>
 <div class="admonition hint">
-<p class="admonition-title">Hint</p>
+<p class="admonition-title">提示</p>
 <p>以至於這篇文章用某種角度來看就是 C++ template 複習篇 XD</p>
 </div>
 </section>
 <section id="id2">
-<h2>舉一個更實際的案例<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>舉一個更實際的案例<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p>筆者當初是在閱讀 <a class="reference external" href="https://github.com/borglab/gtsam">GTSAM</a> 時認識到這個用法，在這份實作當中他們的應用情境是在不同李群當中 Lie group <span class="math notranslate nohighlight">\(\mathcal{M}\)</span> 與 Lie algebra <span class="math notranslate nohighlight">\(\mathfrak{m}\)</span> 之間的映射關係 (<span class="math notranslate nohighlight">\(\exp: \mathcal{M} \to \mathfrak{m}\)</span> 和 <span class="math notranslate nohighlight">\(\log: \mathfrak{m} \to \mathcal{M}\)</span>)，不同的李群包含旋轉群 (special orthogonal group, rotation group) <span class="math notranslate nohighlight">\(\mathrm{SO}(n)\)</span> 或特殊歐基里德群 (special Euclidean group) <span class="math notranslate nohighlight">\(\mathrm{SE}(n)\)</span>，他們對應的函數 <span class="math notranslate nohighlight">\(\exp\)</span> 和 <span class="math notranslate nohighlight">\(\log\)</span> 不盡相同，但也是存在一些李群內泛用的公式，比如說李群對應到微分流形 (differentiable manifold) 之微積分行為這類的，在這種情境底下套用 trait 的概念就還滿方便的。</p>
 <p>不過這個案例有點太超過了 (數學方面的那種)，我們舉一個比較通俗的案例：單變數微分的連鎖律 (chain rule)。</p>
 <p>避免可能有讀者不太清楚微積分，快速複習一下單變數的連鎖律：給定兩個函數 <span class="math notranslate nohighlight">\(f, g:\mathbb{R}\to\mathbb{R}\)</span>，滿足以下定律：</p>
@@ -811,7 +814,7 @@
 <p>其中那個 <span class="math notranslate nohighlight">\('\)</span> 代表的是對 <span class="math notranslate nohighlight">\(x\)</span> 微分的意思。</p>
 <p>為求簡便，我們預計來實作兩個簡單的函數，一個是二次多項式函數 <span class="math notranslate nohighlight">\(f_1(x) = x^2\)</span>，另一個是指數函數 <span class="math notranslate nohighlight">\(f_2(x) = e^x\)</span>. 所以我們有 <span class="math notranslate nohighlight">\(f_1'(x) = 2x\)</span> 和 <span class="math notranslate nohighlight">\(f_2'(x) = e^x\)</span>. 有這些先備知識後我們就可以來實作了：</p>
 <div class="literal-block-wrapper docutils container" id="id8">
-<div class="code-block-caption"><span class="caption-text">lib.h</span><a class="headerlink" href="#id8" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">lib.h</span><a class="headerlink" href="#id8" title="永久链接至代码">¶</a></div>
 <div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -831,7 +834,7 @@
 </td></tr></table></div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id9">
-<div class="code-block-caption"><span class="caption-text">impl.h</span><a class="headerlink" href="#id9" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">impl.h</span><a class="headerlink" href="#id9" title="永久链接至代码">¶</a></div>
 <div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -873,7 +876,7 @@
 </td></tr></table></div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id10">
-<div class="code-block-caption"><span class="caption-text">t.cpp</span><a class="headerlink" href="#id10" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">t.cpp</span><a class="headerlink" href="#id10" title="永久链接至代码">¶</a></div>
 <div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -915,17 +918,17 @@
 </div>
 <p>讀者可以快速驗算一下，應該是正確的。</p>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
+<p class="admonition-title">备注</p>
 <p>筆者在這邊澄清一點是：並不是只有一個實作方法可以實現上述案例，比如說你可以把 <code class="docutils literal notranslate"><span class="pre">of()</span></code> 和 <code class="docutils literal notranslate"><span class="pre">derivative_of()</span></code> 直接定義在 <code class="docutils literal notranslate"><span class="pre">Square</span></code> 跟 <code class="docutils literal notranslate"><span class="pre">Exp</span></code> 裡面，不過當你基於某些理由，不希望破壞類別內部方法結構時，trait 會變成是一個還不錯的選擇。</p>
 </div>
 </section>
 <section id="id3">
-<h2>型態檢查<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<h2>型態檢查<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
 <p>接著我們進一步探討：如何限制型態結構？</p>
 <p>C++11 引進了 type traits 的概念，提供了一些關於型態的檢查工具。從傳統物件導向的角度來說，我們可以透過多型去選擇參數的可輸入型態，然而這邊「傳統」的意思是說，正常的物件導向裡面並沒有模板的概念。</p>
 <p>不過 type traits 幫了我們一把，使得我們可以實踐這個想法，例子如下：</p>
 <div class="literal-block-wrapper docutils container" id="id11">
-<div class="code-block-caption"><span class="caption-text">base.h</span><a class="headerlink" href="#id11" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">base.h</span><a class="headerlink" href="#id11" title="永久链接至代码">¶</a></div>
 <div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">Function</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
@@ -933,7 +936,7 @@
 </td></tr></table></div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id12">
-<div class="code-block-caption"><span class="caption-text">lib.h</span><a class="headerlink" href="#id12" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">lib.h</span><a class="headerlink" href="#id12" title="永久链接至代码">¶</a></div>
 <div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -988,7 +991,7 @@ t.cpp:13:44:   required from here
 </div>
 <p>因此我們需要再調整一下 <code class="docutils literal notranslate"><span class="pre">Square</span></code> 跟 <code class="docutils literal notranslate"><span class="pre">Exp</span></code> 才能滿足我們剛剛給定的條件：</p>
 <div class="literal-block-wrapper docutils container" id="id13">
-<div class="code-block-caption"><span class="caption-text">impl.h</span><a class="headerlink" href="#id13" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text">impl.h</span><a class="headerlink" href="#id13" title="永久链接至代码">¶</a></div>
 <div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1128,16 +1131,16 @@ t.cpp:13:44:   required from here
 </td></tr></table></div>
 <p>這次我們利用了 SFINAE (替換失敗並非錯誤, substitution failure is not an error) 去判斷型態是否有指定的靜態函數 <code class="docutils literal notranslate"><span class="pre">of</span></code> 與 <code class="docutils literal notranslate"><span class="pre">derivative_of</span></code>，此時我們就不需要局限於繼承的手法，而且可以執行更精準的判斷。</p>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
+<p class="admonition-title">备注</p>
 <p>留意到目前階段我們只有檢查函數是否存在，但還沒有檢查輸出格式。</p>
 </div>
 </section>
 <section id="id4">
-<h2>結論<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<h2>結論<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <p>在本篇我們大致了解 C++ trait 的想法以及實現方式，除了我們可以更順暢地閱讀外面的一些實作，免得說出現「我不知道他在寫什麼鬼東西哭阿」的這種窘境之外，也可以讓我們未來在實作 C++ 相關專案的時候，手上可以有更多的工具或手法讓專案更簡潔或更強健！</p>
 </section>
 <section id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<h2>References<a class="headerlink" href="#references" title="永久链接至标题">¶</a></h2>
 <ol class="arabic simple">
 <li><p><a class="reference external" href="https://en.cppreference.com/w/cpp/header/type_traits">Standard library header &lt;type_traits&gt; - cppreference.com</a></p></li>
 <li><p><a class="reference external" href="https://accu.org/journals/overload/9/43/frogley_442/">An introduction to C++ Traits - ACCU Blog</a></p></li>
@@ -1216,7 +1219,7 @@ t.cpp:13:44:   required from here
     
     <div class="footer-item">
       <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.3.2.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
 </p>
     </div>
     
