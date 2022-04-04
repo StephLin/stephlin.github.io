@@ -137,7 +137,7 @@ html_favicon = "_static/favicon.ico"
 
 # -- Blog Options ----
 
-language = "zh"
+language = "en"
 
 blog_authors = {
     "StephLin": ("Yu-Kai Lin", "https://github.com/StephLin"),
