@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://stephlin.github.io</id>
   <title>StephLin's Personal Blog - Posts in 中文</title>
-  <updated>2022-04-04T12:58:02.845904+00:00</updated>
+  <updated>2022-08-08T10:54:41.628054+00:00</updated>
   <link href="https://stephlin.github.io"/>
   <link href="https://stephlin.github.io/blog/language/中文/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.org/" version="0.10.20">ABlog</generator>
@@ -53,5 +53,23 @@
     <category term="C++" label="C++"/>
     <category term="Template" label="Template"/>
     <published>2021-11-13T00:00:00+00:00</published>
+  </entry>
+  <entry>
+    <id>https://stephlin.github.io/post/python/high-performance-scientific-computing/</id>
+    <title>Python 加速符文：高效能平行科學計算</title>
+    <updated>2022-08-07T00:00:00+00:00</updated>
+    <author>
+      <name>Yu-Kai Lin</name>
+    </author>
+    <content type="html">&lt;p&gt;在 Python 基礎科學運算中，我們習於使用 NumPy 以方便且快速地實現矩陣運算，然而在部分情境下仍會遇到效能瓶頸。舉例來說，我們利用 NumPy 線性代數模組處理一個大型線性最小平方問題，但效能瓶頸卻發生在使用原生 Python 迴圈建造矩陣的過程。在本文中，我們將探討 Python 效能瓶頸問題，並試圖使用一些現有工具去達成運算加速的目的，同時比較這些工具之間的特性。&lt;/p&gt;
+</content>
+    <link href="https://stephlin.github.io/post/python/high-performance-scientific-computing/" rel="alternate"/>
+    <summary>在 Python 基礎科學運算中，我們習於使用 NumPy 以方便且快速地實現矩陣運算，然而在部分情境下仍會遇到效能瓶頸。舉例來說，我們利用 NumPy 線性代數模組處理一個大型線性最小平方問題，但效能瓶頸卻發生在使用原生 Python 迴圈建造矩陣的過程。在本文中，我們將探討 Python 效能瓶頸問題，並試圖使用一些現有工具去達成運算加速的目的，同時比較這些工具之間的特性。</summary>
+    <category term="Python" label="Python"/>
+    <category term="ParallelComputing" label="Parallel Computing"/>
+    <category term="NumPy" label="NumPy"/>
+    <category term="Pythran" label="Pythran"/>
+    <category term="pybind11" label="pybind11"/>
+    <published>2022-08-07T00:00:00+00:00</published>
   </entry>
 </feed>

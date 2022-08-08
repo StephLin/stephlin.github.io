@@ -275,6 +275,12 @@
 <ul>
    
   <li>
+    <a href="../../python/high-performance-scientific-computing/"
+      >07 August - Python 加速符文：高效能平行科學計算</a
+    >
+  </li>
+  
+  <li>
     <a href="../../factor-graph/isam-part1/"
       >09 August - iSAM2 演算法筆記 (1)：問題定義與 Bayes Tree</a
     >
@@ -348,12 +354,24 @@
     <a href="../../../blog/tag/factor-graph/">Factor Graph</a>
   </li>
     
-  <li class="ablog-cloud ablog-cloud-5">
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/numpy/">NumPy</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-3">
     <a href="../../../blog/tag/optimization/">Optimization</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/parallel-computing/">Parallel Computing</a>
   </li>
     
   <li class="ablog-cloud ablog-cloud-5">
     <a href="../../../blog/tag/python/">Python</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/pythran/">Pythran</a>
   </li>
     
   <li class="ablog-cloud ablog-cloud-1">
@@ -375,6 +393,10 @@
   <li class="ablog-cloud ablog-cloud-1">
     <a href="../../../blog/tag/traits/">Traits</a>
   </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/pybind11/">pybind11</a>
+  </li>
    
 </ul>
 
@@ -392,7 +414,7 @@
   </li>
     
   <li>
-    <a href="../../../blog/category/python/">Python (1)</a>
+    <a href="../../../blog/category/python/">Python (2)</a>
   </li>
    
 </ul>
@@ -402,6 +424,10 @@
 </h3>
 <ul>
    
+  <li>
+    <a href="../../../blog/2022/">2022 (1)</a>
+  </li>
+    
   <li>
     <a href="../../../blog/2021/">2021 (3)</a>
   </li>
@@ -482,7 +508,7 @@
 <p class="attribution">—<em class="fa fa-user"></em> Bjarne Stroustrup</p>
 </div></blockquote>
 <p>我們先看最簡單的案例，PHP，他有一個關鍵字就直接叫做 <code class="docutils literal notranslate"><span class="pre">trait</span></code>，只要在其中定義想要打包的程式碼，就可以再利用 <code class="docutils literal notranslate"><span class="pre">use</span></code> 貼到任何類別：</p>
-<div class="highlight-php notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<div class="highlight-php notranslate"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -497,7 +523,7 @@
 <span class="normal">13</span>
 <span class="normal">14</span>
 <span class="normal">15</span>
-<span class="normal">16</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><span class="cp">&lt;?php</span>
 <span class="hll"><span class="k">trait</span> <span class="nx">ezcReflectionReturnInfo</span> <span class="p">{</span>
 </span><span class="hll">    <span class="k">function</span> <span class="nf">getReturnType</span><span class="p">()</span> <span class="p">{</span> <span class="cm">/*1*/</span> <span class="p">}</span>
 </span><span class="hll">    <span class="k">function</span> <span class="nf">getReturnDescription</span><span class="p">()</span> <span class="p">{</span> <span class="cm">/*2*/</span> <span class="p">}</span>
@@ -513,8 +539,8 @@
 </span>    <span class="cm">/* ... */</span>
 <span class="p">}</span>
 <span class="cp">?&gt;</span><span class="x"></span>
-</pre></div>
-</td></tr></table></div>
+</pre></div></td></tr></table></div>
+</div>
 <p>在這個例子當中，<code class="docutils literal notranslate"><span class="pre">ezcReflectionMethod</span></code> 和 <code class="docutils literal notranslate"><span class="pre">ezcReflectionFunction</span></code> 都同時擁有 <code class="docutils literal notranslate"><span class="pre">getReturnType()</span></code> 和 <code class="docutils literal notranslate"><span class="pre">getReturnDescription()</span></code> 這兩個方法，就這方面來講 PHP 真的是滿直觀的，不過你會發現他就真的只是複製貼上而已。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -524,7 +550,7 @@
 <section id="id1">
 <h2>實作案例<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>先來看一個例子：</p>
-<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -544,7 +570,7 @@
 <span class="normal">18</span>
 <span class="normal">19</span>
 <span class="normal">20</span>
-<span class="normal">21</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
 <span class="c1">// generic type</span>
 <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
@@ -565,8 +591,8 @@
 
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
-</pre></div>
-</td></tr></table></div>
+</pre></div></td></tr></table></div>
+</div>
 <p>在這個例子中，我們使用了 template struct 宣告並定義在一般情況 (非 <code class="docutils literal notranslate"><span class="pre">void</span></code> 的其他所有型態) 與特定情況 (<code class="docutils literal notranslate"><span class="pre">void</span></code> 型態) 在 <code class="docutils literal notranslate"><span class="pre">is_void()</span></code> 函數中的行為，並且很簡易地在主函數中直接呼叫。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -580,7 +606,7 @@
 </pre></div>
 </div>
 <p>我們可以進一步將主函數當中的行為包裝成一個 template function：</p>
-<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -605,7 +631,7 @@
 <span class="normal">23</span>
 <span class="normal">24</span>
 <span class="normal">25</span>
-<span class="normal">26</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
 <span class="c1">// generic type</span>
 <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
@@ -631,11 +657,11 @@
 
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
-</pre></div>
-</td></tr></table></div>
+</pre></div></td></tr></table></div>
+</div>
 <p>在這個例子裡，我們已經可以看到 <code class="docutils literal notranslate"><span class="pre">print_type_is_void&lt;T&gt;()</span></code> 會根據他接收到的型態 <code class="docutils literal notranslate"><span class="pre">T</span></code> 去決定要實際向誰取得實作內容。按照這個例子的話，如果 <code class="docutils literal notranslate"><span class="pre">T</span></code> 是 <code class="docutils literal notranslate"><span class="pre">void</span></code> ，他會把含有 <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">true;</span></code> 的那個函數拿來使用，其他的則是會把含有 <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">false;</span></code> 的另外一個來使用。</p>
 <p>我們再把 C++ template 玩深一點，實際上更多的使用情境是：不見得每個型態都有相同的行為，而在抽象層面上我們也不是很介意各自實作細節。因此我們只要有 <code class="docutils literal notranslate"><span class="pre">trait</span></code> 那個皮就好，裡面的餡料我們晚點再一個個型態各自定義：</p>
-<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -666,7 +692,7 @@
 <span class="normal">29</span>
 <span class="normal">30</span>
 <span class="normal">31</span>
-<span class="normal">32</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="normal">32</span></pre></div></td><td class="code"><div><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
 <span class="hll"><span class="c1">// declaration</span>
 </span><span class="hll"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">traits</span><span class="p">;</span><span class="w"></span>
@@ -698,13 +724,13 @@
 
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
-</pre></div>
-</td></tr></table></div>
+</pre></div></td></tr></table></div>
+</div>
 <p>這個時候 <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">traits&lt;T&gt;</span></code> 就只剩下宣告而已，至於 <code class="docutils literal notranslate"><span class="pre">print_type_is_void&lt;T&gt;()</span></code> 其實只要知道有 <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">traits&lt;T&gt;</span></code> 的存在就可以寫程式了。意思是說，你只需要在 <code class="docutils literal notranslate"><span class="pre">print_type_is_void&lt;T&gt;()</span></code> 要抓 <code class="docutils literal notranslate"><span class="pre">T=int</span></code>, <code class="docutils literal notranslate"><span class="pre">T=float</span></code>, <code class="docutils literal notranslate"><span class="pre">T=void</span></code> 的實際行為時，你再告訴他定義就好了，程式碼不見得需要寫在一起。</p>
 <p>抓住這個想法，我們把程式碼拆解成三個檔案：</p>
 <div class="literal-block-wrapper docutils container" id="id5">
 <div class="code-block-caption"><span class="caption-text">lib.h</span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
-<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -713,7 +739,7 @@
 <span class="normal"> 7</span>
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><span class="cp">#pragma once</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
 <span class="c1">// forward declaration</span>
@@ -723,12 +749,12 @@
 <span class="kt">void</span><span class="w"> </span><span class="n">print_type_is_void</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">traits</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">is_void</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;True&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;False&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
-</pre></div>
-</td></tr></table></div>
+</pre></div></td></tr></table></div>
+</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id6">
 <div class="code-block-caption"><span class="caption-text">impl.h</span><a class="headerlink" href="#id6" title="Permalink to this code">¶</a></div>
-<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -746,7 +772,7 @@
 <span class="normal">16</span>
 <span class="normal">17</span>
 <span class="normal">18</span>
-<span class="normal">19</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><span class="cp">#pragma once</span>
 
 <span class="c1">// declaration</span>
 <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">traits</span><span class="p">;</span><span class="w"></span>
@@ -765,12 +791,12 @@
 <span class="k">struct</span><span class="w"> </span><span class="nc">traits</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">is_void</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
-</pre></div>
-</td></tr></table></div>
+</pre></div></td></tr></table></div>
+</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id7">
 <div class="code-block-caption"><span class="caption-text">t.cpp</span><a class="headerlink" href="#id7" title="Permalink to this code">¶</a></div>
-<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -779,7 +805,7 @@
 <span class="normal"> 7</span>
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;lib.h&quot;</span><span class="cp"></span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;lib.h&quot;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;impl.h&quot;</span><span class="cp"></span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -789,8 +815,8 @@
 
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
-</pre></div>
-</td></tr></table></div>
+</pre></div></td></tr></table></div>
+</div>
 </div>
 <p>其中在 <code class="docutils literal notranslate"><span class="pre">lib.h</span></code> 我們使用了 forward declaration，不過想得單純一點，其實就是我把 <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&quot;impl.h&quot;</span></code> 替換成 <code class="docutils literal notranslate"><span class="pre">template&lt;typename</span> <span class="pre">T&gt;</span> <span class="pre">struct</span> <span class="pre">traits;</span></code> 這樣。</p>
 <div class="admonition note">
@@ -815,14 +841,14 @@
 <p>為求簡便，我們預計來實作兩個簡單的函數，一個是二次多項式函數 <span class="math notranslate nohighlight">\(f_1(x) = x^2\)</span>，另一個是指數函數 <span class="math notranslate nohighlight">\(f_2(x) = e^x\)</span>. 所以我們有 <span class="math notranslate nohighlight">\(f_1'(x) = 2x\)</span> 和 <span class="math notranslate nohighlight">\(f_2'(x) = e^x\)</span>. 有這些先備知識後我們就可以來實作了：</p>
 <div class="literal-block-wrapper docutils container" id="id8">
 <div class="code-block-caption"><span class="caption-text">lib.h</span><a class="headerlink" href="#id8" title="Permalink to this code">¶</a></div>
-<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><span class="cp">#pragma once</span>
 
 <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">traits</span><span class="p">;</span><span class="w"></span>
 
@@ -830,12 +856,12 @@
 <span class="kt">double</span><span class="w"> </span><span class="n">derivative_of</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">traits</span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;::</span><span class="n">derivative_of</span><span class="p">(</span><span class="w"> </span><span class="n">traits</span><span class="o">&lt;</span><span class="n">G</span><span class="o">&gt;::</span><span class="n">of</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">traits</span><span class="o">&lt;</span><span class="n">G</span><span class="o">&gt;::</span><span class="n">derivative_of</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
-</pre></div>
-</td></tr></table></div>
+</pre></div></td></tr></table></div>
+</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id9">
 <div class="code-block-caption"><span class="caption-text">impl.h</span><a class="headerlink" href="#id9" title="Permalink to this code">¶</a></div>
-<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -853,7 +879,7 @@
 <span class="normal">16</span>
 <span class="normal">17</span>
 <span class="normal">18</span>
-<span class="normal">19</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><span class="cp">#pragma once</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cmath&gt;</span><span class="cp"></span>
 
 <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">traits</span><span class="p">;</span><span class="w"></span>
@@ -872,12 +898,12 @@
 <span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">of</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">derivative_of</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">of</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
-</pre></div>
-</td></tr></table></div>
+</pre></div></td></tr></table></div>
+</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id10">
 <div class="code-block-caption"><span class="caption-text">t.cpp</span><a class="headerlink" href="#id10" title="Permalink to this code">¶</a></div>
-<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -892,7 +918,7 @@
 <span class="normal">13</span>
 <span class="normal">14</span>
 <span class="normal">15</span>
-<span class="normal">16</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;lib.h&quot;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;impl.h&quot;</span><span class="cp"></span>
@@ -908,8 +934,8 @@
 
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
-</pre></div>
-</td></tr></table></div>
+</pre></div></td></tr></table></div>
+</div>
 </div>
 <p>在這個實作方式下，兩個類別 <code class="docutils literal notranslate"><span class="pre">Square</span></code> 和 <code class="docutils literal notranslate"><span class="pre">Exp</span></code> 會變成是空的類別，內部並沒有任何函數。輸出如下：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">derivative</span> <span class="n">of</span> <span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span> <span class="n">at</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">:</span> <span class="mi">2</span>
@@ -929,15 +955,15 @@
 <p>不過 type traits 幫了我們一把，使得我們可以實踐這個想法，例子如下：</p>
 <div class="literal-block-wrapper docutils container" id="id11">
 <div class="code-block-caption"><span class="caption-text">base.h</span><a class="headerlink" href="#id11" title="Permalink to this code">¶</a></div>
-<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><span class="cp">#pragma once</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">Function</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
-</pre></div>
-</td></tr></table></div>
+</pre></div></td></tr></table></div>
+</div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id12">
 <div class="code-block-caption"><span class="caption-text">lib.h</span><a class="headerlink" href="#id12" title="Permalink to this code">¶</a></div>
-<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -950,7 +976,7 @@
 <span class="normal">11</span>
 <span class="normal">12</span>
 <span class="normal">13</span>
-<span class="normal">14</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><span class="cp">#pragma once</span>
 <span class="hll"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;type_traits&gt;</span><span class="cp"></span>
 </span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;base.h&quot;</span><span class="cp"></span>
@@ -964,8 +990,8 @@
 </span>
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">traits</span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;::</span><span class="n">derivative_of</span><span class="p">(</span><span class="w"> </span><span class="n">traits</span><span class="o">&lt;</span><span class="n">G</span><span class="o">&gt;::</span><span class="n">of</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">traits</span><span class="o">&lt;</span><span class="n">G</span><span class="o">&gt;::</span><span class="n">derivative_of</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
-</pre></div>
-</td></tr></table></div>
+</pre></div></td></tr></table></div>
+</div>
 </div>
 <p>其中 <code class="docutils literal notranslate"><span class="pre">std::is_base_of&lt;OO,</span> <span class="pre">XX&gt;</span></code> 是 <code class="docutils literal notranslate"><span class="pre">type_traits</span></code> 標頭裡面提供的 structure，他會告訴我們 <code class="docutils literal notranslate"><span class="pre">XX</span></code> 是否繼承 <code class="docutils literal notranslate"><span class="pre">OO</span></code>，而檢查的結果會回饋在 <code class="docutils literal notranslate"><span class="pre">::value</span></code> 上。以我們的例子來說，這邊又定義了一個基底類別 <code class="docutils literal notranslate"><span class="pre">Function</span></code> 讓其他型態繼承，而我們希望輸入進來的型態 <code class="docutils literal notranslate"><span class="pre">F</span></code> 跟 <code class="docutils literal notranslate"><span class="pre">G</span></code> 有繼承 <code class="docutils literal notranslate"><span class="pre">Function</span></code>.</p>
 <p>接著另一個重點是 <code class="docutils literal notranslate"><span class="pre">static_assert</span></code>，以前我們熟知的是 <code class="docutils literal notranslate"><span class="pre">assert</span></code>，他的行為是在執行期間 (runtime) 動態的檢查，而 <code class="docutils literal notranslate"><span class="pre">static_assert</span></code> 的關鍵特性是他會在編譯期間 (compile-time) 做檢查，這個特性使得模板中的型態 (同樣也是在編譯期間就完成處理) 可以被檢查。</p>
@@ -992,7 +1018,7 @@ t.cpp:13:44:   required from here
 <p>因此我們需要再調整一下 <code class="docutils literal notranslate"><span class="pre">Square</span></code> 跟 <code class="docutils literal notranslate"><span class="pre">Exp</span></code> 才能滿足我們剛剛給定的條件：</p>
 <div class="literal-block-wrapper docutils container" id="id13">
 <div class="code-block-caption"><span class="caption-text">impl.h</span><a class="headerlink" href="#id13" title="Permalink to this code">¶</a></div>
-<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -1012,7 +1038,7 @@ t.cpp:13:44:   required from here
 <span class="normal">18</span>
 <span class="normal">19</span>
 <span class="normal">20</span>
-<span class="normal">21</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><span class="cp">#pragma once</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cmath&gt;</span><span class="cp"></span>
 
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;base.h&quot;</span><span class="cp"></span>
@@ -1033,12 +1059,12 @@ t.cpp:13:44:   required from here
 <span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">of</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">derivative_of</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">of</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
-</pre></div>
-</td></tr></table></div>
+</pre></div></td></tr></table></div>
+</div>
 </div>
 <p>但是這個招數不是萬能的，除了方法的侷限 (你總不能叫 <code class="docutils literal notranslate"><span class="pre">int</span></code> 也繼承自 <code class="docutils literal notranslate"><span class="pre">Function</span></code>，他只是型態不是類別) 外，他強制了該模板的型態必須具備相同的繼承關係，而不是強制他必須具備某種「結構」或「特性」。就這個角度來說，比起限制類型的繼承關係，限制他是否擁有這個函數顯然更靠譜一些。</p>
 <p>抱著這個想法，我們換個做法：</p>
-<div class="highlight-cpp notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -1082,7 +1108,7 @@ t.cpp:13:44:   required from here
 <span class="normal">42</span>
 <span class="normal">43</span>
 <span class="normal">44</span>
-<span class="normal">45</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
+<span class="normal">45</span></pre></div></td><td class="code"><div><pre><span></span><span class="cp">#pragma once</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;type_traits&gt;</span><span class="cp"></span>
 
 <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">traits</span><span class="p">;</span><span class="w"></span>
@@ -1127,8 +1153,8 @@ t.cpp:13:44:   required from here
 </span>
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">traits</span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;::</span><span class="n">derivative_of</span><span class="p">(</span><span class="w"> </span><span class="n">traits</span><span class="o">&lt;</span><span class="n">G</span><span class="o">&gt;::</span><span class="n">of</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">traits</span><span class="o">&lt;</span><span class="n">G</span><span class="o">&gt;::</span><span class="n">derivative_of</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
-</pre></div>
-</td></tr></table></div>
+</pre></div></td></tr></table></div>
+</div>
 <p>這次我們利用了 SFINAE (替換失敗並非錯誤, substitution failure is not an error) 去判斷型態是否有指定的靜態函數 <code class="docutils literal notranslate"><span class="pre">of</span></code> 與 <code class="docutils literal notranslate"><span class="pre">derivative_of</span></code>，此時我們就不需要局限於繼承的手法，而且可以執行更精準的判斷。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1161,6 +1187,13 @@ t.cpp:13:44:   required from here
   </span>
   <span>&nbsp;</span>
   <span style="float: right">
+     
+    <a href="../../python/high-performance-scientific-computing/">
+      Python 加速符文：高效能平行科學計算 <i
+        class="fa fa-arrow-circle-right"
+      ></i
+      >
+    </a>
     
   </span>
 </div>

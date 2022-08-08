@@ -272,6 +272,12 @@
 <ul>
    
   <li>
+    <a href="../high-performance-scientific-computing/"
+      >07 August - Python 加速符文：高效能平行科學計算</a
+    >
+  </li>
+  
+  <li>
     <a href="../../cpp/cpp-traits/"
       >13 November - C++ Traits 使用心得</a
     >
@@ -345,12 +351,24 @@
     <a href="../../../blog/tag/factor-graph/">Factor Graph</a>
   </li>
     
-  <li class="ablog-cloud ablog-cloud-5">
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/numpy/">NumPy</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-3">
     <a href="../../../blog/tag/optimization/">Optimization</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/parallel-computing/">Parallel Computing</a>
   </li>
     
   <li class="ablog-cloud ablog-cloud-5">
     <a href="../../../blog/tag/python/">Python</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/pythran/">Pythran</a>
   </li>
     
   <li class="ablog-cloud ablog-cloud-1">
@@ -372,6 +390,10 @@
   <li class="ablog-cloud ablog-cloud-1">
     <a href="../../../blog/tag/traits/">Traits</a>
   </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/pybind11/">pybind11</a>
+  </li>
    
 </ul>
 
@@ -389,7 +411,7 @@
   </li>
     
   <li>
-    <a href="../../../blog/category/python/">Python (1)</a>
+    <a href="../../../blog/category/python/">Python (2)</a>
   </li>
    
 </ul>
@@ -399,6 +421,10 @@
 </h3>
 <ul>
    
+  <li>
+    <a href="../../../blog/2022/">2022 (1)</a>
+  </li>
+    
   <li>
     <a href="../../../blog/2021/">2021 (3)</a>
   </li>
@@ -508,14 +534,14 @@ This is a new line.
 </pre></div>
 </div>
 <p>透過 Python 我們可以透過以下程式碼實現讀檔並輸出到終端機上：</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<div class="highlight-python notranslate"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># access `input.txt` file with reading permission</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><span class="c1"># access `input.txt` file with reading permission</span>
 <span class="n">obj</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;input.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
 
 <span class="c1"># read content and print to stdout</span>
@@ -523,20 +549,20 @@ This is a new line.
 
 <span class="c1"># release file resource</span>
 <span class="n">obj</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</pre></div>
-</td></tr></table></div>
+</pre></div></td></tr></table></div>
+</div>
 <p>而透過 <cite>with</cite> 關鍵字可以幫助程式碼在這個過程中更簡潔：</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;input.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;input.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
-</pre></div>
-</td></tr></table></div>
+</pre></div></td></tr></table></div>
+</div>
 <p>到目前為止是大家在學習 Python 的時候幾乎會碰觸到的課題，接下來我們將討論 <code class="docutils literal notranslate"><span class="pre">with</span></code> 在 Python 當中的物件意涵。</p>
 </section>
 <section id="with-python">
 <h2>With 關鍵字在 Python 中的物件意涵<a class="headerlink" href="#with-python" title="Permalink to this headline">¶</a></h2>
 <p>我們同樣盯著上面的範例程式碼看，實際上他相當於以下語法結構：</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<div class="highlight-python notranslate"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -559,7 +585,7 @@ This is a new line.
 <span class="normal">21</span>
 <span class="normal">22</span>
 <span class="normal">23</span>
-<span class="normal">24</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="c1"># with open(&#39;input.txt&#39;, &#39;r&#39;) as f:</span>
 <span class="n">obj</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;input.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
@@ -583,8 +609,8 @@ This is a new line.
         <span class="c1"># in this way there is no exception</span>
         <span class="n">exc_type</span> <span class="o">=</span> <span class="n">exc_val</span> <span class="o">=</span> <span class="n">exc_tb</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="hll">        <span class="n">obj</span><span class="o">.</span><span class="fm">__exit__</span><span class="p">(</span><span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_val</span><span class="p">,</span> <span class="n">exc_tb</span><span class="p">)</span>
-</span></pre></div>
-</td></tr></table></div>
+</span></pre></div></td></tr></table></div>
+</div>
 <p>在這段程式碼中，我們會發現：</p>
 <ul class="simple">
 <li><p>在進入 <code class="docutils literal notranslate"><span class="pre">with</span></code> 區塊前，Python 會初始化 <code class="docutils literal notranslate"><span class="pre">obj</span></code> 物件並觸發 <code class="docutils literal notranslate"><span class="pre">__enter__</span></code> 方法以存取資源，並且將其回傳值賦予到 <code class="docutils literal notranslate"><span class="pre">f</span></code>；</p></li>
@@ -596,7 +622,7 @@ This is a new line.
 <code class="docutils literal notranslate"><span class="pre">obj.__exit__</span></code> 方法就相當於呼叫 <code class="docutils literal notranslate"><span class="pre">obj.close</span></code> 方法。</p>
 </div>
 <p>事情似乎變得複雜起來，但理解這個機制後，我們可以結合 Python 本身的 <a class="reference external" href="https://en.wikipedia.org/wiki/Duck_typing">duck typing 特性</a> 去做更彈性的編排。舉來說，我們可以自定義一種類別，使得在檔案資源存取的時候結合計數器功能：</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<div class="highlight-python notranslate"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -641,7 +667,7 @@ This is a new line.
 <span class="normal">43</span>
 <span class="normal">44</span>
 <span class="normal">45</span>
-<span class="normal">46</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">FileResource</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="normal">46</span></pre></div></td><td class="code"><div><pre><span></span><span class="k">class</span> <span class="nc">FileResource</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="c1"># counting times of reading and writing</span>
     <span class="n">write_count</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">read_count</span> <span class="o">=</span> <span class="mi">0</span>
@@ -687,8 +713,8 @@ This is a new line.
     <span class="n">fr</span> <span class="o">=</span> <span class="n">FileResource</span><span class="p">(</span><span class="s1">&#39;input.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
 
     <span class="nb">print</span><span class="p">(</span><span class="n">FileResource</span><span class="o">.</span><span class="n">read_count</span><span class="p">,</span> <span class="n">FileResource</span><span class="o">.</span><span class="n">write_count</span><span class="p">)</span>
-</pre></div>
-</td></tr></table></div>
+</pre></div></td></tr></table></div>
+</div>
 <p>在執行結果中，我們會發現計數器有成功的被運作，且當檔案沒有真正開啟時不會列入計數。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">first</span> <span class="n">time</span> <span class="n">reading</span> <span class="o">...</span>
 <span class="n">second</span> <span class="n">time</span> <span class="n">reading</span> <span class="o">...</span>
@@ -702,7 +728,7 @@ This is a new line.
 <h2>使用 contextlib<a class="headerlink" href="#contextlib" title="Permalink to this headline">¶</a></h2>
 <p>這個強大內建套件就是 <a class="reference external" href="https://docs.python.org/3/library/contextlib.html">contextlib</a>，實務上他可以幫助 Python 在處理資源管理的時候可以更加優雅。</p>
 <p>我們以 <code class="docutils literal notranslate"><span class="pre">FileResource</span></code> 為例，在 contextlib 的加持下它可以被簡化成以下形式：</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<div class="highlight-python notranslate"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -741,7 +767,7 @@ This is a new line.
 <span class="normal">37</span>
 <span class="normal">38</span>
 <span class="normal">39</span>
-<span class="normal">40</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">contextlib</span>
+<span class="normal">40</span></pre></div></td><td class="code"><div><pre><span></span><span class="kn">import</span> <span class="nn">contextlib</span>
 
 <span class="n">write_count</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">read_count</span> <span class="o">=</span> <span class="mi">0</span>
@@ -781,14 +807,14 @@ This is a new line.
     <span class="n">fr</span> <span class="o">=</span> <span class="n">FileResource</span><span class="p">(</span><span class="s1">&#39;input.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
 
     <span class="nb">print</span><span class="p">(</span><span class="n">FileResource</span><span class="o">.</span><span class="n">read_count</span><span class="p">,</span> <span class="n">FileResource</span><span class="o">.</span><span class="n">write_count</span><span class="p">)</span>
-</pre></div>
-</td></tr></table></div>
+</pre></div></td></tr></table></div>
+</div>
 <p>此時會發現說我們不用自行宣告類別就可以實現同樣的功能，且不只是更短的行數，程式碼的邏輯也變得更清晰。</p>
 <p>以下我們透過一些案例來介紹 <code class="docutils literal notranslate"><span class="pre">contextlib</span></code> 的一些使用方法、以及額外功能。</p>
 <section id="case-study-1">
 <h3>Case Study #1: 包裝函數<a class="headerlink" href="#case-study-1" title="Permalink to this headline">¶</a></h3>
 <p>當有些語法比較彆扭的時候可以包裝起來讓程式更美觀</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<div class="highlight-python notranslate"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -799,7 +825,7 @@ This is a new line.
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">contextlib</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><span class="kn">import</span> <span class="nn">contextlib</span>
 <span class="kn">import</span> <span class="nn">asyncssh</span>
 
 
@@ -811,13 +837,13 @@ This is a new line.
     <span class="n">hostname</span><span class="p">,</span> <span class="n">username</span> <span class="o">=</span> <span class="n">get_host_info_by_config</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
     <span class="k">with</span> <span class="n">asyncssh</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">hostname</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">)</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
         <span class="k">yield</span> <span class="n">conn</span>
-</pre></div>
-</td></tr></table></div>
+</pre></div></td></tr></table></div>
+</div>
 </section>
 <section id="case-study-2-stdout">
 <h3>Case Study #2: 轉導 stdout 到檔案流<a class="headerlink" href="#case-study-2-stdout" title="Permalink to this headline">¶</a></h3>
 <p>將在 stdout 接到的字串流當作資源，轉導引到其他檔案流 (如空裝置或標準錯誤流)。</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<div class="highlight-python notranslate"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -826,7 +852,7 @@ This is a new line.
 <span class="normal"> 7</span>
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">contextlib</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><span class="kn">import</span> <span class="nn">contextlib</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
@@ -836,8 +862,8 @@ This is a new line.
 
 <span class="k">with</span> <span class="n">contextlib</span><span class="o">.</span><span class="n">redirect_stdout</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;I would be flushed at any time!&#39;</span><span class="p">)</span>
-</pre></div>
-</td></tr></table></div>
+</pre></div></td></tr></table></div>
+</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Python 的 <code class="docutils literal notranslate"><span class="pre">redirect_stdout</span></code> 並無法捕捉所有 stdout 接收到的字串流，就算是 <code class="docutils literal notranslate"><span class="pre">sys.stdout</span></code> 也有同樣的問題，若要捕捉全部資料，需要去呼叫到底層的 file descriptor. 若有興趣的讀者請參考 <a class="reference external" href="https://github.com/eliben">Eli Bendersky</a> 的文章： <a class="reference external" href="ttps://eli.thegreenplace.net/2015/redirecting-all-kinds-of-stdout-in-python/">Redirecting all kinds of stdout in Python</a>.</p>
@@ -849,21 +875,21 @@ This is a new line.
 <li><p>複數資源的調用過程相當於 stack 的操作過程</p></li>
 <li><p>contextlib 已經實作好了，不要重造輪子</p></li>
 </ul>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<div class="highlight-python notranslate"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">contextlib</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><span class="kn">import</span> <span class="nn">contextlib</span>
 
 
 <span class="n">filenames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;input1.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;input2.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;input3.txt&#39;</span><span class="p">]</span>
 <span class="k">with</span> <span class="n">contextlib</span><span class="o">.</span><span class="n">ExitStack</span><span class="p">()</span> <span class="k">as</span> <span class="n">stack</span><span class="p">:</span>
     <span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="n">stack</span><span class="o">.</span><span class="n">enter_context</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">))</span> <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">filenames</span><span class="p">]</span>
     <span class="c1"># do something ...</span>
-</pre></div>
-</td></tr></table></div>
+</pre></div></td></tr></table></div>
+</div>
 </section>
 </section>
 <section id="id3">

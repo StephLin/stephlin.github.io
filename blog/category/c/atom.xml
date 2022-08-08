@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://stephlin.github.io</id>
   <title>StephLin's Personal Blog - Posts in C++</title>
-  <updated>2022-04-04T12:58:02.851293+00:00</updated>
+  <updated>2022-08-08T10:54:41.635979+00:00</updated>
   <link href="https://stephlin.github.io"/>
   <link href="https://stephlin.github.io/blog/category/c/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.org/" version="0.10.20">ABlog</generator>

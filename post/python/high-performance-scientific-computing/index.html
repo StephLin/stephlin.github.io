@@ -1,0 +1,1102 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Python 加速符文：高效能平行科學計算 &#8212; StephLin&#39;s Personal Blog  documentation</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/blank.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/color.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/style.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <link rel="canonical" href="https://stephlin.github.io/post/python/high-performance-scientific-computing.html" />
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../../about/" />
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en">
+    
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-179336561-1', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+ 
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../../../blog/atom.xml"
+  title="StephLin's Personal Blog"
+/>
+ 
+<link href="https://pro.fontawesome.com/releases/v5.13.0/css/all.css" rel="stylesheet" />
+
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../../../">
+  <img src="../../../_static/logo.png" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../about/">
+  About
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../projects/">
+  Projects
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../blog/">
+  Blog
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <form class="bd-search d-flex align-items-center" action="../../../search/" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/StephLin" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/blog/atom.xml" rel="noopener" target="_blank" title="RSS">
+            <span><i class="fas fa-rss-square"></i></span>
+            <label class="sr-only">RSS</label>
+          </a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">  
+<h2>
+   <i class="fa fa-calendar"></i>
+  07 August 2022 
+</h2>
+
+<ul>
+   
+<li id="author">
+  <span
+    ><i class="fa-fw fa fa-user"></i></span
+  >
+   
+  <a href="../../../blog/author/yu-kai-lin/">Yu-Kai Lin</a>  
+</li>
+ 
+<li id="location">
+  <span
+    ><i class="fa-fw fa fa-location-arrow"></i></span
+  >
+   
+  <a href="../../../blog/location/taiwan/">Taiwan</a>  
+</li>
+ 
+<li id="language">
+  <span
+    ><i class="fa-fw fa fa-language"></i></span
+  >
+   
+  <a href="../../../blog/language/中文/">中文</a>  
+</li>
+ 
+<li id="category">
+  <span
+    ><i class="fa-fw fa fa-folder-open"></i></span
+  >
+   
+  <a href="../../../blog/category/python/">Python</a>  
+</li>
+ 
+<li id="tags">
+  <span
+    ><i class="fa-fw fa fa-tags"></i> </span
+  >
+   
+  <a href="../../../blog/tag/python/">Python</a>   
+  <a href="../../../blog/tag/parallel-computing/">Parallel Computing</a>   
+  <a href="../../../blog/tag/numpy/">NumPy</a>   
+  <a href="../../../blog/tag/pythran/">Pythran</a>   
+  <a href="../../../blog/tag/pybind11/">pybind11</a>  
+</li>
+ 
+<li id="comments">
+  <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = "stephlin-github-io"; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+      var s = document.createElement("script");
+      s.async = true;
+      s.type = "text/javascript";
+      s.src = "//" + disqus_shortname + ".disqus.com/count.js";
+      (
+        document.getElementsByTagName("HEAD")[0] ||
+        document.getElementsByTagName("BODY")[0]
+      ).appendChild(s);
+    })();
+  </script>
+  <i class="fa-fw fa fa-comments"></i>
+  <a
+    href="#disqus_thread"
+    data-disqus-identifier="/post/python/high-performance-scientific-computing/"
+  >
+    </a
+  >
+</li>
+
+</ul>
+
+<h3>
+  <a href="../../../blog/">Recent Posts</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../cpp/cpp-traits/"
+      >13 November - C++ Traits 使用心得</a
+    >
+  </li>
+  
+  <li>
+    <a href="../../factor-graph/isam-part1/"
+      >09 August - iSAM2 演算法筆記 (1)：問題定義與 Bayes Tree</a
+    >
+  </li>
+  
+  <li>
+    <a href="../context-management-in-python/"
+      >02 January - Context Management in Python</a
+    >
+  </li>
+  
+  <li>
+    <a href="../../convex-optimization/sum-of-squares-polynomials-with-cvxpy/"
+      >03 October - Checking Sum of Squares (SOS) Polynomials with CVXPY</a
+    >
+  </li>
+  
+</ul>
+
+<h3><a href="../../../blog/tag/">Tags</a></h3>
+<style type="text/css">
+  ul.ablog-cloud {
+    list-style: none;
+    overflow: auto;
+  }
+  ul.ablog-cloud li {
+    float: left;
+    height: 20pt;
+    line-height: 18pt;
+    margin-right: 5px;
+  }
+  ul.ablog-cloud a {
+    text-decoration: none;
+    vertical-align: middle;
+  }
+  li.ablog-cloud-1 {
+    font-size: 80%;
+  }
+  li.ablog-cloud-2 {
+    font-size: 95%;
+  }
+  li.ablog-cloud-3 {
+    font-size: 110%;
+  }
+  li.ablog-cloud-4 {
+    font-size: 125%;
+  }
+  li.ablog-cloud-5 {
+    font-size: 140%;
+  }
+</style>
+<ul class="ablog-cloud">
+   
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/bayes-tree/">Bayes Tree</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/c/">C++</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/context-management/">Context Management</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/convex-optimization/">Convex Optimization</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/factor-graph/">Factor Graph</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/numpy/">NumPy</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-3">
+    <a href="../../../blog/tag/optimization/">Optimization</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/parallel-computing/">Parallel Computing</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-5">
+    <a href="../../../blog/tag/python/">Python</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/pythran/">Pythran</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/slam/">SLAM</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/semidefinite-programming/">Semidefinite Programming</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/sum-of-squares/">Sum of Squares</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/template/">Template</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/traits/">Traits</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="../../../blog/tag/pybind11/">pybind11</a>
+  </li>
+   
+</ul>
+
+<h3>
+  <a href="../../../blog/category/">Categories</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../../blog/category/c/">C++ (1)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/category/optimization/">Optimization (2)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/category/python/">Python (2)</a>
+  </li>
+   
+</ul>
+
+<h3>
+  <a href="../../../blog/archive/">Archives</a>
+</h3>
+<ul>
+   
+  <li>
+    <a href="../../../blog/2022/">2022 (1)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/2021/">2021 (3)</a>
+  </li>
+    
+  <li>
+    <a href="../../../blog/2020/">2020 (1)</a>
+  </li>
+   
+</ul>
+
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Python 為什麼那麼慢？
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Python 是動態型別語言
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Python 是解釋型語言
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Python 有全域直譯器鎖
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   加速符文
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     基礎加速符文：靜態型別
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     中級加速符文：平行處理
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     高級加速符文：再見了 Python
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id16">
+   心得
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                 <section id="python">
+<h1>Python 加速符文：高效能平行科學計算<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h1>
+<p>在 Python 基礎科學運算中，我們習於使用 NumPy 以方便且快速地實現矩陣運算，然而在部分情境下仍會遇到效能瓶頸。舉例來說，我們利用 NumPy 線性代數模組處理一個大型線性最小平方問題，但效能瓶頸卻發生在使用原生 Python 迴圈建造矩陣的過程。在本文中，我們將探討 Python 效能瓶頸問題，並試圖使用一些現有工具去達成運算加速的目的，同時比較這些工具之間的特性。</p>
+<section id="id1">
+<h2>Python 為什麼那麼慢？<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Python 好香，但他好慢 🥲</p>
+<p>為什麼使用 Python 的理由很簡單，一來他語法親民，能夠快速實現並測試一些功能或者想法；二來他有很多方便、隨裝即用的套件，使用者往往不需要太多的功夫就能達成許多新鮮有趣的程式。</p>
+<p>然而眾所皆知， Python 很慢，但也不代表說我們只能乾瞪眼任其一直慢下去。所謂了解問題是解決問題的第一步，不過我們需要分一點層次去探討他慢的理由。以下會用比較簡易的方式進行探討，關於完整的效能議題可以參考 <a class="reference internal" href="#mike2021why" id="id2"><span>[Mike2021Why]</span></a>。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>在本文中我們以 CPU-tasks 為主，關於 I/O-tasks 的效能問題則有不同的處理手段。</p>
+</div>
+<section id="id3">
+<h3>Python 是動態型別語言<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>動態型別 (Dynamically typed) 的意思是說，我們不需要為變數指定他的型態，同時我們可以對相同的變數名賦予完全不同型態的值。比如說以下程式碼：</p>
+<div class="highlight-python notranslate"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>      <span class="c1"># type(a) == int</span>
+<span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;123&quot;</span>  <span class="c1"># type(a) == str</span>
+</pre></div></td></tr></table></div>
+</div>
+<p>在第一行時，變數 <code class="docutils literal notranslate"><span class="pre">a</span></code> 的型態為整數 <code class="docutils literal notranslate"><span class="pre">1</span></code>，而在第二行時，變數 <code class="docutils literal notranslate"><span class="pre">a</span></code> 的型態變成字串 <code class="docutils literal notranslate"><span class="pre">&quot;123&quot;</span></code>，且在變數宣告過程中，我們都沒有提示說該變數的型態為何。</p>
+<p>相比之下，在靜態型別 (Statically typed) 語言中，像是 C++ 或 Java ，你就必須得這麼做：</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="c1">// std::string a = &quot;123&quot;;  // You even can&#39;t do this</span>
+<span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;123&quot;</span><span class="p">;</span><span class="w"></span>
+</pre></div></td></tr></table></div>
+</div>
+<p>如此乍看之下，擁有動態型別特性的語言能帶給我們更大的彈性，並且方便！但是，這個便利性是有代價的。</p>
+</section>
+<section id="id4">
+<h3>Python 是解釋型語言<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>與編譯型 (Compiled) 語言不同的是，解釋型 (Interpreted) 語言會將程式碼編譯成位元組碼 (bytecode)，接著再將位元組碼提供給解釋器 (interpreter)，讓他轉換成最終的機械碼 (machine code)，也就是 CPU 真正看得懂的語言。</p>
+<p>這樣乍看下來，在執行階段中，解釋型語言就硬生生比編譯型語言多出了編譯的成本，因為編譯型語言在執行階段就是吃機械碼，不須多加編譯或解析。這個說法本身並沒有錯，但是 Python 慢的主要理由並不是這裡。一個例子是 Java ，他的編譯過程也是將原始碼轉成位元組碼，並於執行階段再將其交由 JVM 去轉換成機械碼，但 Java 事實上並沒有那麼慢。</p>
+<p>真正的問題是動態型別！自由自在的型態使得程式碼的運作行為無法輕易地被預期，因此解釋器必須要逐步執行並逐步判斷接下來的運算行為。就好比程式執行的過程像是火車在前進，在已知型態的前提下，我們可以事先將軌道鋪得遠一些，讓火車不用走走停停的，但 Python 只能讓火車走一步停一步，等軌道鋪好一格後才能繼續走。</p>
+<p>到目前為止，我們對於 Python 的效能問題有以下簡單的見解：動態型別的特性逼得 Python 需要設計成解釋型語言，而動態型別的不可預期性讓效能在執行階段難以被優化。</p>
+</section>
+<section id="id5">
+<h3>Python 有全域直譯器鎖<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Python 使用 reference counting 的方式管理記憶體，並以此作為垃圾回收機制以及記憶體管理的基礎。</p>
+<p>這使得說每個變數的計數器在多線程處理中需要被保護，意思是說解釋器需要確保變數在每個時刻下只被一個線程控制 (這意味著新增或者減少參考計數)，在 Python 中，他的做法就是引進全域直譯器鎖 (Global Interpreter Lock)，強迫在任何時刻下都只有一個線程在運作。</p>
+<p>這也是 Python 效能變得不是很優的原因之一，但僅限在多線程處理中才會遇到：本來好端端能平行運算的東西，因為記憶體管理的因素，而被迫降級成實質單線程運算的品質。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>變數的參考計數實際上比你想像中更頻繁得被更動，我們用以下例子說明：</p>
+<div class="highlight-python notranslate"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">10000000000000000</span>  <span class="c1"># import gc; len(gc.get_referrers(a)) ==  1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span>  <span class="c1"># len(gc.get_referrers(a)) ==  2</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span>  <span class="c1"># len(gc.get_referrers(a)) ==  3</span>
+</pre></div></td></tr></table></div>
+</div>
+<p>在程式碼中，第一行宣告變數 <code class="docutils literal notranslate"><span class="pre">a</span></code> 時，該物件 <code class="docutils literal notranslate"><span class="pre">10000000000000000</span></code> 會被初始化，並且該計數器為 1 ，當程式執行到第二行時，同樣的物件看似沒有被修改，但他的計數器會加一，因此實質上它的內部數值還是被修改了。</p>
+<p>由此可知，第二行跟第三行即使平行化了也不能同步執行，雖然這聽起來很不可理喻，但 Python 就是這樣。</p>
+</div>
+</section>
+</section>
+<section id="id6">
+<h2>加速符文<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>到目前為止，我們大致理解 Python 效能問題的主要理由，總算可以來談談如何進行加速了，但這邊還是得先打個預防針：凡好康的福利總是有前提的。</p>
+<p>在本文中，我們著重於科學計算 (或者說數值計算) 的加速，為了方便進行不同工具間的比較，我們使用相同的數值計算問題 (弧長計算) 進行演示：給定一個有限數列</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{X} = \Big\{\boldsymbol{x}_i \in \mathbb{R}^m \Big\}_{i=1}^n,\]</div>
+<p>我們想要計算出這個數列所形成的弧長</p>
+<div class="math notranslate nohighlight">
+\[\ell = \sum_{i=1}^{n-1} \Big\Vert \boldsymbol{x}_{i+1} - \boldsymbol{x}_{i} \Big\Vert_2.\]</div>
+<p>如果用 NumPy 實作這個功能的話，我們可以使用以下程式碼：</p>
+<div class="literal-block-wrapper docutils container" id="id17">
+<div class="code-block-caption"><span class="caption-text">with_numpy/lib.py</span><a class="headerlink" href="#id17" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<span class="k">def</span> <span class="nf">arc_length</span><span class="p">(</span><span class="n">points</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Compute the arc length of a discrete set of points (curve).</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        points (np.ndarray): A list of points.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        float: Arc length.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">piecewice_length</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">piecewice_length</span><span class="p">)</span>
+</pre></div></td></tr></table></div>
+</div>
+</div>
+<p>其中我們將數列表達成一個二維陣列，其中每一列代表數列中的一個點。</p>
+<p>其實這個版本跟原始 Python 相比，效能算是還不錯了，不過以下會告訴大家，這還差得遠呢。</p>
+<section id="id7">
+<h3>基礎加速符文：靜態型別<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>儘管 Python 是一個動態型別語言，但其實我們沒有那麼需要動態型別。</p>
+<p>就弧長計算的例子來說，我們很明確地知道輸入的數列是一個二維向量，且每一個數值都是符點數，因此我們並不會使用到動態型別的優勢。在這邊我們首先介紹第一個工具 <a class="reference external" href="https://pythran.readthedocs.io/en/latest/">Pythran</a> ，他提供了為函數參數提供指定型態的功能，並且將程式碼事先編譯 (ahead of time compilation, AOT) 成可由 Python 於執行階段呼叫的 shared library ，進而達成靜態型別的效益 (同時也省去執行階段編譯的成本)。</p>
+<div class="literal-block-wrapper docutils container" id="id18">
+<div class="code-block-caption"><span class="caption-text">with_pythran/lib.py</span><a class="headerlink" href="#id18" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<span class="hll"><span class="c1"># pythran export arc_length(float64[:, :])</span>
+</span><span class="k">def</span> <span class="nf">arc_length</span><span class="p">(</span><span class="n">points</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Compute the arc length of a discrete set of points (curve).</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        points (float64[:, :]): A list of points.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        float: Arc length.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">length</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">points</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">length</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">points</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">points</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">length</span>
+</pre></div></td></tr></table></div>
+</div>
+</div>
+<p>在這邊可以看到我們透過註解 (第四行) 告訴 Pythran 該函數的唯一參數是一個二維的 64-bit 浮點數陣列 <code class="docutils literal notranslate"><span class="pre">float64[:,</span> <span class="pre">:]</span></code>，除此之外，你可以看到我們並沒有使用到其他特殊的語句。</p>
+<p>接著我們可以使用以下指令進行事先編譯：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pythran lib.py
+</pre></div>
+</div>
+<p>他會在同一層目錄下建立一個名稱類似於 <code class="docutils literal notranslate"><span class="pre">lib.cpython-XXm-x86_64-XXX-XXX.so</span></code> 的 shared library (在筆者使用的電腦中，該名稱為 <code class="docutils literal notranslate"><span class="pre">lib.cpython-37m-x86_64-linux-gnu.so</span></code>) ，我們留意到他只能由指定的 Python 版本以及指令集架構呼叫，因為他本身已經是機械碼了。</p>
+<p>至此，我們就可以來一窺這個加速符文的功效了：</p>
+<figure class="align-default" id="id19">
+<a class="reference internal image-reference" href="../../../_images/rows.png"><img alt="../../../_images/rows.png" src="../../../_images/rows.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-text">NumPy <em>v.s.</em> <strong>Pythran-NumPy</strong></span><a class="headerlink" href="#id19" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>在這個測試當中，我們在固定數值點的維度 (三維) 下，逐步增加點的數量 (在實際測試中我們試驗一百萬到一千萬個點) ，在這之中我們發現在適當的程式編排下， Pythran 的效能比 NumPy 快了約七倍！由此可見，光是固定變數型態，就足以讓編譯器決定說如何能讓程式效率變得更好。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>實際上也有其他套件能做到類似的事情，一個大家常聽到的工具是 <a class="reference external" href="https://cython.org/">Cython</a> ，不過使用者需要熟悉 Cython 自定義的語法，他有點像 C/C++ ，但又有些差異。筆者認為他比較難上手，故不在此篇特別做介紹。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>在上文中，所謂「適當的程式編排」指的是說：程式設計師依然要提供正確且簡潔的實作方法，同時也要考量到套件本身對各式語法的支援程度，如此才能將加速機制發揮到極致。</p>
+</div>
+</section>
+<section id="id8">
+<h3>中級加速符文：平行處理<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>在上述測試中，不管是 NumPy 或者是 Pythran 的初步實作，他們在計算上都是只有使用到單一線程。意思是說，到目前為止的執行效能還可以透過平行化再上一層樓。</p>
+<p>幸運的是， Pythran 本身也有提供平行化的功能，在這邊我們需要為本來的程式碼加上 OpenMP 的語法註解。</p>
+<div class="literal-block-wrapper docutils container" id="id20">
+<div class="code-block-caption"><span class="caption-text">with_pythran_omp/lib.py</span><a class="headerlink" href="#id20" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<span class="c1"># pythran export arc_length(float64[:, :])</span>
+<span class="k">def</span> <span class="nf">arc_length</span><span class="p">(</span><span class="n">points</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Compute the arc length of a discrete set of points (curve).</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        points (float64[:, :]): A list of points.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        float: Arc length.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">length</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="hll">    <span class="c1"># omp parallel for reduction(+:length)</span>
+</span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">points</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">length</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">points</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">points</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">length</span>
+</pre></div></td></tr></table></div>
+</div>
+</div>
+<p>在以上程式碼中， <code class="docutils literal notranslate"><span class="pre">omp</span> <span class="pre">parallel</span> <span class="pre">for</span></code> 是對於 for 迴圈平行化運算的常見起手式，而由於 <code class="docutils literal notranslate"><span class="pre">length</span></code> 在這個地方是作為累加的單一變數，可能會有所謂的讀寫問題 (readers-writers problems) ，因此我們需要加上 <code class="docutils literal notranslate"><span class="pre">reduction(+:length)</span></code> 以避免不良的平行化機制。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>此時如果讀者對 OpenMP 稍微有一點理解的話，或許會懷疑說：這東西當初不是設計給 C/C++ 用的嗎？別緊張，等等我們就會說明。</p>
+</div>
+<p>至此我們再編譯一次，留意我們需要再另外加上 <code class="docutils literal notranslate"><span class="pre">-fopenmp</span></code> 這個 flag:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pythran -fopenmp lib.py
+</pre></div>
+</div>
+<p>接著我們就可以來看看在平行化加持下的效果如何：</p>
+<figure class="align-default" id="id21">
+<a class="reference internal image-reference" href="../../../_images/rows1.png"><img alt="../../../_images/rows1.png" src="../../../_images/rows1.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-text">NumPy <em>v.s.</em> Pythran-NumPy (Single) <em>v.s.</em> <strong>Pythran-OpenMP (Parallel)</strong></span><a class="headerlink" href="#id21" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>在六核十二執行緒的執行環境下，一樣的測試場景，在一千萬個點的案例中，我們發現在平行化加持下，效能與單執行緒相比又至多能提升四倍左右！並且在這個實作中，我們已經逐漸逼近 CPU 的運算極限了。</p>
+<p>此時或許已經有一些讀者開始思考，有沒有稍微簡單一點的平行化方法呢？</p>
+<p>答案是有的！我們在此介紹另外一個強大的工具 <a class="reference external" href="https://numba.pydata.org/">Numba</a> ，他能夠允許使用者在不涉及到這麼多細節的前提下，一樣能達成類似的效果。我們直接上程式碼：</p>
+<div class="literal-block-wrapper docutils container" id="id22">
+<div class="code-block-caption"><span class="caption-text">with_numba/lib.py</span><a class="headerlink" href="#id22" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><span class="hll"><span class="kn">import</span> <span class="nn">numba</span> <span class="k">as</span> <span class="nn">nb</span>
+</span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<span class="hll"><span class="nd">@nb</span><span class="o">.</span><span class="n">njit</span><span class="p">(</span><span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span class="k">def</span> <span class="nf">arc_length</span><span class="p">(</span><span class="n">points</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Compute the arc length of a discrete set of points (curve).</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        points (np.ndarray): A list of points.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        float: Arc length.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">length</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="hll">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">nb</span><span class="o">.</span><span class="n">prange</span><span class="p">(</span><span class="n">points</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+</span>        <span class="n">piecewice_length</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">points</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">points</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span>
+        <span class="n">length</span> <span class="o">+=</span> <span class="n">piecewice_length</span>
+
+    <span class="k">return</span> <span class="n">length</span>
+</pre></div></td></tr></table></div>
+</div>
+</div>
+<p>在以上實作中，我們利用裝飾器 (Python decorator, <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>) 對函數進行 Numba 包裝，其中 <code class="docutils literal notranslate"><span class="pre">nb.njit</span></code> (等價語法為 <code class="docutils literal notranslate"><span class="pre">nb.jit(nopython=True)</span></code>) 更指定該函數不受 Python interpreter 的介入，使其能夠達到最佳效能。同時我們也指定該函數需要進行平行化，其中我們在第十七行使用 <code class="docutils literal notranslate"><span class="pre">nb.prange</span></code> 指定該處是可以進行平行化的。</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>在 Numba 底層中，他們會自動判斷程式碼並套用合適的平行化機制，不過取而代之，使用者需要透過語法「提示」 Numba 該怎麼做，比如程式碼中的 <code class="docutils literal notranslate"><span class="pre">+=</span></code> 就是一個重要的資訊。詳細的說明可以參考官方文件 <a class="reference internal" href="#numbaparallel" id="id9"><span>[NumbaParallel]</span></a>。</p>
+</div>
+<p>與 Pythran 不同的是， Numba 透過 just-in-time compilation (JIT) 機制使原始碼在執行階段進行編譯，因此不需要事先編譯。此時我們來看看 Numba 的效果如何：</p>
+<figure class="align-default" id="id23">
+<a class="reference internal image-reference" href="../../../_images/rows2.png"><img alt="../../../_images/rows2.png" src="../../../_images/rows2.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-text">NumPy <em>v.s.</em> Pythran-NumPy (Single &amp; Parallel) <em>v.s.</em> <strong>Numba</strong></span><a class="headerlink" href="#id23" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>在這個比較當中，我們發現他與 Pythran 平行化後的效能相比是足以分庭抗禮的，儘管速度上稍微略遜一小截，但我們觀察到 Numba 能夠提供更高階的語法結構，同時可以留意到我們並沒有特別指定變數型態，雖然他還是只能吃 NumPy 陣列，但 Numba 也會根據當下取得的陣列資訊進行優化，藉以獲得更好的執行彈性。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Numba 還支援基於 CUDA 的 GPU 加速功能 <a class="reference internal" href="#numbacuda" id="id10"><span>[NumbaCUDA]</span></a> ，因此他也比 Pythran 還具備更多元的加速方案。</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>在上述的效能比較中，我們並沒有將 Numba JIT 編譯的時間納入計算，關於這部分的討論我們會放到後面各類工具比較章節討論。</p>
+</div>
+</section>
+<section id="id11">
+<h3>高級加速符文：再見了 Python<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p>從一開始介紹動態型別、GIL 等等的效能瓶頸問題，到後面我們開始探討說：在科學計算中，我們需要動態型別嗎？需要這種記憶體管理機制嗎？而到目前為止的試驗中我們也發現：將這些緊箍咒一一卸下後，我們也獲得了飛躍的效能提升。</p>
+<p>此時我們進一步探討： <strong>我們真的有那麼需要 Python 嗎？</strong></p>
+<p>這句話的意思是說，我們在上述計算成本大的運算中，似乎壓根沒有從 Python 中得到什麼好處，反而是因為 Python 的設計機制導致我們用了不合理的運算時間才能得到計算結果。那有沒有一種可能性是說，我們在上層呼叫中仍然使用 Python ，但在計算部分我們另起爐灶，用更高效能的語言去實作他呢？</p>
+<p>此時我們回過頭來提及上述所使用到的兩個工具 Pythran 跟 Numba ，其實他們已經默默幫我們做到這件事情了。</p>
+<p>Pythran 本質上是一個 Python-to-C++ 的轉換器，他真正在做的事情是將 Python 程式碼轉換成 C++ 程式碼，再透過 C++ 編譯器編譯成 shared library 供 Python interpreter 使用；而 Numba 則是使用 LLVM 將 Python 程式碼轉換成高效能的機械碼，基本上也是異曲同工。</p>
+<p>不過不可諱言地說，他們在使用上還是受到套件本身的限制，比如說 Numba 無法在函數中塞入 NumPy 以外的套件功能 (e.g., Pandas)，同時他對於 NumPy 語法的支援也有所侷限，在沒有詳細閱讀文件的前提下直接撰寫也有一定的風險 <a class="reference internal" href="#numbanumpysupported" id="id12"><span>[NumbaNumPySupported]</span></a>。而相似的困境在 Pythran 中也會遇到 <a class="reference internal" href="#pythransupported" id="id13"><span>[PythranSupported]</span></a>。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>關於 Numba 的使用注意事項以及心得也可以參考 Jacky 的文章 <a class="reference internal" href="#jacky2019numba" id="id14"><span>[Jacky2019Numba]</span></a>。</p>
+</div>
+<p>那，我們不妨自己寫 C++ 吧？</p>
+<p>其實 NumPy 也是在做類似的事情， NumPy 在內部參照了 CPython API 去實現高性能的科學計算功能，當然我們也可以依樣畫葫蘆，同樣對著 CPython API 刻出我們需要的功能，不過 CPython 在不同版本可能會有不同的 API ，這導致我們在實作上會有一點麻煩。</p>
+<p>這邊我們介紹 <a class="reference external" href="https://pybind11.readthedocs.io/en/stable/">pybind11</a> ，他提供了相對 CPython API 而言更上層的語法介面，讓使用者可以更容易得達成這個目的。到這邊我們就實現真正意義上的使用 C++ 了：沒有奇怪的套件限制，同時可以隨意呼叫任何在 C++ 可以使用的函式庫！</p>
+<div class="literal-block-wrapper docutils container" id="id24">
+<div class="code-block-caption"><span class="caption-text">with_pybind11/src/lib.cpp</span><a class="headerlink" href="#id24" title="Permalink to this code">¶</a></div>
+<div class="highlight-c++ notranslate"><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span></pre></div></td><td class="code"><div><pre><span></span><span class="cp">#if __INTELLISENSE__</span>
+<span class="cp">#undef __ARM_NEON</span>
+<span class="cp">#undef __ARM_NEON__</span>
+<span class="cp">#endif</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;pybind11/eigen.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;pybind11/numpy.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;pybind11/pybind11.h&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;omp.h&gt;</span><span class="cp"></span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">py</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">pybind11</span><span class="p">;</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">omp_thread_count</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="cp">#pragma omp parallel reduction(+:n)</span>
+<span class="w">  </span><span class="n">n</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">double</span><span class="w"> </span><span class="nf">arc_length</span><span class="p">(</span><span class="n">Eigen</span><span class="o">::</span><span class="n">Ref</span><span class="o">&lt;</span><span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="n">Eigen</span><span class="o">::</span><span class="n">Dynamic</span><span class="p">,</span><span class="w"> </span><span class="n">Eigen</span><span class="o">::</span><span class="n">Dynamic</span><span class="p">,</span><span class="w"> </span><span class="n">Eigen</span><span class="o">::</span><span class="n">RowMajor</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">omp_set_dynamic</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">omp_set_num_threads</span><span class="p">(</span><span class="n">omp_thread_count</span><span class="p">());</span><span class="w"></span>
+<span class="w">  </span><span class="cp">#pragma omp parallel for reduction(+:length)</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">rows</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">length</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">row</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">row</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)).</span><span class="n">norm</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">length</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">PYBIND11_MODULE</span><span class="p">(</span><span class="n">lib</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">m</span><span class="p">.</span><span class="n">def</span><span class="p">(</span><span class="s">&quot;arc_length&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">arc_length</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div></td></tr></table></div>
+</div>
+</div>
+<p>在這個範例中，我們使用 <a class="reference external" href="https://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen</a> 函式庫實現在 C++ 的線性代數運算，他在 C++ 當中也是相當知名的數學套件，同時學習到上面平行化的精神，我們使用 OpenMP 對各線段長的運算進行平行化處理。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>參數型態 <code class="docutils literal notranslate"><span class="pre">Eigen::Ref&lt;Eigen::Matrix&lt;...&gt;&gt;</span></code> 能夠避免函數呼叫中額外進行不必要的複製 (pass-by-reference)，在不使用 <code class="docutils literal notranslate"><span class="pre">Eigen::Ref</span></code> 的情況下，使用 pybind11 反而可能因為額外的記憶體複製造成效能下降 <a class="reference internal" href="#pybind11eigenpassbyreference" id="id15"><span>[pybind11EigenPassByReference]</span></a>。</p>
+</div>
+<p>至此，我們對原始碼進行編譯，在這邊我們使用 OpenMP <code class="docutils literal notranslate"><span class="pre">-fopenmp</span></code> 以及 <code class="docutils literal notranslate"><span class="pre">-O3</span></code> 編譯優化，最終取得以下效能：</p>
+<figure class="align-default" id="id25">
+<a class="reference internal image-reference" href="../../../_images/rows3.png"><img alt="../../../_images/rows3.png" src="../../../_images/rows3.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-text">NumPy <em>v.s.</em> Pythran <em>v.s.</em> Numba <em>v.s.</em> <strong>pybind11</strong></span><a class="headerlink" href="#id25" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>在這個案例中，我們可以看到 pybind11 與 Pythran 可說不相上下，不過我們切換另一個實驗場景：我們在固定點數量 (一萬點) 的前提下，逐步提升點的維度 (一千維度到一萬維度) ，並比較各方法之間的效能差異：</p>
+<figure class="align-default" id="id26">
+<a class="reference internal image-reference" href="../../../_images/cols.png"><img alt="../../../_images/cols.png" src="../../../_images/cols.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-text">NumPy <em>v.s.</em> Pythran <em>v.s.</em> Numba <em>v.s.</em> <strong>pybind11</strong></span><a class="headerlink" href="#id26" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>在這個範例中，我們看到 pybind11 獲得所有方法中最快的效能，在一萬維度的情況下，速度上甚至是第二名平行化 Pythran 版本的兩倍，與原生 NumPy 相比則是快了超過六十倍，至於最原始的 Python 版本我們就別提了。</p>
+<p>雖然我們在這個案例中看到了 pybind11 的潛力，但使用這個方法也並非完全沒有缺點。一個明顯的問題是他需要付上一定的成本去建置相關環境，同時也需要考慮顧慮更多的實作細節，以達到最佳的效能。因此在 Python 平行化運算中並不總是提及 pybind11 這個方案，因為他在產品定位上更接近於一個 Python 綁定器 (Python bindings)。</p>
+</section>
+</section>
+<section id="id16">
+<h2>心得<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h2>
+<p>實際上，這些套件他們各自都有自己最關心的議題，故在筆者從開始進行這一系列的測試到現在，並沒有得到所謂「誰才是最佳且唯一解決方案」的結論，而是說我們需要根據當下的實作情境去選擇最適合的工具。因此以下筆者根據自己的使用經驗以及個人感受，提供一個簡易的表格作為套件選擇的依據：</p>
+<table class="table">
+<thead>
+  <tr>
+    <th>套件</th>
+    <th>特色</th>
+    <th>主要限制</th>
+    <th>適用情境</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Cython</td>
+    <td>Python-to-C/C++ 翻譯器</td>
+    <td>部分語法不支援，需學習特規語法</td>
+    <td>已熟悉 Cython 語法者較佳</td>
+  </tr>
+  <tr>
+    <td>Pythran</td>
+    <td>Python-to-C++ 翻譯器</td>
+    <td>部分語法不支援</td>
+    <td>想要透過靜態型別實現效能加速，同時可接受較簡易的平行化方案</td>
+  </tr>
+  <tr>
+    <td>Numba</td>
+    <td>高階科學計算平行化工具</td>
+    <td>部分語法不支援，少數用法很彆扭</td>
+    <td>想要以不改動過多程式碼的前提下實現平行化加速</td>
+  </tr>
+  <tr>
+    <td>pybind11</td>
+    <td>C++ 的 Python 綁定器</td>
+    <td>需要熟悉 C++，同時也要考慮記憶體複製問題</td>
+    <td>以 C++ 為套件發展基礎、或者想要追求極致效能、或者單純想炫技 (?)</td>
+  </tr>
+  <tr>
+    <td>dask</td>
+    <td>分散式運算工具，支援大量第三方套件，生態系豐富</td>
+    <td>參數調整不佳的狀況可能導致效能退步</td>
+    <td>需要協同各式套件處理大量資料，或者需要進行叢集運算為佳</td>
+  </tr>
+</tbody>
+</table><p>在表格中我們還另外將 Cython 以及 <a class="reference external" href="https://www.dask.org/">dask</a> 加入比較對象，不過我們沒有將 dask 的效能納入比較對象，除了筆者到目前為止還沒有調出較佳的效能之外，他在使用定位上比較接近叢集運算，這部分就比較偏離本篇的主題了，但他仍然是一個非常有趣的套件，若有興趣的讀者可以到他們的官方網站一探究竟。</p>
+<p>文末筆者也提供上述測試所使用的 <a class="reference external" href="https://github.com/StephLin/boost-your-python-scientific-computation">原始碼</a> ，若大家閒來無事的話可以參考看看，裡面也有一些本文未提及的暗黑加速符文 (例如 <a class="reference external" href="https://cupy.dev/">CuPy</a> 這個 GPU 加速方案)，若讀者有相關疑慮或者建議，也非常歡迎在 <a class="reference external" href="https://github.com/StephLin/boost-your-python-scientific-computation/issues">Issues</a> 或者本篇留言中回覆！</p>
+<p>最後，祝福大家能順利幫自己的程式碼套上適合的加速符文囉！</p>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<dl class="citation">
+<dt class="label" id="mike2021why"><span class="brackets"><a class="fn-backref" href="#id2">Mike2021Why</a></span></dt>
+<dd><p>Mike Huls (2021). <a class="reference external" href="https://towardsdatascience.com/why-is-python-so-slow-and-how-to-speed-it-up-485b5a84154e">Why Python is so slow and how to speed it up</a>, Towards Data Science.</p>
+</dd>
+<dt class="label" id="numbaparallel"><span class="brackets"><a class="fn-backref" href="#id9">NumbaParallel</a></span></dt>
+<dd><p>Numba. <a class="reference external" href="https://numba.readthedocs.io/en/stable/user/parallel.html">Automatic parallelization with &#64;jit</a>.</p>
+</dd>
+<dt class="label" id="numbacuda"><span class="brackets"><a class="fn-backref" href="#id10">NumbaCUDA</a></span></dt>
+<dd><p>Numba. <a class="reference external" href="https://numba.readthedocs.io/en/stable/cuda/overview.html">Numba for CUDA GPUs</a>.</p>
+</dd>
+<dt class="label" id="numbanumpysupported"><span class="brackets"><a class="fn-backref" href="#id12">NumbaNumPySupported</a></span></dt>
+<dd><p>Numba. <a class="reference external" href="https://numba.readthedocs.io/en/stable/reference/numpysupported.html">Supported NumPy features</a></p>
+</dd>
+<dt class="label" id="pythransupported"><span class="brackets"><a class="fn-backref" href="#id13">PythranSupported</a></span></dt>
+<dd><p>Pythran. <a class="reference external" href="https://pythran.readthedocs.io/en/latest/SUPPORT.html">Supported Modules and Functions</a>.</p>
+</dd>
+<dt class="label" id="jacky2019numba"><span class="brackets"><a class="fn-backref" href="#id14">Jacky2019Numba</a></span></dt>
+<dd><p>Jacky (黃馨平). <a class="reference external" href="https://medium.com/jacky-life/%E9%AD%AF%E8%9B%87%E8%AE%8A%E8%9F%92%E8%9B%87%E8%A8%98-41e9c047e8e5">魯蛇變蟒蛇</a>, Medium.</p>
+</dd>
+<dt class="label" id="pybind11eigenpassbyreference"><span class="brackets"><a class="fn-backref" href="#id15">pybind11EigenPassByReference</a></span></dt>
+<dd><p>pybind11. <a class="reference external" href="https://pybind11.readthedocs.io/en/stable/advanced/cast/eigen.html#pass-by-reference">Pass-by-reference for Eigen</a>.</p>
+</dd>
+</dl>
+</section>
+</section>
+
+<div class="section">
+     
+<div class="section">
+  <span style="float: left">
+     
+    <a href="../../cpp/cpp-traits/">
+      <i class="fa fa-arrow-circle-left"></i> C++ Traits 使用心得
+    </a>
+    
+  </span>
+  <span>&nbsp;</span>
+  <span style="float: right">
+    
+  </span>
+</div>
+  
+  <div class="section">
+    <h2>Comments</h2>
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      var disqus_shortname = "stephlin-github-io";
+      var disqus_identifier = "/post/python/high-performance-scientific-computing/";
+      var disqus_title = "Python 加速符文：高效能平行科學計算";
+      var disqus_url = "https://stephlin.github.io/post/python/high-performance-scientific-computing";
+
+      (function () {
+        var dsq = document.createElement("script");
+        dsq.type = "text/javascript";
+        dsq.async = true;
+        dsq.src = "//" + disqus_shortname + ".disqus.com/embed.js";
+        (
+          document.getElementsByTagName("head")[0] ||
+          document.getElementsByTagName("body")[0]
+        ).appendChild(dsq);
+      })();
+    </script>
+    <noscript
+      >Please enable JavaScript to view the
+      <a href="https://disqus.com/?ref_noscript"
+        >comments powered by Disqus.</a
+      ></noscript
+    >
+    <a href="https://disqus.com" class="dsq-brlink"
+      >comments powered by <span class="logo-disqus">Disqus</span></a
+    >
+  </div>
+  
+</div>
+
+              </div>
+              
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2021, Yu-Kai Lin.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

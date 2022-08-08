@@ -211,6 +211,12 @@
 <ul>
    
   <li>
+    <a href="../post/python/high-performance-scientific-computing/"
+      >07 August - Python 加速符文：高效能平行科學計算</a
+    >
+  </li>
+  
+  <li>
     <a href="../post/cpp/cpp-traits/"
       >13 November - C++ Traits 使用心得</a
     >
@@ -290,12 +296,24 @@
     <a href="tag/factor-graph/">Factor Graph</a>
   </li>
     
-  <li class="ablog-cloud ablog-cloud-5">
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/numpy/">NumPy</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-3">
     <a href="tag/optimization/">Optimization</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/parallel-computing/">Parallel Computing</a>
   </li>
     
   <li class="ablog-cloud ablog-cloud-5">
     <a href="tag/python/">Python</a>
+  </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/pythran/">Pythran</a>
   </li>
     
   <li class="ablog-cloud ablog-cloud-1">
@@ -317,6 +335,10 @@
   <li class="ablog-cloud ablog-cloud-1">
     <a href="tag/traits/">Traits</a>
   </li>
+    
+  <li class="ablog-cloud ablog-cloud-1">
+    <a href="tag/pybind11/">pybind11</a>
+  </li>
    
 </ul>
 
@@ -334,7 +356,7 @@
   </li>
     
   <li>
-    <a href="category/python/">Python (1)</a>
+    <a href="category/python/">Python (2)</a>
   </li>
    
 </ul>
@@ -344,6 +366,10 @@
 </h3>
 <ul>
    
+  <li>
+    <a href="2022/">2022 (1)</a>
+  </li>
+    
   <li>
     <a href="2021/">2021 (3)</a>
   </li>
@@ -377,6 +403,70 @@
      All  Posts 
   </h1>
    
+
+  <div class="section">
+    <h2>
+      <a href="../post/python/high-performance-scientific-computing/"
+        >Python 加速符文：高效能平行科學計算</a
+      >
+    </h2>
+
+    <ul class="ablog-archive">
+      <li>
+         <i class="fa fa-calendar"></i> 07 August 2022 
+      </li>
+       
+<li id="author">
+  <span
+    ><i class="fa-fw fa fa-user"></i></span
+  >
+   
+  <a href="author/yu-kai-lin/">Yu-Kai Lin</a>  
+</li>
+ 
+<li id="location">
+  <span
+    ><i class="fa-fw fa fa-location-arrow"></i></span
+  >
+   
+  <a href="location/taiwan/">Taiwan</a>  
+</li>
+ 
+<li id="language">
+  <span
+    ><i class="fa-fw fa fa-language"></i></span
+  >
+   
+  <a href="language/中文/">中文</a>  
+</li>
+ 
+<li id="category">
+  <span
+    ><i class="fa-fw fa fa-folder-open"></i></span
+  >
+   
+  <a href="category/python/">Python</a>  
+</li>
+ 
+<li id="tags">
+  <span
+    ><i class="fa-fw fa fa-tags"></i> </span
+  >
+   
+  <a href="tag/python/">Python</a>   
+  <a href="tag/parallel-computing/">Parallel Computing</a>   
+  <a href="tag/numpy/">NumPy</a>   
+  <a href="tag/pythran/">Pythran</a>   
+  <a href="tag/pybind11/">pybind11</a>  
+</li>
+ 
+    </ul>
+    <p>在 Python 基礎科學運算中，我們習於使用 NumPy 以方便且快速地實現矩陣運算，然而在部分情境下仍會遇到效能瓶頸。舉例來說，我們利用 NumPy 線性代數模組處理一個大型線性最小平方問題，但效能瓶頸卻發生在使用原生 Python 迴圈建造矩陣的過程。在本文中，我們將探討 Python 效能瓶頸問題，並試圖使用一些現有工具去達成運算加速的目的，同時比較這些工具之間的特性。</p>
+
+    <p><a href="../post/python/high-performance-scientific-computing/">Read more ...</a></p>
+    <hr />
+  </div>
+  
 
   <div class="section">
     <h2>
