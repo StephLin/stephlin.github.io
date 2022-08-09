@@ -468,7 +468,7 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id4">
-     Python 是解釋型語言
+     Python 是直譯型語言
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -562,16 +562,16 @@
 <p>如此乍看之下，擁有動態型別特性的語言能帶給我們更大的彈性，並且方便！但是，這個便利性是有代價的。</p>
 </section>
 <section id="id4">
-<h3>Python 是解釋型語言<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<p>與編譯型 (Compiled) 語言不同的是，解釋型 (Interpreted) 語言會將程式碼編譯成位元組碼 (bytecode)，接著再將位元組碼提供給解釋器 (interpreter)，讓他轉換成最終的機械碼 (machine code)，也就是 CPU 真正看得懂的語言。</p>
-<p>這樣乍看下來，在執行階段中，解釋型語言就硬生生比編譯型語言多出了編譯的成本，因為編譯型語言在執行階段就是吃機械碼，不須多加編譯或解析。這個說法本身並沒有錯，但是 Python 慢的主要理由並不是這裡。一個例子是 Java ，他的編譯過程也是將原始碼轉成位元組碼，並於執行階段再將其交由 JVM 去轉換成機械碼，但 Java 事實上並沒有那麼慢。</p>
-<p>真正的問題是動態型別！自由自在的型態使得程式碼的運作行為無法輕易地被預期，因此解釋器必須要逐步執行並逐步判斷接下來的運算行為。就好比程式執行的過程像是火車在前進，在已知型態的前提下，我們可以事先將軌道鋪得遠一些，讓火車不用走走停停的，但 Python 只能讓火車走一步停一步，等軌道鋪好一格後才能繼續走。</p>
-<p>到目前為止，我們對於 Python 的效能問題有以下簡單的見解：動態型別的特性逼得 Python 需要設計成解釋型語言，而動態型別的不可預期性讓效能在執行階段難以被優化。</p>
+<h3>Python 是直譯型語言<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>與編譯型 (Compiled) 語言不同的是，直譯型 (Interpreted) 語言會將程式碼編譯成位元組碼 (bytecode)，接著再將位元組碼提供給直譯器 (interpreter)，讓他轉換成最終的機械碼 (machine code)，也就是 CPU 真正看得懂的語言。</p>
+<p>這樣乍看下來，在執行階段中，直譯型語言就硬生生比編譯型語言多出了編譯的成本，因為編譯型語言在執行階段就是讀機械碼，不須多加編譯或解析。這個說法本身並沒有錯，但是 Python 慢的主要理由並不只是這裡。一個例子是 Java ，他的編譯過程也是將原始碼轉成位元組碼，並於執行階段再將其交由 JVM 去轉換成機械碼，但 Java 事實上並沒有那麼慢。</p>
+<p>真正的問題是動態型別！自由自在的型態使得程式碼的運作行為無法輕易地被預期，因此直譯器必須要逐步執行並逐步判斷接下來的運算行為。就好比程式執行的過程像是火車在前進，在已知型態的前提下，我們可以事先將軌道鋪得遠一些，讓火車不用走走停停的，但 Python 只能讓火車走一步停一步，等軌道鋪好一格後才能繼續走。</p>
+<p>到目前為止，我們對於 Python 的效能問題有以下簡單的見解：動態型別的特性逼得 Python 需要設計成直譯型語言，而動態型別的不可預期性讓效能在執行階段難以被優化。</p>
 </section>
 <section id="id5">
 <h3>Python 有全域直譯器鎖<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <p>Python 使用 reference counting 的方式管理記憶體，並以此作為垃圾回收機制以及記憶體管理的基礎。</p>
-<p>這使得說每個變數的計數器在多線程處理中需要被保護，意思是說解釋器需要確保變數在每個時刻下只被一個線程控制 (這意味著新增或者減少參考計數)，在 Python 中，他的做法就是引進全域直譯器鎖 (Global Interpreter Lock)，強迫在任何時刻下都只有一個線程在運作。</p>
+<p>這使得說每個變數的計數器在多線程處理中需要被保護，意思是說直譯器需要確保變數在每個時刻下只被一個線程控制 (這意味著新增或者減少參考計數)，在 Python 中，他的做法就是引進全域直譯器鎖 (Global Interpreter Lock)，強迫在任何時刻下都只有一個線程在運作。</p>
 <p>這也是 Python 效能變得不是很優的原因之一，但僅限在多線程處理中才會遇到：本來好端端能平行運算的東西，因為記憶體管理的因素，而被迫降級成實質單線程運算的品質。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -962,7 +962,7 @@
   <tr>
     <td>Cython</td>
     <td>Python-to-C/C++ 翻譯器</td>
-    <td>部分語法不支援，需學習特規語法</td>
+    <td>需學習特規語法</td>
     <td>已熟悉 Cython 語法者較佳</td>
   </tr>
   <tr>
@@ -974,7 +974,7 @@
   <tr>
     <td>Numba</td>
     <td>高階科學計算平行化工具</td>
-    <td>部分語法不支援，少數用法很彆扭</td>
+    <td>部分語法不支援 (少數用法很彆扭)、初次執行需要等待 JIT 編譯</td>
     <td>想要以不改動過多程式碼的前提下實現平行化加速</td>
   </tr>
   <tr>
@@ -990,8 +990,8 @@
     <td>需要協同各式套件處理大量資料，或者需要進行叢集運算為佳</td>
   </tr>
 </tbody>
-</table><p>在表格中我們還另外將 Cython 以及 <a class="reference external" href="https://www.dask.org/">dask</a> 加入比較對象，不過我們沒有將 dask 的效能納入比較對象，除了筆者到目前為止還沒有調出較佳的效能之外，他在使用定位上比較接近叢集運算，這部分就比較偏離本篇的主題了，但他仍然是一個非常有趣的套件，若有興趣的讀者可以到他們的官方網站一探究竟。</p>
-<p>文末筆者也提供上述測試所使用的 <a class="reference external" href="https://github.com/StephLin/boost-your-python-scientific-computation">原始碼</a> ，若大家閒來無事的話可以參考看看，裡面也有一些本文未提及的暗黑加速符文 (例如 <a class="reference external" href="https://cupy.dev/">CuPy</a> 這個 GPU 加速方案)，若讀者有相關疑慮或者建議，也非常歡迎在 <a class="reference external" href="https://github.com/StephLin/boost-your-python-scientific-computation/issues">Issues</a> 或者本篇留言中回覆！</p>
+</table><p>在表格中我們還另外將 <a class="reference external" href="https://www.dask.org/">dask</a> 加入比較對象，不過我們沒有將 dask 的效能納入比較對象，除了筆者到目前為止還沒有調出較佳的效能之外，他在使用定位上比較接近叢集運算，這部分就有一點點偏離本篇的主題了，但他仍然是一個非常有趣的套件，若有興趣的讀者可以到他們的官方網站一探究竟。</p>
+<p>文末筆者也提供上述測試所使用的 <a class="reference external" href="https://github.com/StephLin/boost-your-python-scientific-computation">原始碼</a> ，若大家閒來無事的話可以參考看看，裡面也有一些本文未提及的暗黑兵法 (例如 <a class="reference external" href="https://cupy.dev/">CuPy</a> ，他是一種 GPU 加速方案)，若讀者有相關疑慮或者建議，也非常歡迎在 <a class="reference external" href="https://github.com/StephLin/boost-your-python-scientific-computation/issues">Issues</a> 或者本篇留言中回覆！</p>
 <p>最後，祝福大家能順利幫自己的程式碼套上適合的加速符文囉！</p>
 </section>
 <section id="references">
