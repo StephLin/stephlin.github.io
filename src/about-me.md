@@ -6,6 +6,8 @@ cover: /assets/images/about-me.jpg
 
 # About Me
 
+<!-- more -->
+
 ![](/assets/images/avatar.jpg =200x)
 
 <FontIcon icon="user" /> Yu-Kai Lin <br>

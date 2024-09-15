@@ -14,6 +14,8 @@ tags:
 **Asynchronous State Estimation of Simultaneous Ego-motion Estimation and Multiple Object Tracking for LiDAR-Inertial Odometry**.
 _2023 International Conference on Robotics and Automation (ICRA)_, pp. 10616--10622, May 2023.
 
+<!-- more -->
+
 ![](/assets/images/projects/LIO-SEGMOT-Banner.gif)
 
 We propose LiDAR-Inertial Odometry via Simultaneous EGo-motion estimation and

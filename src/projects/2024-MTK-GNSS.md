@@ -16,6 +16,8 @@ Pei-Shan Kao,
 **AI-Enhanced Smartphone-Based GNSS/INS Integration: Improved Vehicular/Pedestrian Navigation in Challenging Scenarios Using Machine Learning**.
 _ION GNSS+ 2024 (Session C4: Positioning Technologies and Machine Learning)_, Sep. 2024.
 
+<!-- more -->
+
 ![](/assets/images/projects/MTK.png =200x)
 
 The utilization of mobile phone positioning for navigation has become a
