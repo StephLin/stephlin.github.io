@@ -196,5 +196,7 @@ export default hopeTheme({
     //     ],
     //   },
     // },
+
+    searchPro: true,
   },
 });
