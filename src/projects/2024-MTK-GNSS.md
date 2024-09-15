@@ -1,6 +1,6 @@
 ---
 title: 2024 - AI-Enhanced GNSS/INS
-date: 2024-09-30
+date: 2024-09-15
 icon: file-lines
 categories:
   - MediaTek
