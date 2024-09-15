@@ -50,7 +50,7 @@ Our prior literal review article is accepted for publication on Mathmedia, Acade
 <FontIcon style="margin-left: 10px;" icon="fa-solid fa-location-dot" /> Taoyuan, Taiwan
 
 Develop state-of-the-art algorithms and softwares to achieve digital transformation in footwear manufacturing.
-We invent a fast and practical solution for footwear manufacturing and it's successfully applied for US patent and TW patent.
+We invent a fast and practical solution for footwear manufacturing and it's successfully applied for US patent (US11972537B2) and TW patent (TWI839630B).
 
 ### <FontIcon icon="fa-solid fa-server" /> Network Manager @ NCU
 
