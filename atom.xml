@@ -1,0 +1,922 @@
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="https://stephlin.github.io/atom.xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US">
+  <id>https://stephlin.github.io/</id>
+  <title>StephLin&amp;apos;s Personal Blog</title>
+  <subtitle>StephLin&amp;apos;s Personal Blog</subtitle>
+  <updated>2024-09-22T05:50:52.126Z</updated>
+  <generator>@vuepress/plugin-feed</generator>
+  <link rel="self" href="https://stephlin.github.io/atom.xml"/>
+  <link rel="alternate" href="https://stephlin.github.io/"/>
+  <category term="Research"/>
+  <category term="MediaTek"/>
+  <category term="Optimization"/>
+  <category term="C++"/>
+  <category term="Python"/>
+  <entry>
+    <title type="text">About Me</title>
+    <id>https://stephlin.github.io/about-me.html</id>
+    <link href="https://stephlin.github.io/about-me.html"/>
+    <updated>2024-09-15T17:25:33.000Z</updated>
+    <summary type="html"><![CDATA[
+]]></summary>
+    <content type="html"><![CDATA[
+<!-- more -->
+<figure><img src="/assets/images/avatar.jpg" alt="" width="200" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+]]></content>
+    <published>2024-09-15T00:00:00.000Z</published>
+  </entry>
+  <entry>
+    <title type="text">2022 - KCP</title>
+    <id>https://stephlin.github.io/projects/2022-KCP.html</id>
+    <link href="https://stephlin.github.io/projects/2022-KCP.html"/>
+    <updated>2024-09-15T15:10:50.000Z</updated>
+    <summary type="html"><![CDATA[<p><a href="/" target="_blank"><strong>Yu-Kai Lin</strong></a>,
+<a href="https://www.cs.nycu.edu.tw/members/detail/wclin" target="_blank" rel="noopener noreferrer">Wen-Chieh Lin</a>,
+<a href="https://sites.google.com/site/chiehchihbobwang" target="_blank" rel="noopener noreferrer">Chieh-Chih Wang</a>,
+<strong>K-Closest Points and Maximum Clique Pruning for Efficient and Effective 3-D Laser Scan Matching</strong>.
+<em>IEEE Robotics and Automation Letters (RA-L)</em>, vol.7, no. 2, pp. 1471 -- 1477, Apr. 2022.</p>
+]]></summary>
+    <content type="html"><![CDATA[<p><a href="/" target="_blank"><strong>Yu-Kai Lin</strong></a>,
+<a href="https://www.cs.nycu.edu.tw/members/detail/wclin" target="_blank" rel="noopener noreferrer">Wen-Chieh Lin</a>,
+<a href="https://sites.google.com/site/chiehchihbobwang" target="_blank" rel="noopener noreferrer">Chieh-Chih Wang</a>,
+<strong>K-Closest Points and Maximum Clique Pruning for Efficient and Effective 3-D Laser Scan Matching</strong>.
+<em>IEEE Robotics and Automation Letters (RA-L)</em>, vol.7, no. 2, pp. 1471 -- 1477, Apr. 2022.</p>
+<!-- more -->
+<figure><img src="/assets/images/projects/KCP-Banner.gif" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<p>We propose K-Closest Points (KCP), an efficient and effective laser scan
+matching approach inspired by LOAM and TEASER++. The efficiency of KCP comes
+from a feature point extraction approach utilizing the multi-scale curvature and
+a heuristic matching method based on the k-closest points. The effectiveness of
+KCP comes from the integration of the feature point matching approach and the
+maximum clique pruning. We compare KCP against well-known scan matching
+approaches on synthetic and real-world LiDAR data (nuScenes dataset). In the
+synthetic data experiment, KCP-TEASER reaches a state-of-the-art
+root-mean-square transformation error (0.006m, 0.014deg) with average
+computational time 49ms. In the real-world data experiment, KCP-TEASER achieves
+an average error of (0.018m, 0.101deg) with average computational time 77ms. This
+shows its efficiency and effectiveness in real-world scenarios. Through
+theoretic derivation and empirical experiments, we also reveal the outlier
+correspondence penetration issue of the maximum clique pruning that it may still
+contain outlier correspondences.</p>
+<p>For more details, please refer to the following links:</p>
+<ul>
+<li><a href="https://doi.org/10.1109/LRA.2021.3140130" target="_blank" rel="noopener noreferrer"></a></li>
+<li><a href="/assets/preprints/2022-RA-L-KCP.pdf"></a></li>
+<li><a href="https://github.com/StephLin/KCP" target="_blank" rel="noopener noreferrer"></a></li>
+<li><a href="https://youtu.be/ZaDLEOz_yYc" target="_blank" rel="noopener noreferrer"></a></li>
+</ul>
+]]></content>
+    <category term="Research"/>
+    <published>2022-03-31T00:00:00.000Z</published>
+  </entry>
+  <entry>
+    <title type="text">2023 - LIO-SEGMOT</title>
+    <id>https://stephlin.github.io/projects/2023-LIO-SEGMOT.html</id>
+    <link href="https://stephlin.github.io/projects/2023-LIO-SEGMOT.html"/>
+    <updated>2024-09-15T15:10:50.000Z</updated>
+    <summary type="html"><![CDATA[<p><a href="/" target="_blank"><strong>Yu-Kai Lin</strong></a>,
+<a href="https://www.cs.nycu.edu.tw/members/detail/wclin" target="_blank" rel="noopener noreferrer">Wen-Chieh Lin</a>,
+<a href="https://sites.google.com/site/chiehchihbobwang" target="_blank" rel="noopener noreferrer">Chieh-Chih Wang</a>,
+<strong>Asynchronous State Estimation of Simultaneous Ego-motion Estimation and Multiple Object Tracking for LiDAR-Inertial Odometry</strong>.
+<em>2023 International Conference on Robotics and Automation (ICRA)</em>, pp. 10616--10622, May 2023.</p>
+]]></summary>
+    <content type="html"><![CDATA[<p><a href="/" target="_blank"><strong>Yu-Kai Lin</strong></a>,
+<a href="https://www.cs.nycu.edu.tw/members/detail/wclin" target="_blank" rel="noopener noreferrer">Wen-Chieh Lin</a>,
+<a href="https://sites.google.com/site/chiehchihbobwang" target="_blank" rel="noopener noreferrer">Chieh-Chih Wang</a>,
+<strong>Asynchronous State Estimation of Simultaneous Ego-motion Estimation and Multiple Object Tracking for LiDAR-Inertial Odometry</strong>.
+<em>2023 International Conference on Robotics and Automation (ICRA)</em>, pp. 10616--10622, May 2023.</p>
+<!-- more -->
+<figure><img src="/assets/images/projects/LIO-SEGMOT-Banner.gif" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<p>We propose LiDAR-Inertial Odometry via Simultaneous EGo-motion estimation and
+Multiple Object Tracking (LIO-SEGMOT), an optimization-based odometry approach
+targeted for dynamic environments. LIO-SEGMOT is formulated as a state
+estimation approach with asynchronous state update of the odometry and the
+object tracking. That is, LIO-SEGMOT can provide continuous object tracking
+results while preserving the keyframe selection mechanism in the odometry
+system. Meanwhile, a hierarchical criterion is designed to properly couple
+odometry and object tracking, preventing system instability due to poor
+detections. We compare LIO-SEGMOT against the baseline model LIO-SAM, a
+state-of-the-art LIO approach, under dynamic environments of the KITTI raw
+dataset and the self-collected Hsinchu dataset. The former experiment shows that
+LIO-SEGMOT obtains an average improvement 1.61% and 5.41% of odometry accuracy
+in terms of absolute translational and rotational trajectory errors. The latter
+experiment also indicates that LIO-SEGMOT obtains an average improvement 6.97%
+and 4.21% of odometry accuracy.</p>
+<p>For more information, please refer to the following links:</p>
+<ul>
+<li><a href="https://doi.org/10.1109/ICRA48891.2023.10161269" target="_blank" rel="noopener noreferrer"></a></li>
+<li><a href="/assets/preprints/2023-ICRA-LIO-SEGMOT.pdf"></a></li>
+<li><a href="https://github.com/StephLin/LIO-SEGMOT" target="_blank" rel="noopener noreferrer"></a></li>
+<li><a href="https://youtu.be/5HtnDFPerVo" target="_blank" rel="noopener noreferrer"></a></li>
+</ul>
+]]></content>
+    <category term="Research"/>
+    <published>2023-03-31T00:00:00.000Z</published>
+  </entry>
+  <entry>
+    <title type="text">2024 - AI-Enhanced GNSS/INS</title>
+    <id>https://stephlin.github.io/projects/2024-MTK-GNSS.html</id>
+    <link href="https://stephlin.github.io/projects/2024-MTK-GNSS.html"/>
+    <updated>2024-09-15T15:20:08.000Z</updated>
+    <summary type="html"><![CDATA[<p>An-Lin Tao,
+<a href="/" target="_blank">Yu-Kai Lin</a>,
+Hau-Hsiang Chan,
+Li-Min Lin,
+Pei-Shan Kao,
+<strong>AI-Enhanced Smartphone-Based GNSS/INS Integration: Improved Vehicular/Pedestrian Navigation in Challenging Scenarios Using Machine Learning</strong>.
+<em>ION GNSS+ 2024 (Session C4: Positioning Technologies and Machine Learning)</em>, Sep. 2024.</p>
+]]></summary>
+    <content type="html"><![CDATA[<p>An-Lin Tao,
+<a href="/" target="_blank">Yu-Kai Lin</a>,
+Hau-Hsiang Chan,
+Li-Min Lin,
+Pei-Shan Kao,
+<strong>AI-Enhanced Smartphone-Based GNSS/INS Integration: Improved Vehicular/Pedestrian Navigation in Challenging Scenarios Using Machine Learning</strong>.
+<em>ION GNSS+ 2024 (Session C4: Positioning Technologies and Machine Learning)</em>, Sep. 2024.</p>
+<!-- more -->
+<figure><img src="/assets/images/projects/MTK.png" alt="" width="200" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<p>The utilization of mobile phone positioning for navigation has become a
+fundamental aspect of modern life. However, enabling mobile phones to provide
+positioning in urban areas presents greater challenges due to the need to
+minimize hardware size and costs, in contrast to traditional GNSS receivers. The
+effective integration of inertial navigation units (IMU) and GNSS has emerged as
+a critical issue.</p>
+<p>MediaTek, as a provider of a wide range of mobile products, has collected data
+on challenging scenarios worldwide through customer feedback. Leveraging a
+substantial volume of data, the appropriate integration of artificial
+intelligence (AI) and the utilization of machine learning (ML) technology have
+the potential to enhance positioning accuracy across diverse scenarios. Several
+years ago, MediaTek integrated various machine learning techniques to fuse GNSS
+with multiple IMU sensors. However, integrating GNSS with IMU across different
+usage scenarios presents four primary challenges:</p>
+<ul>
+<li>Requiring sensor calibration.</li>
+<li>Determining the relationship between the user's mobile phone and the carrier (such as a vehicle or pedestrian, etc.).</li>
+<li>Classifying the accuracy of GNSS observations in challenging environments.</li>
+<li>Adjusting the parameters of GNSS and IMU through EKF in different scenarios.</li>
+</ul>
+<p>This paper will provide a method to use machine learning in real-time to solve
+the above-mentioned problems with limited platform computing capacity. The
+specific contributions are delineated as follows:</p>
+<ol>
+<li>Static identification using machine learning: Overcoming disparities among
+various usage scenarios and diverse sensors to furnish users with consistent
+positioning results while simultaneously conducting sensor calibration.</li>
+<li>State identification using machine learning: Identifying whether the user is
+driving, walking, or running, and integrating distinct algorithms to optimize
+sensor integration with GNSS based on varying usage states.</li>
+<li>Observation filtering using machine learning: Training on a comprehensive
+dataset to predict accurate GNSS observation quality, selecting high-quality
+observations, excluding abnormal ones, and furnishing accuracy indicators
+integrated with sensors.</li>
+<li>Adjusting key parameters of the integrated system using machine learning:
+Automatically optimizing the numerous parameters of sensors and GNSS within a
+tightly-coupled Kalman filter, rapidly achieving equilibrium upon the
+introduction of new sensors or GNSS signals.</li>
+</ol>
+<p>Ultimately, this paper will present the performance disparities before and after
+applying the proposed method:</p>
+<ul>
+<li>The average accuracy of static detection can be increased by 23%.</li>
+<li>For high-vibration scenes, the improvement can reach up to 87%;</li>
+<li>The accuracy of state recognition can achieve 98%;</li>
+<li>The accuracy of GNSS observation selection can be boosted by 30%.</li>
+<li>Finally, the user positioning accuracy is enhanced by 10%.</li>
+</ul>
+<p>By leveraging the techniques expounded in this paper, MediaTek's products can
+furnish mobile phone users with more precise navigation services across various
+environments.</p>
+<p>For more information, please refer to the following link:</p>
+<ul>
+<li><a href="https://www.ion.org/gnss/abstracts.cfm?paperID=13666" target="_blank" rel="noopener noreferrer"></a></li>
+</ul>
+]]></content>
+    <category term="MediaTek"/>
+    <published>2024-09-15T00:00:00.000Z</published>
+  </entry>
+  <entry>
+    <title type="text">Checking Sum of Squares (SOS) Polynomials with CVXPY</title>
+    <id>https://stephlin.github.io/posts/Optimization/Sum-of-squares.html</id>
+    <link href="https://stephlin.github.io/posts/Optimization/Sum-of-squares.html"/>
+    <updated>2024-09-15T15:10:50.000Z</updated>
+    <summary type="html"><![CDATA[<p>This post aims at introducing a programming way to check if a polynomial is sum of squares.</p>
+]]></summary>
+    <content type="html"><![CDATA[<p>This post aims at introducing a programming way to check if a polynomial is sum of squares.</p>
+<!-- more -->
+<h2>Background Knowledge of Sum of Squares Polynomials</h2>
+<p>Formally we say a polynomial  is sum of squares if
+exist several polynomials  such that</p>
+<p>It is
+<a href="https://en.wikipedia.org/wiki/Polynomial_SOS#Square_matricial_representation_(SMR)" target="_blank" rel="noopener noreferrer">well-known</a>
+that a polynomial  of maximum total degree  is sum of squares if and only
+if there is a positive semidefinite matrix  such that</p>
+<p>where  is a vector of monomial basis with maximum total degree .</p>
+<p>This property allows us to check if an unknwon polynomial is sum of squares, by
+performing a semidefinite programming.</p>
+<h2>Semidefinite Programming by Python</h2>
+<p>From here we use <a href="https://www.sympy.org/en/index.html" target="_blank" rel="noopener noreferrer">SymPy</a> for algebraic
+calculation and <a href="https://www.cvxpy.org" target="_blank" rel="noopener noreferrer">CVXPY</a> for semidefinite programming.</p>
+<p>This program (in primal form) does not need any energy function since we only
+check the feasibility under constraints .</p>
+<p>For example, if our testing funtion is</p>
+<p>then firstly we construct the polynomial</p>
+<div class="language-python line-numbers-mode" data-highlighter="shiki" data-ext="python" data-title="python" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">from</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> collections </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">import</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> defaultdict</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">import</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> sympy </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">as</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> smp</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">from</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> sympy.abc </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">import</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> x, y, z</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">gens </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> [x, y, z]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">f </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 2</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> _ x</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">**</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">4</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2"> -</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 5</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2"> /</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 2</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> _ x</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">**</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">3</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2"> *</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> y </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">+</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> x</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">**</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">2</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> _ y _ z </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">-</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 2</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> _ x _ z</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">**</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">3</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2"> +</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 5</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2"> *</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> y</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">**</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">4</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2"> +</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> z</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">**</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">4</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">f </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> f.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">as_poly</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(gens)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-dark:#7F848E;--shiki-light-font-style:italic;--shiki-dark-font-style:italic"># rewrite polynomial as defaultdict format</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">f_poly </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF"> defaultdict</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">int</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">for</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> monom, coeff </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">in</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> zip</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(f.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">monoms</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(), f.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">coeffs</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">()):</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    f_poly[monom] </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">+=</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> coeff</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>and corresponding (expected) sum of squares representation</p>
+<div class="hint-container tip">
+<p class="hint-container-title">Tips</p>
+</div>
+<div class="language-python line-numbers-mode" data-highlighter="shiki" data-ext="python" data-title="python" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">import</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> numpy </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">as</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> np</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">from</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> sympy.polys.monomials </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">import</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> itermonomials</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">import</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> cvxpy </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">as</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> cp</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">max_degree </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> np.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">max</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(np.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">sum</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(np.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">array</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(f.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">monoms</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">()), </span><span style="--shiki-light:#986801;--shiki-dark:#E06C75;--shiki-light-font-style:inherit;--shiki-dark-font-style:italic">axis</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">))</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">total_degree </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> int</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(np.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">ceil</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(max_degree </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">/</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 2</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">))</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">monolist </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> list</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">itermonomials</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(gens, total_degree))</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">z </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> np.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">array</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">list</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">map</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">lambda</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66;--shiki-light-font-style:inherit;--shiki-dark-font-style:italic"> x</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: x.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">as_poly</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(gens).</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">monoms</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">()[</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">0</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">], monolist)))</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">z_left </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> np.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">tile</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(z[:, np.newaxis, :], (</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, z.shape[</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">0</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">], </span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">))</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">z_right </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> np.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">tile</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(z[np.newaxis, :, :], (z.shape[</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">0</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">], </span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">))</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">gram </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> z_left </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">+</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> z_right</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">monom_degree </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> len</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(monolist)</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">matrix </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> cp.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">Variable</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">((monom_degree, monom_degree), </span><span style="--shiki-light:#986801;--shiki-dark:#E06C75;--shiki-light-font-style:inherit;--shiki-dark-font-style:italic">name</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'Q'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#986801;--shiki-dark:#E06C75;--shiki-light-font-style:inherit;--shiki-dark-font-style:italic">PSD</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">True</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">sos_poly </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF"> defaultdict</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">int</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">for</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> i </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">in</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> range</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(monom_degree):</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    for</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> j </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">in</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> range</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(monom_degree):</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">        monom </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> tuple</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(gram[i, j])</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">        sos_poly[monom] </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">+=</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> matrix[i, j]</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>Now we would like to subtract the target polynomial by polynomial constructed by
+a positive semidefinite matrix, and forced the result function to be zero.</p>
+<div class="language-python line-numbers-mode" data-highlighter="shiki" data-ext="python" data-title="python" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">constraint_poly </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> sos_poly.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">copy</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">()</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">for</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> monom, coeff </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">in</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> f_poly.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">items</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">():</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    constraint_poly[monom] </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">-=</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> coeff</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">constraints </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> []</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">for</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> coeff </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">in</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> constraint_poly.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">values</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">():</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    if</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> not</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> isinstance</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(coeff, </span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">int</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">and</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> not</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> isinstance</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(coeff, </span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">float</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">):</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">        constraints.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">append</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(coeff </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">==</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 0</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>Finally we construct the corresponding problem and solve it.</p>
+<div class="language-python line-numbers-mode" data-highlighter="shiki" data-ext="python" data-title="python" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">problem </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> cp.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">Problem</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(cp.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">Minimize</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">0</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">), </span><span style="--shiki-light:#986801;--shiki-dark:#E06C75;--shiki-light-font-style:inherit;--shiki-dark-font-style:italic">constraints</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">constraints)</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">problem.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">solve</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#E06C75;--shiki-light-font-style:inherit;--shiki-dark-font-style:italic">solver</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'MOSEK'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#986801;--shiki-dark:#E06C75;--shiki-light-font-style:inherit;--shiki-dark-font-style:italic">verbose</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">True</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div></div></div><p>For this example we obtain the following result:</p>
+<div class="language-text line-numbers-mode" data-highlighter="shiki" data-ext="text" data-title="text" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>Problem</span></span>
+<span class="line"><span>Name :</span></span>
+<span class="line"><span>Objective sense : min</span></span>
+<span class="line"><span>Type : CONIC (conic optimization problem)</span></span>
+<span class="line"><span>Constraints : 135</span></span>
+<span class="line"><span>Cones : 0</span></span>
+<span class="line"><span>Scalar variables : 55</span></span>
+<span class="line"><span>Matrix variables : 1</span></span>
+<span class="line"><span>Integer variables : 0</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Optimizer - threads : 6</span></span>
+<span class="line"><span>Optimizer - solved problem : the primal</span></span>
+<span class="line"><span>Optimizer - Constraints : 100</span></span>
+<span class="line"><span>Optimizer - Cones : 1</span></span>
+<span class="line"><span>Optimizer - Scalar variables : 21 conic : 21</span></span>
+<span class="line"><span>Optimizer - Semi-definite variables: 1 scalarized : 55</span></span>
+<span class="line"><span>Factor - setup time : 0.00 dense det. time : 0.00</span></span>
+<span class="line"><span>Factor - ML order time : 0.00 GP order time : 0.00</span></span>
+<span class="line"><span>Factor - nonzeros before factor : 5050 after factor : 5050</span></span>
+<span class="line"><span>Factor - dense dim. : 0 flops : 3.73e+05</span></span>
+<span class="line"><span>ITE PFEAS DFEAS GFEAS PRSTATUS POBJ DOBJ MU TIME</span></span>
+<span class="line"><span>0 4.0e+00 1.0e+00 1.0e+00 0.00e+00 0.000000000e+00 0.000000000e+00 1.0e+00 0.00</span></span>
+<span class="line"><span>1 9.9e-01 2.5e-01 2.6e-01 -5.06e-01 0.000000000e+00 5.955154109e-01 2.5e-01 0.00</span></span>
+<span class="line"><span>2 1.2e-01 3.1e-02 8.9e-03 6.55e-01 0.000000000e+00 1.786795893e-02 3.1e-02 0.00</span></span>
+<span class="line"><span>3 2.4e-02 6.0e-03 6.4e-04 1.16e+00 0.000000000e+00 -1.171957303e-04 6.0e-03 0.00</span></span>
+<span class="line"><span>4 4.8e-03 1.2e-03 6.3e-05 1.02e+00 0.000000000e+00 4.984738046e-04 1.2e-03 0.00</span></span>
+<span class="line"><span>5 1.0e-03 2.6e-04 6.2e-06 1.22e+00 0.000000000e+00 1.448269790e-04 2.6e-04 0.00</span></span>
+<span class="line"><span>6 2.5e-04 6.2e-05 7.6e-07 1.10e+00 0.000000000e+00 4.819535948e-05 6.2e-05 0.00</span></span>
+<span class="line"><span>7 5.7e-05 1.4e-05 8.2e-08 1.12e+00 0.000000000e+00 1.182936817e-05 1.4e-05 0.01</span></span>
+<span class="line"><span>8 1.2e-05 2.9e-06 7.3e-09 9.73e-01 0.000000000e+00 1.623429926e-06 2.9e-06 0.01</span></span>
+<span class="line"><span>9 2.3e-06 5.7e-07 6.3e-10 8.44e-01 0.000000000e+00 2.578343391e-07 5.7e-07 0.01</span></span>
+<span class="line"><span>10 5.6e-07 1.4e-07 7.0e-11 1.22e+00 0.000000000e+00 4.849970349e-08 1.4e-07 0.01</span></span>
+<span class="line"><span>11 1.3e-07 3.2e-08 9.2e-12 7.81e-01 0.000000000e+00 2.734660260e-08 3.2e-08 0.01</span></span>
+<span class="line"><span>12 2.3e-08 5.8e-09 5.5e-13 1.24e+00 0.000000000e+00 5.578862505e-10 5.8e-09 0.01</span></span>
+<span class="line"><span>Optimizer terminated. Time: 0.01</span></span>
+<span class="line"><span></span></span>
+<span class="line highlighted"><span>Interior-point solution summary</span></span>
+<span class="line highlighted"><span>Problem status : PRIMAL_AND_DUAL_FEASIBLE</span></span>
+<span class="line highlighted"><span>Solution status : OPTIMAL</span></span>
+<span class="line highlighted"><span>Primal. obj: 0.0000000000e+00 nrm: 5e+00 Viol. con: 3e-08 var: 0e+00 barvar: 0e+00</span></span>
+<span class="line highlighted"><span>Dual. obj: 5.5788624960e-10 nrm: 4e+00 Viol. con: 0e+00 var: 3e-09 barvar: 9e-09</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>which is feasibile.</p>
+<p>Now we consider another function . Obviously this is not
+a sum of squares polynomial. In this case we follow the above procedure and we
+can get the following result</p>
+<div class="language-text line-numbers-mode" data-highlighter="shiki" data-ext="text" data-title="text" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>Problem</span></span>
+<span class="line"><span>Name :</span></span>
+<span class="line"><span>Objective sense : min</span></span>
+<span class="line"><span>Type : CONIC (conic optimization problem)</span></span>
+<span class="line"><span>Constraints : 26</span></span>
+<span class="line"><span>Cones : 0</span></span>
+<span class="line"><span>Scalar variables : 10</span></span>
+<span class="line"><span>Matrix variables : 1</span></span>
+<span class="line"><span>Integer variables : 0</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Optimizer - threads : 6</span></span>
+<span class="line"><span>Optimizer - solved problem : the primal</span></span>
+<span class="line"><span>Optimizer - Constraints : 16</span></span>
+<span class="line"><span>Optimizer - Cones : 0</span></span>
+<span class="line"><span>Optimizer - Scalar variables : 0 conic : 0</span></span>
+<span class="line"><span>Optimizer - Semi-definite variables: 1 scalarized : 10</span></span>
+<span class="line"><span>Factor - setup time : 0.00 dense det. time : 0.00</span></span>
+<span class="line"><span>Factor - ML order time : 0.00 GP order time : 0.00</span></span>
+<span class="line"><span>Factor - nonzeros before factor : 136 after factor : 136</span></span>
+<span class="line"><span>Factor - dense dim. : 0 flops : 2.36e+03</span></span>
+<span class="line"><span>ITE PFEAS DFEAS GFEAS PRSTATUS POBJ DOBJ MU TIME</span></span>
+<span class="line"><span>0 1.0e+00 1.0e+00 1.0e+00 0.00e+00 0.000000000e+00 0.000000000e+00 1.0e+00 0.00</span></span>
+<span class="line"><span>1 7.9e-02 7.9e-02 1.8e-01 -2.00e-01 0.000000000e+00 4.850239930e+00 7.9e-02 0.00</span></span>
+<span class="line"><span>2 6.8e-05 6.8e-05 8.0e-03 -9.73e-01 0.000000000e+00 1.400490086e+04 6.8e-05 0.00</span></span>
+<span class="line"><span>3 3.4e-14 3.4e-14 1.3e-07 -1.00e+00 0.000000000e+00 1.431945428e+13 3.4e-14 0.00</span></span>
+<span class="line"><span>Optimizer terminated. Time: 0.00</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>MOSEK PRIMAL INFEASIBILITY REPORT.</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Problem status: The problem is primal infeasible</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>The following constraints are involved in the primal infeasibility.</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Index Name Lower bound Upper bound Dual lower Dual upper</span></span>
+<span class="line"><span>0 0.000000e+00 0.000000e+00 0.000000e+00 1.143887e+00</span></span>
+<span class="line"><span>1 1.000000e+00 1.000000e+00 2.374090e-01 0.000000e+00</span></span>
+<span class="line"><span>2 1.000000e+00 1.000000e+00 2.374090e-01 0.000000e+00</span></span>
+<span class="line"><span>3 1.000000e+00 1.000000e+00 2.374090e-01 0.000000e+00</span></span>
+<span class="line"><span>4 0.000000e+00 0.000000e+00 0.000000e+00 1.047962e+00</span></span>
+<span class="line"><span>5 0.000000e+00 0.000000e+00 0.000000e+00 4.796219e-02</span></span>
+<span class="line"><span>6 0.000000e+00 0.000000e+00 0.000000e+00 4.796219e-02</span></span>
+<span class="line"><span>7 0.000000e+00 0.000000e+00 0.000000e+00 1.047962e+00</span></span>
+<span class="line"><span>8 0.000000e+00 0.000000e+00 0.000000e+00 4.796219e-02</span></span>
+<span class="line"><span>9 0.000000e+00 0.000000e+00 0.000000e+00 1.047962e+00</span></span>
+<span class="line"><span>10 0.000000e+00 0.000000e+00 0.000000e+00 1.143887e+00</span></span>
+<span class="line"><span>11 0.000000e+00 0.000000e+00 4.500538e-01 0.000000e+00</span></span>
+<span class="line"><span>12 0.000000e+00 0.000000e+00 4.500596e-01 0.000000e+00</span></span>
+<span class="line"><span>13 0.000000e+00 0.000000e+00 4.500537e-01 0.000000e+00</span></span>
+<span class="line"><span>14 0.000000e+00 0.000000e+00 2.476412e-02 0.000000e+00</span></span>
+<span class="line"><span>15 0.000000e+00 0.000000e+00 0.000000e+00 1.047962e+00</span></span>
+<span class="line"><span>16 0.000000e+00 0.000000e+00 0.000000e+00 8.414647e-02</span></span>
+<span class="line"><span>17 0.000000e+00 0.000000e+00 0.000000e+00 8.412991e-02</span></span>
+<span class="line"><span>18 0.000000e+00 0.000000e+00 2.475832e-02 0.000000e+00</span></span>
+<span class="line"><span>19 0.000000e+00 0.000000e+00 0.000000e+00 1.177790e-02</span></span>
+<span class="line"><span>20 0.000000e+00 0.000000e+00 0.000000e+00 1.047962e+00</span></span>
+<span class="line"><span>21 0.000000e+00 0.000000e+00 0.000000e+00 8.416118e-02</span></span>
+<span class="line"><span>22 0.000000e+00 0.000000e+00 2.476425e-02 0.000000e+00</span></span>
+<span class="line"><span>23 0.000000e+00 0.000000e+00 0.000000e+00 1.179446e-02</span></span>
+<span class="line"><span>24 0.000000e+00 0.000000e+00 0.000000e+00 1.176319e-02</span></span>
+<span class="line"><span>25 0.000000e+00 0.000000e+00 0.000000e+00 1.047962e+00</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>The following bound constraints are involved in the infeasibility.</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Index Name Lower bound Upper bound Dual lower Dual upper Dual cone</span></span>
+<span class="line"><span></span></span>
+<span class="line highlighted"><span>Interior-point solution summary</span></span>
+<span class="line highlighted"><span>Problem status : PRIMAL_INFEASIBLE</span></span>
+<span class="line highlighted"><span>Solution status : PRIMAL_INFEASIBLE_CER</span></span>
+<span class="line highlighted"><span>Dual. obj: 7.1222688931e-01 nrm: 1e+00 Viol. con: 0e+00 var: 0e+00 barvar: 3e-14</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>which is infeasible.</p>
+<h2>Conclusion</h2>
+<p>From this post we are able to check if a function is a sum of squares polynomial
+by performing a corresponding semidefinite programming. It means that we do not
+need to find such polynomials manually but just simply run some optimization
+algorithm (e.g. interior-point method). However we note that the matrix space
+complexity w.r.t. total degree is exponential.</p>
+<h2>References</h2>
+<ul>
+<li><a href="https://yalmip.github.io/tutorial/sumofsquaresprogramming" target="_blank" rel="noopener noreferrer">Sum-of-squares programming - YALMIP</a></li>
+<li><a href="https://www.sympy.org/en/index.html" target="_blank" rel="noopener noreferrer">SymPy</a></li>
+<li><a href="https://www.cvxpy.org/" target="_blank" rel="noopener noreferrer">CVXPY</a></li>
+</ul>
+]]></content>
+    <category term="Optimization"/>
+    <published>2020-10-03T00:00:00.000Z</published>
+  </entry>
+  <entry>
+    <title type="text">C++ Traits 不專業使用心得</title>
+    <id>https://stephlin.github.io/posts/Cpp/Cpp-traits.html</id>
+    <link href="https://stephlin.github.io/posts/Cpp/Cpp-traits.html"/>
+    <updated>2024-09-15T15:10:50.000Z</updated>
+    <summary type="html"><![CDATA[<p>近期在閱讀一些 C++ Library 的過程中發現了 C++ Traits 的使用概念，於是乎來整理一下他的想法以及實現方法。</p>
+]]></summary>
+    <content type="html"><![CDATA[<p>近期在閱讀一些 C++ Library 的過程中發現了 C++ Traits 的使用概念，於是乎來整理一下他的想法以及實現方法。</p>
+<!-- more -->
+<p>Traits 簡單來講就是一個程式碼片段，而我們希望透過一些機制，把他當作補丁一般地，貼到某塊程式碼內。</p>
+<p>這個概念若使用得當，最大的好處在於我們不用重複實作相同的功能 (或是相似的架構)，進而提升程式碼的重複利用度、以及簡潔程度。</p>
+<blockquote>
+<p><em>Think of a trait as a small object whose main purpose is to carry information used by another object or algorithm to determine "policy" or "implementation details".</em></p>
+</blockquote>
+]]></content>
+    <category term="C++"/>
+    <published>2021-11-13T00:00:00.000Z</published>
+  </entry>
+  <entry>
+    <title type="text">Context Management in Python</title>
+    <id>https://stephlin.github.io/posts/Python/Context-management.html</id>
+    <link href="https://stephlin.github.io/posts/Python/Context-management.html"/>
+    <updated>2024-09-15T15:10:50.000Z</updated>
+    <summary type="html"><![CDATA[<p>在執行程式的時候通常會需要存取資源，一般來說資源的來源可能是檔案、遠端連線、或是某種 Socket。當程式在調用資源的時候基本上包含兩個動作：</p>
+<ul>
+<li>請求資源使用權 (以檔案來說就是讀或寫之類的)、以及</li>
+<li>釋放資源使用權。</li>
+</ul>
+<p>本篇我們將整理在 Python 中面對資源存取問題時，透過 <code>with</code> 的常見作法、其物件意涵、以及內建套件 <code>contextlib</code> 的一些使用時機。</p>
+]]></summary>
+    <content type="html"><![CDATA[<p>在執行程式的時候通常會需要存取資源，一般來說資源的來源可能是檔案、遠端連線、或是某種 Socket。當程式在調用資源的時候基本上包含兩個動作：</p>
+<ul>
+<li>請求資源使用權 (以檔案來說就是讀或寫之類的)、以及</li>
+<li>釋放資源使用權。</li>
+</ul>
+<p>本篇我們將整理在 Python 中面對資源存取問題時，透過 <code>with</code> 的常見作法、其物件意涵、以及內建套件 <code>contextlib</code> 的一些使用時機。</p>
+<!-- more -->
+<h2>單一檔案存取</h2>
+<p>假設我們有一個檔案 <code>input.txt</code>：</p>
+<div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>Hello world! I am a file.</span></span>
+<span class="line"><span>This is a new line.</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div></div></div><p>透過 Python 我們可以透過以下程式碼實現讀檔並輸出到終端機上：</p>
+<div class="language-python line-numbers-mode" data-highlighter="shiki" data-ext="python" data-title="python" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#A0A1A7;--shiki-dark:#7F848E;--shiki-light-font-style:italic;--shiki-dark-font-style:italic"># access `input.txt` file with reading permission</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">obj </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> open</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'input.txt'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'r'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-dark:#7F848E;--shiki-light-font-style:italic;--shiki-dark-font-style:italic"># read content and print to stdout</span></span>
+<span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">print</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(obj.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">read</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">())</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-dark:#7F848E;--shiki-light-font-style:italic;--shiki-dark-font-style:italic"># release file resource</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">obj.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">close</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">()</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>而透過 <code>with</code> 關鍵字可以幫助程式碼在這個過程中更簡潔：</p>
+<div class="language-python line-numbers-mode" data-highlighter="shiki" data-ext="python" data-title="python" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">with</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> open</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'input.txt'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'r'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">as</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> f:</span></span>
+<span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">    print</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(f.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">read</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">())</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div></div></div><p>到目前為止是大家在學習 Python 的時候幾乎會碰觸到的課題，接下來我們將討論 <code>with</code> 在 Python 當中的物件意涵。</p>
+<h1>With 關鍵字在 Python 中的物件意涵</h1>
+<p>我們同樣盯著上面的範例程式碼看，實際上他相當於以下語法結構：</p>
+<div class="language-python line-numbers-mode" data-highlighter="shiki" data-ext="python" data-title="python" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">import</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> sys</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-dark:#7F848E;--shiki-light-font-style:italic;--shiki-dark-font-style:italic"># with open('input.txt', 'r') as f:</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">obj </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> open</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'input.txt'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'r'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line highlighted"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">f </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> obj.</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">__enter__</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">()</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">exc </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> True</span><span style="--shiki-light:#A0A1A7;--shiki-dark:#7F848E;--shiki-light-font-style:italic;--shiki-dark-font-style:italic">  # a flag to determine if process trap into the except block</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">try</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">:</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-dark:#7F848E;--shiki-light-font-style:italic;--shiki-dark-font-style:italic">    # inside the with block</span></span>
+<span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">    print</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(f.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">read</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">())</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">except</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">:</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-dark:#7F848E;--shiki-light-font-style:italic;--shiki-dark-font-style:italic">    # go to here if there is an exception happened inside the block</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-dark:#7F848E;--shiki-light-font-style:italic;--shiki-dark-font-style:italic">    # set flag as False to avoid double-free</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    exc </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> False</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-dark:#7F848E;--shiki-light-font-style:italic;--shiki-dark-font-style:italic">    # collect exception information</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    exc_type, exc_val, exc_tb </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> sys.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">exit_info</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">()</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    if</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> not</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> obj.</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">__exit__</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(exc_type, exc_val, exc_tb):</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">        raise</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">finally</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">:</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    if</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> exc:</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-dark:#7F848E;--shiki-light-font-style:italic;--shiki-dark-font-style:italic">        # in this way there is no exception</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">        exc_type </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> exc_val </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> exc_tb </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> None</span></span>
+<span class="line highlighted"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">        obj.</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">__exit__</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(exc_type, exc_val, exc_tb)</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>在這段程式碼中，我們會發現：</p>
+<ul>
+<li>在進入 <code>with</code> 區塊前，Python 會初始化 <code>obj</code> 物件並觸發 <code>__enter__</code> 方法以存取資源，並且將其回傳值賦予到 <code>f</code>；</li>
+<li>而當程序離開 <code>with</code> 區塊時，Python 會觸發 <code>obj</code> 物件的 <code>__exit__</code> 方法以釋放資源。</li>
+</ul>
+<div class="hint-container tip">
+<p class="hint-container-title">Tips</p>
+<p>在檔案的例子中，<code>obj.__enter__</code> 的回傳值實際上就是物件 <code>obj</code> 本身，而 <code>obj.__exit__</code> 方法就相當於呼叫 <code>obj.close</code> 方法。</p>
+</div>
+<p>事情似乎變得複雜起來，但理解這個機制後，我們可以結合 Python 本身的 <a href="https://en.wikipedia.org/wiki/Duck_typing" target="_blank" rel="noopener noreferrer">duck typing 特性</a> 去做更彈性的編排。舉例來說，我們可以自定義一種類別，使得在檔案資源存取的時候結合計數器功能：</p>
+<div class="language-python line-numbers-mode" data-highlighter="shiki" data-ext="python" data-title="python" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">class</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B"> FileResource</span><span style="--shiki-light:#C18401;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">object</span><span style="--shiki-light:#C18401;--shiki-dark:#ABB2BF">)</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">:</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-dark:#7F848E;--shiki-light-font-style:italic;--shiki-dark-font-style:italic">    # counting times of reading and writing</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    write_count </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 0</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    read_count </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 0</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    def</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> __init__</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#E5C07B;--shiki-light-font-style:inherit;--shiki-dark-font-style:italic">self</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66;--shiki-light-font-style:inherit;--shiki-dark-font-style:italic"> filename</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66;--shiki-light-font-style:inherit;--shiki-dark-font-style:italic"> mode</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">):</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">        self</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.filename </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> filename</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">        self</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.mode </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> mode</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">        self</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.file </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> None</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-dark:#7F848E;--shiki-light-font-style:italic;--shiki-dark-font-style:italic">    # will be triggered when process enter the with block</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    def</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> __enter__</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#E5C07B;--shiki-light-font-style:inherit;--shiki-dark-font-style:italic">self</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">):</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-dark:#7F848E;--shiki-light-font-style:italic;--shiki-dark-font-style:italic">        # handling counter</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">        if</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> 'w'</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> in</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B"> self</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.mode:</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">            FileResource.write_count </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">+=</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 1</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">        if</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> 'r'</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> in</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B"> self</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.mode:</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">            FileResource.read_count </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">+=</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 1</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-dark:#7F848E;--shiki-light-font-style:italic;--shiki-dark-font-style:italic">        # instantiate file object and return itself</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">        self</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.file </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> open</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">self</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.filename, </span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">self</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.mode)</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">        return</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B"> self</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.file</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-dark:#7F848E;--shiki-light-font-style:italic;--shiki-dark-font-style:italic">    # will be triggered when process leave the with block</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    def</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> __exit__</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#E5C07B;--shiki-light-font-style:inherit;--shiki-dark-font-style:italic">self</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66;--shiki-light-font-style:inherit;--shiki-dark-font-style:italic"> exc_type</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66;--shiki-light-font-style:inherit;--shiki-dark-font-style:italic"> exc_val</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66;--shiki-light-font-style:inherit;--shiki-dark-font-style:italic"> exc_tb</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">):</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-dark:#7F848E;--shiki-light-font-style:italic;--shiki-dark-font-style:italic">        # when exception raised inside the with block, `exc_type` would be the</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-dark:#7F848E;--shiki-light-font-style:italic;--shiki-dark-font-style:italic">        # type of the exception, `exc_val` would be the object of such type,</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-dark:#7F848E;--shiki-light-font-style:italic;--shiki-dark-font-style:italic">        # and `exc_tb` would be the object of TracebackType.</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-dark:#7F848E;--shiki-light-font-style:italic;--shiki-dark-font-style:italic">        #</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-dark:#7F848E;--shiki-light-font-style:italic;--shiki-dark-font-style:italic">        # return True if you want to surpress this exception</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">        return</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B"> self</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.file.</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">__exit__</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(exc_type, exc_val, exc_tb)</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">if</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75"> __name__</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2"> ==</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> '__main__'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">:</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    with</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF"> FileResource</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'input.txt'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'w'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">as</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> f:</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">        f.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">write</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'Hello world! I am a file.</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">\n</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">This is a new line.'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    with</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF"> FileResource</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'input.txt'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'r'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">as</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> f:</span></span>
+<span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">        print</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'first time reading ...'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    with</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF"> FileResource</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'input.txt'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'r'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">as</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> f:</span></span>
+<span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">        print</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'second time reading ...'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">    print</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'instantiate but not actually read ...'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    fr </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF"> FileResource</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'input.txt'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'r'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">    print</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(FileResource.read_count, FileResource.write_count)</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>在執行結果中，我們會發現計數器有成功的被運作，且當檔案沒有真正開啟時不會列入計數。</p>
+<div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>first time reading ...</span></span>
+<span class="line"><span>second time reading ...</span></span>
+<span class="line"><span>instantiate but not actually read ...</span></span>
+<span class="line"><span>2 1</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>此時我們已經具備設計自定義資源管理器的基礎技能了，現在我們要藉由 Python 強大內建套件來實現更靈活的操作。</p>
+<h2>使用 contextlib</h2>
+<p>這個強大內建套件就是 <a href="https://docs.python.org/3/library/contextlib.html" target="_blank" rel="noopener noreferrer">contextlib</a>，實務上他可以幫助 Python 在處理資源管理的時候可以更加優雅。</p>
+<p>我們以 <code>FileResource</code> 為例，在 contextlib 的加持下它可以被簡化成以下形式：</p>
+<div class="language-python line-numbers-mode" data-highlighter="shiki" data-ext="python" data-title="python" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">import</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> contextlib</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">write_count </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 0</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">read_count </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 0</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">@contextlib</span><span style="--shiki-light:#4078F2;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">contextmanager</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">def</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> FileResource</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66;--shiki-light-font-style:inherit;--shiki-dark-font-style:italic">filename</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">,</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66;--shiki-light-font-style:inherit;--shiki-dark-font-style:italic"> mode</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">):</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    if</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> 'w'</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> in</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> mode:</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">        global</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> write_count</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">        write_count </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">+=</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 1</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    if</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> 'r'</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> in</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> mode:</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">        global</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> read_count</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">        read_count </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">+=</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 1</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    obj </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> open</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(filename, mode)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    try</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">:</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">        yield</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> obj</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    except</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">:</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-dark:#7F848E;--shiki-light-font-style:italic;--shiki-dark-font-style:italic">        # you can handle exception here</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">        raise</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    finally</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">:</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">        obj.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">close</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">()</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">if</span><span style="--shiki-light:#E45649;--shiki-dark:#E06C75"> __name__</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2"> ==</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> '__main__'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">:</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    with</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF"> FileResource</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'input.txt'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'w'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">as</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> f:</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">        f.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">write</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'Hello world! I am a file.</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">\n</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">This is a new line.'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    with</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF"> FileResource</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'input.txt'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'r'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">as</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> f:</span></span>
+<span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">        print</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'first time reading ...'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    with</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF"> FileResource</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'input.txt'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'r'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">as</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> f:</span></span>
+<span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">        print</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'second time reading ...'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">    print</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'instantiate but not actually read ...'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    fr </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF"> FileResource</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'input.txt'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'r'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">    print</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(FileResource.read_count, FileResource.write_count)</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>此時會發現說我們不用自行宣告類別就可以實現同樣的功能，且不只是更短的行數，程式碼的邏輯也變得更清晰。</p>
+<p>以下我們透過一些案例來介紹 <code>contextlib</code> 的一些使用方法、以及額外功能。</p>
+<h3>Case Study #1: 包裝函數</h3>
+<p>當有些語法比較彆扭的時候可以包裝起來讓程式更美觀</p>
+<div class="language-python line-numbers-mode" data-highlighter="shiki" data-ext="python" data-title="python" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">import</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> contextlib</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">import</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> asyncssh</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">def</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> get_host_info_by_config</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66;--shiki-light-font-style:inherit;--shiki-dark-font-style:italic">config</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">): </span><span style="--shiki-light:#383A42;--shiki-dark:#D19A66">...</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">@contextlib</span><span style="--shiki-light:#4078F2;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">contextmanger</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">def</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> open_connect_by_config</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66;--shiki-light-font-style:inherit;--shiki-dark-font-style:italic">config</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">):</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    hostname, username </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF"> get_host_info_by_config</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(config)</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    with</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> asyncssh.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">connect</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(hostname, </span><span style="--shiki-light:#986801;--shiki-dark:#E06C75;--shiki-light-font-style:inherit;--shiki-dark-font-style:italic">username</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">username) </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">as</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> conn:</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">        yield</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> conn</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3>Case Study #2: 轉導 stdout 到檔案流</h3>
+<p>將在 stdout 接到的字串流當作資源，轉導引到其他檔案流 (如空裝置或標準錯誤流)。</p>
+<div class="language-python line-numbers-mode" data-highlighter="shiki" data-ext="python" data-title="python" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">import</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> contextlib</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">import</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> os</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">import</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> sys</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">with</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> contextlib.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">redirect_stdout</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">None</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">):</span></span>
+<span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">    print</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'Do not show anything'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">with</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> contextlib.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">redirect_stdout</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(sys.stderr):</span></span>
+<span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">    print</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'I would be flushed at any time!'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="hint-container warning">
+<p class="hint-container-title">Warning</p>
+<p>Python 的 <code>redirect_stdout</code> 並無法捕捉所有 stdout 接收到的字串流，就算是 <code>sys.stdout</code> 也有同樣的問題，若要捕捉全部資料，需要去呼叫到底層的 file descriptor. 若有興趣的讀者請參考 <a href="https://github.com/eliben" target="_blank" rel="noopener noreferrer">Eli Bendersky</a>： <a href="https://eli.thegreenplace.net/2015/redirecting-all-kinds-of-stdout-in-python/" target="_blank" rel="noopener noreferrer">Redirecting all kinds of stdout in Python</a>.</p>
+</div>
+<h3>Case Study #3: 複數資源管理 ExitStack</h3>
+<ul>
+<li>複數資源的調用過程相當於 stack 的操作過程</li>
+<li>contextlib 已經實作好了，不要重造輪子</li>
+</ul>
+<div class="language-python line-numbers-mode" data-highlighter="shiki" data-ext="python" data-title="python" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">import</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> contextlib</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">filenames </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> [</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'input1.txt'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'input2.txt'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'input3.txt'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">]</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">with</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> contextlib.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">ExitStack</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">() </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">as</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> stack:</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    files </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> [stack.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">enter_context</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">open</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(fname)) </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">for</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> fname </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">in</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> filenames]</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-dark:#7F848E;--shiki-light-font-style:italic;--shiki-dark-font-style:italic">    # do something ...</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2>資源管理的深層應用</h2>
+<p>在上面的案例中的資源都是十分具體的，比如說一個檔案或是一個流，而透過上述程式碼所形成的結構我們都可以稱作資源管理，意思是說「資源」也可以是一個抽象概念，比如說一個程式執行的狀態。</p>
+<div class="hint-container tip">
+<p class="hint-container-title">Tips</p>
+<p>或者直接將這個結構理解成：對內部區塊程式碼的前處理及後處理方法也可以。</p>
+</div>
+<p>這樣的想法實際上也被應用在 Python 中的許多場景，舉例來說：</p>
+<ul>
+<li><code>unittest.assertRaises</code> 方法可以幫助使用者單元測試一程式碼片段是否會跳出預期錯誤，但又不會讓程序中斷。</li>
+<li><code>unittest.subTest</code> 方法可以幫助使用者強制執行子測試當中的所有測試，即使中間出錯也會執行到底。</li>
+<li><code>contextlib.suppress</code> 方法可以幫助程序不中斷特定錯誤。</li>
+</ul>
+<h2>結論</h2>
+<p>理解 Python 的資源管理後，一方面可以讓我們在之後使用 <code>with</code> 的時候可以更有自信，另一方面也可以更加體會 Python 的一些機制、認識好用的內建套件、建立對 Python 更正確的認知、進而撰寫更漂亮的程式結構。</p>
+<h2>References</h2>
+<ul>
+<li><a href="https://www.python.org/dev/peps/pep-0343/" target="_blank" rel="noopener noreferrer">PEP 0343 -- The "with" Statement</a></li>
+<li><a href="https://docs.python.org/3/library/contextlib.html" target="_blank" rel="noopener noreferrer">contextlib — Utilities for with-statement contexts</a></li>
+<li><a href="https://docs.python.org/3/library/unittest.html" target="_blank" rel="noopener noreferrer">unittest — Unit testing framework</a></li>
+</ul>
+]]></content>
+    <category term="Python"/>
+    <published>2021-01-02T00:00:00.000Z</published>
+  </entry>
+  <entry>
+    <title type="text">Python 加速符文：高效能平行科學計算</title>
+    <id>https://stephlin.github.io/posts/Python/Python-speedup.html</id>
+    <link href="https://stephlin.github.io/posts/Python/Python-speedup.html"/>
+    <updated>2024-09-15T15:10:50.000Z</updated>
+    <summary type="html"><![CDATA[<p>在 Python 基礎科學運算中，我們習於使用 NumPy 以方便且快速地實現矩陣運算，然而在部分情境下仍會遇到效能瓶頸。舉例來說，我們利用 NumPy 線性代數模組處理一個大型線性最小平方問題，但效能瓶頸卻發生在使用原生 Python 迴圈建造矩陣的過程。在本文中，我們將探討 Python 效能瓶頸問題，並試圖使用一些現有工具去達成運算加速的目的，同時比較這些工具之間的特性。</p>
+]]></summary>
+    <content type="html"><![CDATA[<p>在 Python 基礎科學運算中，我們習於使用 NumPy 以方便且快速地實現矩陣運算，然而在部分情境下仍會遇到效能瓶頸。舉例來說，我們利用 NumPy 線性代數模組處理一個大型線性最小平方問題，但效能瓶頸卻發生在使用原生 Python 迴圈建造矩陣的過程。在本文中，我們將探討 Python 效能瓶頸問題，並試圖使用一些現有工具去達成運算加速的目的，同時比較這些工具之間的特性。</p>
+<!-- more -->
+<h2>Python 為什麼那麼慢？</h2>
+<p>Python 好香，但他好慢 🥲</p>
+<p>為什麼使用 Python 的理由很簡單，一來他語法親民，能夠快速實現並測試一些功能或者想法；二來他有很多方便、隨裝即用的套件，使用者往往不需要太多的功夫就能達成許多新鮮有趣的程式。</p>
+<p>然而眾所皆知， Python 很慢，但也不代表說我們只能乾瞪眼任其一直慢下去。所謂了解問題是解決問題的第一步，不過我們需要分一點層次去探討他慢的理由。以下會用比較簡易的方式進行探討，關於完整的效能議題可以參考 [^Mike2021Why]。</p>
+<div class="hint-container tip">
+<p class="hint-container-title">Tips</p>
+<p>在本文中我們以 CPU-tasks 為主，關於 I/O-tasks 的效能問題則有不同的處理手段。</p>
+</div>
+<h3>Python 是動態型別語言</h3>
+<p>動態型別 (Dynamically typed) 的意思是說，我們不需要為變數指定他的型態，同時我們可以對相同的變數名賦予完全不同型態的值。比如說以下程式碼：</p>
+<div class="language-python line-numbers-mode" data-highlighter="shiki" data-ext="python" data-title="python" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">a </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 1</span><span style="--shiki-light:#A0A1A7;--shiki-dark:#7F848E;--shiki-light-font-style:italic;--shiki-dark-font-style:italic">      # type(a) == int</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">a </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> "123"</span><span style="--shiki-light:#A0A1A7;--shiki-dark:#7F848E;--shiki-light-font-style:italic;--shiki-dark-font-style:italic">  # type(a) == str</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div></div></div><p>在第一行時，變數 <code>a</code> 的型態為整數 <code>1</code>，而在第二行時，變數 <code>a</code> 的型態變成字串 <code>"123"</code>，且在變數宣告過程中，我們都沒有提示說該變數的型態為何。</p>
+<p>相比之下，在靜態型別 (Statically typed) 語言中，像是 C++ 或 Java ，你就必須得這麼做：</p>
+<div class="language-cpp line-numbers-mode" data-highlighter="shiki" data-ext="cpp" data-title="cpp" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">int</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> a </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">=</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-dark:#7F848E;--shiki-light-font-style:italic;--shiki-dark-font-style:italic">// std::string a = "123";  // You even can't do this</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">std::string b </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">=</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> "123"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>如此乍看之下，擁有動態型別特性的語言能帶給我們更大的彈性，並且方便！但是，這個便利性是有代價的。</p>
+<h3>Python 是直譯型語言</h3>
+<p>與編譯型 (Compiled) 語言不同的是，直譯型 (Interpreted) 語言會將程式碼編譯成位元組碼 (bytecode)，接著再將位元組碼提供給直譯器 (interpreter)，讓他轉換成最終的機械碼 (machine code)，也就是 CPU 真正看得懂的語言。</p>
+<p>這樣乍看下來，在執行階段中，直譯型語言就硬生生比編譯型語言多出了編譯的成本，因為編譯型語言在執行階段就是讀機械碼，不須多加編譯或解析。這個說法本身並沒有錯，但是 Python 慢的主要理由並不只是這裡。一個例子是 Java ，他的編譯過程也是將原始碼轉成位元組碼，並於執行階段再將其交由 JVM 去轉換成機械碼，但 Java 事實上並沒有那麼慢。</p>
+<p>真正的問題是動態型別！自由自在的型態使得程式碼的運作行為無法輕易地被預期，因此直譯器必須要逐步執行並逐步判斷接下來的運算行為。就好比程式執行的過程像是火車在前進，在已知型態的前提下，我們可以事先將軌道鋪得遠一些，讓火車不用走走停停的，但 Python 只能讓火車走一步停一步，等軌道鋪好一格後才能繼續走。</p>
+<p>到目前為止，我們對於 Python 的效能問題有以下簡單的見解：動態型別的特性逼得 Python 需要設計成直譯型語言，而動態型別的不可預期性讓效能在執行階段難以被優化。</p>
+<h3>Python 有全域直譯器鎖</h3>
+<p>Python 使用 reference counting 的方式管理記憶體，並以此作為垃圾回收機制以及記憶體管理的基礎。</p>
+<p>這使得說每個變數的計數器在多線程處理中需要被保護，意思是說直譯器需要確保變數在每個時刻下只被一個線程控制 (這意味著新增或者減少參考計數)，在 Python 中，他的做法就是引進全域直譯器鎖 (Global Interpreter Lock)，強迫在任何時刻下都只有一個線程在運作。</p>
+<p>這也是 Python 效能變得不是很優的原因之一，但僅限在多線程處理中才會遇到：本來好端端能平行運算的東西，因為記憶體管理的因素，而被迫降級成實質單線程運算的品質。</p>
+<div class="hint-container tip">
+<p class="hint-container-title">Tips</p>
+<p>變數的參考計數實際上比你想像中更頻繁得被更動，我們用以下例子說明：</p>
+<div class="language-python line-numbers-mode" data-highlighter="shiki" data-ext="python" data-title="python" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">a </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 10000000000000000</span><span style="--shiki-light:#A0A1A7;--shiki-dark:#7F848E;--shiki-light-font-style:italic;--shiki-dark-font-style:italic">  # import gc; len(gc.get_referrers(a)) ==  1</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">b </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> a  </span><span style="--shiki-light:#A0A1A7;--shiki-dark:#7F848E;--shiki-light-font-style:italic;--shiki-dark-font-style:italic"># len(gc.get_referrers(a)) ==  2</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">c </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> a  </span><span style="--shiki-light:#A0A1A7;--shiki-dark:#7F848E;--shiki-light-font-style:italic;--shiki-dark-font-style:italic"># len(gc.get_referrers(a)) ==  3</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>在程式碼中，第一行宣告變數 <code>a</code> 時，該物件 <code>10000000000000000</code> 會被初始化，並且該計數器為 1 ，當程式執行到第二行時，同樣的物件看似沒有被修改，但他的計數器會加一，因此實質上它的內部數值還是被修改了。</p>
+<p>由此可知，第二行跟第三行即使平行化了也不能同步執行，雖然這聽起來很不可理喻，但 Python 就是這樣。</p>
+</div>
+<h2>加速符文</h2>
+<p>到目前為止，我們大致理解 Python 效能問題的主要理由，總算可以來談談如何進行加速了，但這邊還是得先打個預防針：凡好康的福利總是有前提的。</p>
+<p>在本文中，我們著重於科學計算 (或者說數值計算) 的加速，為了方便進行不同工具間的比較，我們使用相同的數值計算問題 (弧長計算) 進行演示：給定一個有限數列</p>
+<p>我們想要計算出這個數列所形成的弧長</p>
+<p>如果用 NumPy 實作這個功能的話，我們可以使用以下程式碼：</p>
+<div class="language-python line-numbers-mode" data-highlighter="shiki" data-ext="python" data-title="python" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#A0A1A7;--shiki-dark:#7F848E;--shiki-light-font-style:italic;--shiki-dark-font-style:italic"># with_numpy/lib.py</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">import</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> numpy </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">as</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> np</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">def</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> arc_length</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66;--shiki-light-font-style:inherit;--shiki-dark-font-style:italic">points</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#986801;--shiki-dark:#ABB2BF"> np.ndarray</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) -&gt; </span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">float</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">:</span></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">    """Compute the arc length of a discrete set of points (curve).</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">    Args:</span></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">        points (np.ndarray): A list of points.</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">    Returns:</span></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">        float: Arc length.</span></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">    """</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    piecewice_length </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> np.linalg.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">norm</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(np.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">diff</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(points, </span><span style="--shiki-light:#986801;--shiki-dark:#E06C75;--shiki-light-font-style:inherit;--shiki-dark-font-style:italic">axis</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">0</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">), </span><span style="--shiki-light:#986801;--shiki-dark:#E06C75;--shiki-light-font-style:inherit;--shiki-dark-font-style:italic">axis</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    return</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> np.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">sum</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(piecewice_length)</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>其中我們將數列表達成一個二維陣列，其中每一列代表數列中的一個點。</p>
+<p>其實這個版本跟原始 Python 相比，效能算是還不錯了，不過以下會告訴大家，這還差得遠。</p>
+<h3>基礎加速符文：靜態型別</h3>
+<p>儘管 Python 是一個動態型別語言，但其實我們沒有那麼需要動態型別。</p>
+<p>就弧長計算的例子來說，我們很明確地知道輸入的數列是一個二維向量，且每一個數值都是符點數，因此我們並不會使用到動態型別的優勢。在這邊我們首先介紹第一個工具 <a href="https://pythran.readthedocs.io/en/latest/" target="_blank" rel="noopener noreferrer">Pythran</a>，他提供了為函數參數提供指定型態的功能，並且將程式碼事先編譯 (ahead of time compilation, AOT) 成可由 Python 於執行階段呼叫的 shared library ，進而達成靜態型別的效益 (同時也省去執行階段編譯的成本)。</p>
+<div class="language-python line-numbers-mode" data-highlighter="shiki" data-ext="python" data-title="python" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#A0A1A7;--shiki-dark:#7F848E;--shiki-light-font-style:italic;--shiki-dark-font-style:italic"># with_pythran/lib.py</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">import</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> numpy </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">as</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> np</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line highlighted"><span style="--shiki-light:#A0A1A7;--shiki-dark:#7F848E;--shiki-light-font-style:italic;--shiki-dark-font-style:italic"># pythran export arc_length(float64[:, :])</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">def</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> arc_length</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66;--shiki-light-font-style:inherit;--shiki-dark-font-style:italic">points</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#986801;--shiki-dark:#ABB2BF"> np.ndarray</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) -&gt; </span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">float</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">:</span></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">    """Compute the arc length of a discrete set of points (curve).</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">    Args:</span></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">        points (float64[:, :]): A list of points.</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">    Returns:</span></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">        float: Arc length.</span></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">    """</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    length </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 0</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    for</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> i </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">in</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> range</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(points.shape[</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">0</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">] </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">-</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">):</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">        length </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">+=</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> np.linalg.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">norm</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(points[i </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">+</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">] </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">-</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> points[i])</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    return</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> length</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>在這邊可以看到我們透過註解 (第四行) 告訴 Pythran 該函數的唯一參數是一個二維的 64-bit 浮點數陣列 <code>float64[:, :]</code>，除此之外，你可以看到我們並沒有使用到其他特殊的語句。</p>
+<p>接著我們可以使用以下指令進行事先編譯：</p>
+<div class="language-bash line-numbers-mode" data-highlighter="shiki" data-ext="bash" data-title="bash" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">pythran</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> lib.py</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>他會在同一層目錄下建立一個名稱類似於 <code>lib.cpython-XXm-x86_64-XXX-XXX.so</code> 的 shared library (在筆者使用的電腦中，該名稱為 <code>lib.cpython-37m-x86_64-linux-gnu.so</code>) ，我們留意到他只能由指定的 Python 版本以及指令集架構呼叫，因為他本身已經是機械碼了。</p>
+<p>至此，我們就可以來一窺這個加速符文的功效了：</p>
+<figure><img src="/assets/images/posts/python/python-speedup/pythran.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<div style="text-align:center">
+<p>NumPy <em>v.s.</em> <strong>Pythran-NumPy</strong></p>
+</div>
+<p>在這個測試當中，我們在固定數值點的維度 (三維) 下，逐步增加點的數量 (在實際測試中我們試驗一百萬到一千萬個點) ，在這之中我們發現在適當的程式編排下， Pythran 的效能比 NumPy 快了約七倍！由此可見，光是固定變數型態，就足以讓編譯器決定說如何能讓程式效率變得更好。</p>
+<div class="hint-container tip">
+<p class="hint-container-title">Tips</p>
+<p>實際上也有其他套件能做到類似的事情，一個大家常聽到的工具是 <a href="https://cython.org/" target="_blank" rel="noopener noreferrer">Cython</a>，不過使用者需要熟悉 Cython 自定義的語法，他有點像 C/C++ ，但又有些差異。筆者認為他比較難上手，故不在此篇特別做介紹。</p>
+</div>
+<div class="hint-container tip">
+<p class="hint-container-title">Tips</p>
+<p>在上文中，所謂「適當的程式編排」指的是說：程式設計師依然要提供正確且簡潔的實作方法，同時也要考量到套件本身對各式語法的支援程度，如此才能將加速機制發揮到極致。</p>
+</div>
+<h3>中級加速符文：平行處理</h3>
+<p>在上述測試中，不管是 NumPy 或者是 Pythran 的初步實作，他們在計算上都是只有使用到單一線程。意思是說，到目前為止的執行效能還可以透過平行化再上一層樓。</p>
+<p>幸運的是， Pythran 本身也有提供平行化的功能，在這邊我們需要為本來的程式碼加上 OpenMP 的語法註解。</p>
+<div class="language-python line-numbers-mode" data-highlighter="shiki" data-ext="python" data-title="python" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#A0A1A7;--shiki-dark:#7F848E;--shiki-light-font-style:italic;--shiki-dark-font-style:italic"># with_pythran_omp/lib.py</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">import</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> numpy </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">as</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> np</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A0A1A7;--shiki-dark:#7F848E;--shiki-light-font-style:italic;--shiki-dark-font-style:italic"># pythran export arc_length(float64[:, :])</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">def</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> arc_length</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66;--shiki-light-font-style:inherit;--shiki-dark-font-style:italic">points</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">):</span></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">    """Compute the arc length of a discrete set of points (curve).</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">    Args:</span></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">        points (float64[:, :]): A list of points.</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">    Returns:</span></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">        float: Arc length.</span></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">    """</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    length </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 0</span></span>
+<span class="line"></span>
+<span class="line highlighted"><span style="--shiki-light:#A0A1A7;--shiki-dark:#7F848E;--shiki-light-font-style:italic;--shiki-dark-font-style:italic">    # omp parallel for reduction(+:length)</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    for</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> i </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">in</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2"> range</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(points.shape[</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">0</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">] </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">-</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">):</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">        length </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">+=</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> np.linalg.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">norm</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(points[i </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">+</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">] </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">-</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> points[i])</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    return</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> length</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>在以上程式碼中， <code>omp parallel for</code> 是對於 for 迴圈平行化運算的常見起手式，而由於 <code>length</code> 在這個地方是作為累加的單一變數，可能會有所謂的讀寫問題 (readers-writers problems) ，因此我們需要加上 <code>reduction(+:length)</code> 以避免不良的平行化機制。</p>
+<p>至此我們再編譯一次，留意我們需要再另外加上 <code>-fopenmp</code> 這個 flag:</p>
+<div class="language-bash line-numbers-mode" data-highlighter="shiki" data-ext="bash" data-title="bash" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">pythran</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> -fopenmp</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> lib.py</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>接著我們就可以來看看在平行化加持下的效果如何：</p>
+<figure><img src="/assets/images/posts/python/python-speedup/pythran-omp.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<div style="text-align:center">
+<p>NumPy <em>v.s.</em> Pythran-NumPy (Single) <em>v.s.</em> <strong>Pythran-OpenMP (Parallel)</strong></p>
+</div>
+<p>在六核十二執行緒的執行環境下，一樣的測試場景，在一千萬個點的案例中，我們發現在平行化加持下，效能與單執行緒相比又至多能提升四倍左右！並且在這個實作中，我們已經逐漸逼近 CPU 的運算極限了。</p>
+<p>此時或許已經有一些讀者開始思考，有沒有稍微簡單一點的平行化方法呢？</p>
+<p>答案是有的！我們在此介紹另外一個強大的工具 <a href="https://numba.pydata.org/" target="_blank" rel="noopener noreferrer">Numba</a>，他能夠允許使用者在不涉及到這麼多細節的前提下，一樣能達成類似的效果。我們直接上程式碼：</p>
+<div class="language-python line-numbers-mode" data-highlighter="shiki" data-ext="python" data-title="python" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#A0A1A7;--shiki-dark:#7F848E;--shiki-light-font-style:italic;--shiki-dark-font-style:italic"># with_numba/lib.py</span></span>
+<span class="line"></span>
+<span class="line highlighted"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">import</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> numba </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">as</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> nb</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">import</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> numpy </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">as</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> np</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line highlighted"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">@nb</span><span style="--shiki-light:#4078F2;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">njit</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#E06C75;--shiki-light-font-style:inherit;--shiki-dark-font-style:italic">parallel</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">True</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">def</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> arc_length</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66;--shiki-light-font-style:inherit;--shiki-dark-font-style:italic">points</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">:</span><span style="--shiki-light:#986801;--shiki-dark:#ABB2BF"> np.ndarray</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) -&gt; </span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">float</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">:</span></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">    """Compute the arc length of a discrete set of points (curve).</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">    Args:</span></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">        points (np.ndarray): A list of points.</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">    Returns:</span></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">        float: Arc length.</span></span>
+<span class="line"><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">    """</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    length </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 0</span></span>
+<span class="line"></span>
+<span class="line highlighted"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    for</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> i </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">in</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> nb.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">prange</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(points.shape[</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">0</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">] </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">-</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">):</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">        piecewice_length </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> np.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">sqrt</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(np.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">sum</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">((points[i </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">+</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">] </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">-</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> points[i]) </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">**</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 2</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">))</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">        length </span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">+=</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> piecewice_length</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">    return</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> length</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>在以上實作中，我們利用裝飾器 (Python decorator, <code>@</code>) 對函數進行 Numba 包裝，其中 <code>nb.njit</code> (等價語法為 <code>nb.jit(nopython=True)</code>) 更指定該函數不受 Python interpreter 的介入，使其能夠達到最佳效能。同時我們也指定該函數需要進行平行化，其中我們在第十七行使用 <code>nb.prange</code> 指定該處是可以進行平行化的。</p>
+<div class="hint-container warning">
+<p class="hint-container-title">Warning</p>
+<p>在 Numba 底層中，他們會自動判斷程式碼並套用合適的平行化機制，不過取而代之，使用者需要透過語法「提示」 Numba 該怎麼做，比如程式碼中的 <code>+=</code> 就是一個重要的資訊。詳細的說明可以參考官方文件 [^NumbaParallel]。</p>
+</div>
+<p>與 Pythran 不同的是， Numba 透過 just-in-time compilation (JIT) 機制使原始碼在執行階段進行編譯，因此不需要事先編譯。此時我們來看看 Numba 的效果如何：</p>
+<figure><img src="/assets/images/posts/python/python-speedup/numba.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<div style="text-align:center">
+<p>NumPy <em>v.s.</em> Pythran-NumPy (Single &amp; Parallel) <em>v.s.</em> <strong>Numba</strong></p>
+</div>
+<p>在這個比較當中，我們發現他與 Pythran 平行化後的效能相比是足以分庭抗禮的，儘管速度上稍微略遜一小截，但我們觀察到 Numba 能夠提供更高階的語法結構，同時可以留意到我們並沒有特別指定變數型態，雖然他還是只能吃 NumPy 陣列，但 Numba 也會根據當下取得的陣列資訊進行優化，藉以獲得更好的執行彈性。</p>
+<div class="hint-container tip">
+<p class="hint-container-title">Tips</p>
+<p>Numba 還支援基於 CUDA 的 GPU 加速功能 [^NumbaCUDA] ，因此他也比 Pythran 還具備更多元的加速方案。</p>
+</div>
+<div class="hint-container warning">
+<p class="hint-container-title">Warning</p>
+<p>在上述的效能比較中，我們並沒有將 Numba JIT 編譯的時間納入計算，關於這部分的討論我們會放到後面各類工具比較章節討論。</p>
+</div>
+<h3>高級加速符文：再見了 Python</h3>
+<p>從一開始介紹動態型別、GIL 等等的效能瓶頸問題，到後面我們開始探討說：在科學計算中，我們需要動態型別嗎？需要這種記憶體管理機制嗎？而到目前為止的試驗中我們也發現：將這些緊箍咒一一卸下後，我們也獲得了飛躍的效能提升。</p>
+<p>此時我們進一步探討：<strong>我們真的有那麼需要 Python 嗎？</strong></p>
+<p>這句話的意思是說，我們在上述計算成本大的運算中，似乎壓根沒有從 Python 中得到什麼好處，反而是因為 Python 的設計機制導致我們用了不合理的運算時間才能得到計算結果。那有沒有一種可能性是說，我們在上層呼叫中仍然使用 Python ，但在計算部分我們另起爐灶，用更高效能的語言去實作他呢？</p>
+<p>此時我們回過頭來提及上述所使用到的兩個工具 Pythran 跟 Numba ，其實他們已經默默幫我們做到這件事情了。</p>
+<p>Pythran 本質上是一個 Python-to-C++ 的轉換器，他真正在做的事情是將 Python 程式碼轉換成 C++ 程式碼，再透過 C++ 編譯器編譯成 shared library 供 Python interpreter 使用；而 Numba 則是使用 LLVM 將 Python 程式碼轉換成高效能的機械碼，基本上也是異曲同工。</p>
+<p>不過不可諱言地說，他們在使用上還是受到套件本身的限制，比如說 Numba 無法在函數中塞入 NumPy 以外的套件功能 (e.g., Pandas)，同時他對於 NumPy 語法的支援也有所侷限，在沒有詳細閱讀文件的前提下直接撰寫也有一定的風險 [^NumbaNumPySupported]。而相似的困境在 Pythran 中也會遇到 [^PythranSupported]。</p>
+<div class="hint-container tip">
+<p class="hint-container-title">Tips</p>
+<p>關於 Numba 的使用注意事項以及心得也可以參考 Jacky 的文章 [^Jacky2019Numba]。</p>
+</div>
+<p>那，我們不妨自己寫 C++ 吧？</p>
+<p>其實 NumPy 也是在做類似的事情， NumPy 在內部參照了 CPython API 去實現高性能的科學計算功能，當然我們也可以依樣畫葫蘆，同樣對著 CPython API 刻出我們需要的功能，不過 CPython 在不同版本可能會有不同的 API ，這導致我們在實作上會有一點麻煩。</p>
+<p>這邊我們介紹 <a href="https://pybind11.readthedocs.io/en/stable/" target="_blank" rel="noopener noreferrer">pybind11</a>，他提供了相對 CPython API 而言更上層的語法介面，讓使用者可以更容易得達成這個目的。到這邊我們就實現真正意義上的使用 C++ 了：沒有奇怪的套件限制，同時可以隨意呼叫任何在 C++ 可以使用的函式庫！</p>
+<div class="language-cpp line-numbers-mode" data-highlighter="shiki" data-ext="cpp" data-title="cpp" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#A0A1A7;--shiki-dark:#7F848E;--shiki-light-font-style:italic;--shiki-dark-font-style:italic">// with_pybind11/src/lib.cpp</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">#if</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> __INTELLISENSE__</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">#undef</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> __ARM_NEON</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">#undef</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> __ARM_NEON__</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">#endif</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">#include</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> &lt;pybind11/eigen.h&gt;</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">#include</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> &lt;pybind11/numpy.h&gt;</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">#include</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> &lt;pybind11/pybind11.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">#include</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379"> &lt;omp.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">namespace</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B"> py</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD"> =</span><span style="--shiki-light:#383A42;--shiki-dark:#E5C07B"> pybind11</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">int</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> omp_thread_count</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">() {</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">  int</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> n </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">=</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 0</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">  #pragma</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> omp</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> parallel</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> reduction</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(+:</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">n</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">  n </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">+=</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">  return</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> n;</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">double</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF"> arc_length</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(Eigen::</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">Ref</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">&lt;Eigen::</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">Matrix</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">&lt;</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">double</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, Eigen::</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">Dynamic</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, Eigen::</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">Dynamic</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, Eigen::</span><span style="--shiki-light:#C18401;--shiki-dark:#E5C07B">RowMajor</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">&gt;&gt; </span><span style="--shiki-light:#383A42;--shiki-dark:#E06C75;--shiki-light-font-style:inherit;--shiki-dark-font-style:italic">x</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">) {</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">  double</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> length </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">=</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 0</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">;</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">  omp_set_dynamic</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">0</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">);</span></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">  omp_set_num_threads</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">omp_thread_count</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">());</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">  #pragma</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> omp</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> parallel</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> for</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> reduction</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(+:</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">length</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">  for</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> (</span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">int</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> i </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">=</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">; i </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">&lt;</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B"> x</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">rows</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(); </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">++</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">i) {</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">    length </span><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">+=</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> (</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">x</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">row</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(i) </span><span style="--shiki-light:#A626A4;--shiki-dark:#56B6C2">-</span><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B"> x</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">row</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(i </span><span style="--shiki-light:#A626A4;--shiki-dark:#56B6C2">-</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66"> 1</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">)).</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">norm</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">();</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">  }</span></span>
+<span class="line"><span style="--shiki-light:#A626A4;--shiki-dark:#C678DD">  return</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF"> length;</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">PYBIND11_MODULE</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(lib, m) {</span></span>
+<span class="line"><span style="--shiki-light:#E45649;--shiki-dark:#E5C07B">  m</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">.</span><span style="--shiki-light:#4078F2;--shiki-dark:#61AFEF">def</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">"arc_length"</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">, </span><span style="--shiki-light:#A626A4;--shiki-dark:#56B6C2">&amp;</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">arc_length);</span></span>
+<span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}</span></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>在這個範例中，我們使用 <a href="https://eigen.tuxfamily.org/index.php?title=Main_Page" target="_blank" rel="noopener noreferrer">Eigen</a> 函式庫實現在 C++ 的線性代數運算，他在 C++ 當中也是相當知名的數學套件，同時學習到上面平行化的精神，我們使用 OpenMP 對各線段長的運算進行平行化處理。</p>
+<div class="hint-container note">
+<p class="hint-container-title">Note</p>
+<p>參數型態 <code>Eigen::Ref&lt;Eigen::Matrix&lt;...&gt;&gt;</code> 能夠避免函數呼叫中額外進行不必要的複製 (pass-by-reference)，在不使用 <code>Eigen::Ref</code> 的情況下，使用 pybind11 反而可能因為額外的記憶體複製造成效能下降 [^pybind11EigenPassByReference]。</p>
+</div>
+<p>至此，我們對原始碼進行編譯，在這邊我們使用 OpenMP <code>-fopenmp</code> 以及 <code>-O3</code> 編譯優化，最終取得以下效能：</p>
+<figure><img src="/assets/images/posts/python/python-speedup/pybind11-rows.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<div style="text-align:center">
+<p>NumPy <em>v.s.</em> Pythran <em>v.s.</em> Numba <em>v.s.</em> <strong>pybind11</strong></p>
+</div>
+<p>在這個案例中，我們可以看到 pybind11 與 Pythran 可說不相上下，不過我們切換另一個實驗場景：我們在固定點數量 (一萬點) 的前提下，逐步提升點的維度 (一千維度到一萬維度) ，並比較各方法之間的效能差異：</p>
+<figure><img src="/assets/images/posts/python/python-speedup/pybind11-cols.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<div style="text-align:center">
+<p>NumPy <em>v.s.</em> Pythran <em>v.s.</em> Numba <em>v.s.</em> <strong>pybind11</strong></p>
+</div>
+<p>在這個範例中，我們看到 pybind11 獲得所有方法中最快的效能，在一萬維度的情況下，速度上甚至是第二名平行化 Pythran 版本的兩倍，與原生 NumPy 相比則是快了超過六十倍，至於最原始的 Python 版本我們就別提了。</p>
+<p>雖然我們在這個案例中看到了 pybind11 的潛力，但使用這個方法也並非完全沒有缺點。一個明顯的問題是他需要付上一定的成本去建置相關環境，同時也需要考慮顧慮更多的實作細節，以達到最佳的效能。因此在 Python 平行化運算中並不總是提及 pybind11 這個方案，因為他在產品定位上更接近於一個 Python 綁定器 (Python bindings)。</p>
+<h2>心得</h2>
+<p>實際上，這些套件他們各自都有自己最關心的議題，故在筆者從開始進行這一系列的測試到現在，並沒有得到所謂「誰才是最佳且唯一解決方案」的結論，而是說我們需要根據當下的實作情境去選擇最適合的工具。因此以下筆者根據自己的使用經驗以及個人感受，提供一個簡易的表格作為套件選擇的依據：</p>
+<p>| 套件     | 特色                                           | 主要限制                                                   | 適用情境                                                        |
+|</p>
+]]></content>
+    <category term="Python"/>
+    <published>2022-08-07T00:00:00.000Z</published>
+  </entry>
+</feed>
