@@ -17,6 +17,7 @@
     "vuepress-theme-hope": "2.0.0-rc.52"
   },
   "dependencies": {
+    "@vuepress/plugin-feed": "2.0.0-rc.39",
     "mathjax-full": "^3.2.2",
     "vuepress-plugin-search-pro": "2.0.0-rc.52"
   }
