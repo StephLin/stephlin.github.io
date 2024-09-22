@@ -1,4 +1,4 @@
-import { hopeTheme } from "vuepress-theme-hope";
+import { feed, hopeTheme } from "vuepress-theme-hope";
 import navbar from "./navbar.js";
 import sidebar from "./sidebar.js";
 import { MR_HOPE_AVATAR } from "./logo.js";
@@ -198,5 +198,9 @@ export default hopeTheme({
     // },
 
     searchPro: true,
+
+    feed: {
+      atom: true,
+    }
   },
 });
