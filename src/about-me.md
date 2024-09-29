@@ -107,6 +107,10 @@ and win the award of _"Honorable Mention"_ in 2019.
 
 ### Journal Papers
 
+1. Bang-Shien Chen, [Yu-Kai Lin](/), Jian-Yu Chen, Chih-Wei Huang, Jann-Long Chern, Ching-Cherng Sun,
+   **FracGM: A Fast Fractional Programming Technique for Geman-McClure Robust Estimator**.
+   _submitted to IEEE Robotics and Automation Letters (RA-L)_, 2024.
+
 1. [**Yu-Kai Lin**](/), Wen-Chieh Lin, Chieh-Chih Wang,
    **K-Closest Points and Maximum Clique Pruning for Efficient and Effective 3-D Laser Scan Matching**.
    _IEEE Robotics and Automation Letters (RA-L)_, vol. 7, no. 2, pp. 1471 -- 1477, Apr. 2022.
