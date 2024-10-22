@@ -38,6 +38,6 @@ the computation time.
 
 For more details, please refer to the following links:
 
-- <FontIcon icon="fa-solid fa-file-lines" /> Paper <span style="color: red">(under review)</span>
-- <FontIcon icon="fa-solid fa-file-lines" /> Preprint <span style="color: red">(under review)</span>
+- <FontIcon icon="fa-solid fa-file-lines" /> Paper <span style="color: red">(To appear in IEEE Xplore)</span>
+- [<FontIcon icon="fa-solid fa-file-lines" /> Preprint (arXiv)](https://arxiv.org/pdf/2409.13978)
 - [<FontIcon icon="fa-solid fa-code" /> Code (GitHub)](https://github.com/StephLin/FracGM)
