@@ -3,7 +3,7 @@
   <id>https://stephlin.github.io/</id>
   <title>StephLin&amp;apos;s Personal Blog</title>
   <subtitle>StephLin&amp;apos;s Personal Blog</subtitle>
-  <updated>2024-11-05T15:42:09.641Z</updated>
+  <updated>2024-11-12T15:17:15.707Z</updated>
   <generator>@vuepress/plugin-feed</generator>
   <link rel="self" href="https://stephlin.github.io/atom.xml"/>
   <link rel="alternate" href="https://stephlin.github.io/"/>
@@ -16,7 +16,7 @@
     <title type="text">2024 - FracGM</title>
     <id>https://stephlin.github.io/projects/2024-FracGM.html</id>
     <link href="https://stephlin.github.io/projects/2024-FracGM.html"/>
-    <updated>2024-10-22T15:29:08.000Z</updated>
+    <updated>2024-11-12T15:16:33.000Z</updated>
     <summary type="html"><![CDATA[<p><a href="https://dgbshien.com/" target="_blank" rel="noopener noreferrer">Bang-Shien Chen</a>,
 <a href="/" target="_blank">Yu-Kai Lin</a>,
 <a href="https://github.com/Jian-yu-chen" target="_blank" rel="noopener noreferrer">Jian-Yu Chen</a>,
@@ -24,7 +24,7 @@
 <a href="https://math.ntnu.edu.tw/~chern/" target="_blank" rel="noopener noreferrer">Jann-Long Chern</a>,
 <a href="https://www.dop.ncu.edu.tw/en/Faculty/faculty_more/9" target="_blank" rel="noopener noreferrer">Ching-Cherng Sun</a>,
 <strong>FracGM: A Fast Fractional Programming Technique for Geman-McClure Robust Estimator</strong>.
-<em>To appear in IEEE Robotics and Automation Letters (RA-L)</em>, 2024.</p>]]></summary>
+<em>IEEE Robotics and Automation Letters (RA-L)</em>, 2024.</p>]]></summary>
     <content type="html"><![CDATA[<p><a href="https://dgbshien.com/" target="_blank" rel="noopener noreferrer">Bang-Shien Chen</a>,
 <a href="/" target="_blank">Yu-Kai Lin</a>,
 <a href="https://github.com/Jian-yu-chen" target="_blank" rel="noopener noreferrer">Jian-Yu Chen</a>,
@@ -32,7 +32,7 @@
 <a href="https://math.ntnu.edu.tw/~chern/" target="_blank" rel="noopener noreferrer">Jann-Long Chern</a>,
 <a href="https://www.dop.ncu.edu.tw/en/Faculty/faculty_more/9" target="_blank" rel="noopener noreferrer">Ching-Cherng Sun</a>,
 <strong>FracGM: A Fast Fractional Programming Technique for Geman-McClure Robust Estimator</strong>.
-<em>To appear in IEEE Robotics and Automation Letters (RA-L)</em>, 2024.</p>
+<em>IEEE Robotics and Automation Letters (RA-L)</em>, 2024.</p>
 <figure><img src="/assets/images/projects/FracGM-Banner.gif" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <p>Robust estimation is essential in computer vision, robotics, and navigation,
 aiming to minimize the impact of outlier measurements for improved accuracy. We
@@ -52,8 +52,7 @@ better results in 13 out of 18 outcomes, while having a 19.43% improvement in
 the computation time.</p>
 <p>For more details, please refer to the following links:</p>
 <ul>
-<li>
-</li>
+<li><a href="https://doi.org/10.1109/LRA.2024.3495372" target="_blank" rel="noopener noreferrer"></a></li>
 <li><a href="https://arxiv.org/pdf/2409.13978" target="_blank" rel="noopener noreferrer"></a></li>
 <li><a href="https://github.com/StephLin/FracGM" target="_blank" rel="noopener noreferrer"></a></li>
 </ul>
