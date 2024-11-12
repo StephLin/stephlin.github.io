@@ -3,14 +3,14 @@
   <id>https://stephlin.github.io/</id>
   <title>StephLin&amp;apos;s Personal Blog</title>
   <subtitle>StephLin&amp;apos;s Personal Blog</subtitle>
-  <updated>2024-11-12T15:17:15.707Z</updated>
+  <updated>2024-11-12T15:40:30.262Z</updated>
   <generator>@vuepress/plugin-feed</generator>
   <link rel="self" href="https://stephlin.github.io/atom.xml"/>
   <link rel="alternate" href="https://stephlin.github.io/"/>
   <category term="Research"/>
   <category term="MediaTek"/>
-  <category term="Optimization"/>
   <category term="C++"/>
+  <category term="Optimization"/>
   <category term="Python"/>
   <entry>
     <title type="text">2024 - FracGM</title>
@@ -64,7 +64,7 @@ the computation time.</p>
     <title type="text">About Me</title>
     <id>https://stephlin.github.io/about-me.html</id>
     <link href="https://stephlin.github.io/about-me.html"/>
-    <updated>2024-10-22T15:25:06.000Z</updated>
+    <updated>2024-11-12T15:39:33.000Z</updated>
     <summary type="html"><![CDATA[
 ]]></summary>
     <content type="html"><![CDATA[
@@ -241,6 +241,24 @@ environments.</p>
 ]]></content>
     <category term="MediaTek"/>
     <published>2024-09-15T00:00:00.000Z</published>
+  </entry>
+  <entry>
+    <title type="text">C++ Traits 不專業使用心得</title>
+    <id>https://stephlin.github.io/posts/Cpp/Cpp-traits.html</id>
+    <link href="https://stephlin.github.io/posts/Cpp/Cpp-traits.html"/>
+    <updated>2024-09-15T15:10:50.000Z</updated>
+    <summary type="html"><![CDATA[<p>近期在閱讀一些 C++ Library 的過程中發現了 C++ Traits 的使用概念，於是乎來整理一下他的想法以及實現方法。</p>
+]]></summary>
+    <content type="html"><![CDATA[<p>近期在閱讀一些 C++ Library 的過程中發現了 C++ Traits 的使用概念，於是乎來整理一下他的想法以及實現方法。</p>
+<!-- more -->
+<p>Traits 簡單來講就是一個程式碼片段，而我們希望透過一些機制，把他當作補丁一般地，貼到某塊程式碼內。</p>
+<p>這個概念若使用得當，最大的好處在於我們不用重複實作相同的功能 (或是相似的架構)，進而提升程式碼的重複利用度、以及簡潔程度。</p>
+<blockquote>
+<p><em>Think of a trait as a small object whose main purpose is to carry information used by another object or algorithm to determine "policy" or "implementation details".</em></p>
+</blockquote>
+]]></content>
+    <category term="C++"/>
+    <published>2021-11-13T00:00:00.000Z</published>
   </entry>
   <entry>
     <title type="text">Checking Sum of Squares (SOS) Polynomials with CVXPY</title>
@@ -450,24 +468,6 @@ complexity w.r.t. total degree is exponential.</p>
 ]]></content>
     <category term="Optimization"/>
     <published>2020-10-03T00:00:00.000Z</published>
-  </entry>
-  <entry>
-    <title type="text">C++ Traits 不專業使用心得</title>
-    <id>https://stephlin.github.io/posts/Cpp/Cpp-traits.html</id>
-    <link href="https://stephlin.github.io/posts/Cpp/Cpp-traits.html"/>
-    <updated>2024-09-15T15:10:50.000Z</updated>
-    <summary type="html"><![CDATA[<p>近期在閱讀一些 C++ Library 的過程中發現了 C++ Traits 的使用概念，於是乎來整理一下他的想法以及實現方法。</p>
-]]></summary>
-    <content type="html"><![CDATA[<p>近期在閱讀一些 C++ Library 的過程中發現了 C++ Traits 的使用概念，於是乎來整理一下他的想法以及實現方法。</p>
-<!-- more -->
-<p>Traits 簡單來講就是一個程式碼片段，而我們希望透過一些機制，把他當作補丁一般地，貼到某塊程式碼內。</p>
-<p>這個概念若使用得當，最大的好處在於我們不用重複實作相同的功能 (或是相似的架構)，進而提升程式碼的重複利用度、以及簡潔程度。</p>
-<blockquote>
-<p><em>Think of a trait as a small object whose main purpose is to carry information used by another object or algorithm to determine "policy" or "implementation details".</em></p>
-</blockquote>
-]]></content>
-    <category term="C++"/>
-    <published>2021-11-13T00:00:00.000Z</published>
   </entry>
   <entry>
     <title type="text">Context Management in Python</title>
