@@ -15,7 +15,7 @@ tags:
 [Jann-Long Chern](https://math.ntnu.edu.tw/~chern/),
 [Ching-Cherng Sun](https://www.dop.ncu.edu.tw/en/Faculty/faculty_more/9),
 **FracGM: A Fast Fractional Programming Technique for Geman-McClure Robust Estimator**.
-_IEEE Robotics and Automation Letters (RA-L)_, 2024.
+_IEEE Robotics and Automation Letters (RA-L)_, vol. 9, no. 12, pp. 11666 -- 11673, Dec. 2024.
 
 ![](/assets/images/projects/FracGM-Banner.gif)
 

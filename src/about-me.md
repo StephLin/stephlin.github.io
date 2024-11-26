@@ -109,7 +109,7 @@ and win the award of _"Honorable Mention"_ in 2019.
 
 1. Bang-Shien Chen, [Yu-Kai Lin](/), Jian-Yu Chen, Chih-Wei Huang, Jann-Long Chern, Ching-Cherng Sun,
    **FracGM: A Fast Fractional Programming Technique for Geman-McClure Robust Estimator**.
-   _IEEE Robotics and Automation Letters (RA-L)_, 2024.
+   _IEEE Robotics and Automation Letters (RA-L)_, vol. 9, no. 12, pp. 11666 -- 11673, Dec. 2024.
    ([paper](https://doi.org/10.1109/LRA.2024.3495372))
    ([preprint](https://arxiv.org/pdf/2409.13978))
    ([code](https://github.com/StephLin/FracGM))
