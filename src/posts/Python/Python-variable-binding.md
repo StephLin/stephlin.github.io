@@ -62,7 +62,7 @@ print(inspect.getclosurevars(functions[0]))
 ClosureVars(nonlocals={}, globals={'x': 2}, builtins={}, unbound=set())
 ```
 
-我們會看到 `x` 變數確實是透過 global variable 的形式綁定進 `functions[0]` 函數裡面，並且他也告訴你當下 `x` 的數值為 2，這使得說這些函數所看到的變數都是 2，而非在 for loop 裡面的 0, 1, 2。
+我們會看到 `x` 變數確實是透過 global variable 的形式綁定進 `functions[0]` 函數裡面，並且他也告訴你當下 `x` 的數值為 2，這使得說這些函數執行時所看到的變數都是 2，而非在 for loop 裡面的 0, 1, 2。
 
 :::details Closure Variable Types
 根據向外部綁定的變數類型不同，可分為 global variable 和 nonlocal variable 這兩種，在這篇文章裡面的案例是 global variable。若我們將上述範例全放進一個函數內，並且從外部呼叫，那麼此時 `x` 就會變成一個 nonlocal variable：
