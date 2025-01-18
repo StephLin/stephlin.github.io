@@ -2,6 +2,7 @@
 title: Python 加速符文：高效能平行科學計算
 icon: fa-brands fa-python
 date: 2022-08-07
+cover: /assets/images/posts/python/python-speedup/cover.jpg
 categories:
   - Python
 tags:
@@ -384,6 +385,10 @@ NumPy _v.s._ Pythran _v.s._ Numba _v.s._ **pybind11**
 文末筆者也提供上述測試所使用的 [原始碼](https://github.com/StephLin/boost-your-python-scientific-computation)，若大家閒來無事的話可以參考看看，裡面也有一些本文未提及的暗黑兵法 (例如 [CuPy](https://cupy.dev/)，他是一種 GPU 加速方案)，若讀者有相關疑慮或者建議，也非常歡迎在 [Issues](https://github.com/StephLin/boost-your-python-scientific-computation/issues) 或者本篇留言中回覆！
 
 最後，祝福大家能順利幫自己的程式碼套上適合的加速符文囉！
+
+:::note Disclosure
+本文封面圖片由 [tensor.art](https://tensor.art/) 生成。
+:::
 
 ## References
 
