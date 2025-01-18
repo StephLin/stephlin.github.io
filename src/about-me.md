@@ -118,7 +118,7 @@ and win the award of _"Honorable Mention"_ in 2019.
    **K-Closest Points and Maximum Clique Pruning for Efficient and Effective 3-D Laser Scan Matching**.
    _IEEE Robotics and Automation Letters (RA-L)_, vol. 7, no. 2, pp. 1471 -- 1477, Apr. 2022.
    ([paper](https://doi.org/10.1109/LRA.2021.3140130))
-   ([preprint](/assets/preprints/2023-RA-L-KCP.pdf))
+   ([preprint](/assets/preprints/2022-RA-L-KCP.pdf))
    ([code](https://github.com/StephLin/KCP))
    ([video](https://youtu.be/ZaDLEOz_yYc))
 
@@ -139,7 +139,7 @@ and win the award of _"Honorable Mention"_ in 2019.
    **Asynchronous State Estimation of Simultaneous Ego-motion Estimation and Multiple Object Tracking for LiDAR-Inertial Odometry**.
    _2023 International Conference on Robotics and Automation (ICRA)_, pp. 10616 -- 10622, May 2023.
    ([paper](https://doi.org/10.1109/ICRA48891.2023.10161269))
-   ([preprint](/assets/preprints/2024-ICRA-LIO-SEGMOT.pdf))
+   ([preprint](/assets/preprints/2023-ICRA-LIO-SEGMOT.pdf))
    ([code](https://github.com/StephLin/LIO-SEGMOT))
    ([video](https://youtu.be/5HtnDFPerVo))
 
