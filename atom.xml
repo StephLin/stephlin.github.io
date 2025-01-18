@@ -3,7 +3,7 @@
   <id>https://stephlin.github.io/</id>
   <title>StephLin&amp;apos;s Personal Blog</title>
   <subtitle>StephLin&amp;apos;s Personal Blog</subtitle>
-  <updated>2025-01-18T09:15:11.735Z</updated>
+  <updated>2025-01-18T09:15:44.192Z</updated>
   <generator>@vuepress/plugin-feed</generator>
   <link rel="self" href="https://stephlin.github.io/atom.xml"/>
   <link rel="alternate" href="https://stephlin.github.io/"/>
@@ -16,7 +16,7 @@
     <title type="text">從陷阱案例中理解 Python 變數綁定機制</title>
     <id>https://stephlin.github.io/posts/Python/Python-variable-binding.html</id>
     <link href="https://stephlin.github.io/posts/Python/Python-variable-binding.html"/>
-    <updated>2025-01-18T09:14:35.000Z</updated>
+    <updated>2025-01-18T09:15:02.000Z</updated>
     <summary type="html"><![CDATA[<p>本文嘗試透過一些案例去加深理解 Python 的變數綁定機制，降低因語言特性導致的隱藏問題，導致偵錯困難。</p>
 ]]></summary>
     <content type="html"><![CDATA[<p>本文嘗試透過一些案例去加深理解 Python 的變數綁定機制，降低因語言特性導致的隱藏問題，導致偵錯困難。</p>
@@ -46,7 +46,7 @@ x at the time the function is created. ...</p>
 <span class="line"><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">print</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(inspect.</span><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">getclosurevars</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(functions[</span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">0</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">]))</span></span></code></pre>
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div></div></div><p>他會輸出以下結果：</p>
 <div class="language-python line-numbers-mode" data-highlighter="shiki" data-ext="python" data-title="python" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span style="--shiki-light:#383A42;--shiki-dark:#61AFEF">ClosureVars</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">(</span><span style="--shiki-light:#986801;--shiki-dark:#E06C75;--shiki-light-font-style:inherit;--shiki-dark-font-style:italic">nonlocals</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">{}, </span><span style="--shiki-light:#986801;--shiki-dark:#E06C75;--shiki-light-font-style:inherit;--shiki-dark-font-style:italic">globals</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">{</span><span style="--shiki-light:#50A14F;--shiki-dark:#98C379">'x'</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">: </span><span style="--shiki-light:#986801;--shiki-dark:#D19A66">2</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">}, </span><span style="--shiki-light:#986801;--shiki-dark:#E06C75;--shiki-light-font-style:inherit;--shiki-dark-font-style:italic">builtins</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">{}, </span><span style="--shiki-light:#986801;--shiki-dark:#E06C75;--shiki-light-font-style:inherit;--shiki-dark-font-style:italic">unbound</span><span style="--shiki-light:#383A42;--shiki-dark:#56B6C2">=</span><span style="--shiki-light:#0184BC;--shiki-dark:#56B6C2">set</span><span style="--shiki-light:#383A42;--shiki-dark:#ABB2BF">())</span></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>我們會看到 <code>x</code> 變數確實是透過 global variable 的形式綁定進 <code>functions[0]</code> 函數裡面，並且他也告訴你當下 <code>x</code> 的數值為 2，這使得說這些函數所看到的變數都是 2，而非在 for loop 裡面的 0, 1, 2。</p>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>我們會看到 <code>x</code> 變數確實是透過 global variable 的形式綁定進 <code>functions[0]</code> 函數裡面，並且他也告訴你當下 <code>x</code> 的數值為 2，這使得說這些函數執行時所看到的變數都是 2，而非在 for loop 裡面的 0, 1, 2。</p>
 </a><details class="hint-container details"><a class="footnote-anchor" id="footnote-ref2"><summary>Closure Variable Types</summary>
 <p>根據向外部綁定的變數類型不同，可分為 global variable 和 nonlocal variable 這兩種，在這篇文章裡面的案例是 global variable。若我們將上述範例全放進一個函數內，並且從外部呼叫，那麼此時 <code>x</code> 就會變成一個 nonlocal variable：</p>
 <figure><img src="/assets/images/posts/python/python-variable-binding/ex1-1-nonlocal-variable.png" alt="X as a nonlocal variable" tabindex="0" loading="lazy"><figcaption>X as a nonlocal variable</figcaption></figure>
