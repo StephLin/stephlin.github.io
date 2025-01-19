@@ -11,7 +11,7 @@ tags:
   - Gotcha
 ---
 
-本文嘗試透過一些案例去加深理解 Python 的變數綁定機制，降低因語言特性導致的隱藏問題，導致偵錯困難。
+本文嘗試透過一些案例[^gotchas]去加深理解 Python 的變數綁定機制，降低因語言特性導致的隱藏問題，導致偵錯困難。
 
 <!-- more -->
 
@@ -182,8 +182,8 @@ for x in range(3):
 本文封面圖片由 [tensor.art](https://tensor.art/) 生成。
 :::
 
+[^gotchas]: [Common Gotchas - The Hitchhiker's Guide to Python](https://docs.python-guide.org/writing/gotchas/)
 [^wtfpython]: [satwikkansal/wtfpython > Schrödingers variable](https://github.com/satwikkansal/wtfpython?tab=readme-ov-file#-schr%C3%B6dingers-variable-)
 [^wtfpython-mutable-argument]: [satwikkansal/wtfpython > Beware of default mutable arguments](https://github.com/satwikkansal/wtfpython?tab=readme-ov-file#-beware-of-default-mutable-arguments)
-[^gotchas]: https://docs.python-guide.org/writing/gotchas/
 [^closure]: [聊聊 Python Closure - Dboy Liao](https://dboyliao.medium.com/聊聊-python-closure-ebd63ff0146f)
 [^closure-definition]: [Python 3 Documentation > Glossary > closure variable](https://docs.python.org/3/glossary.html#term-closure-variable)
