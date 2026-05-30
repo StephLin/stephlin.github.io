@@ -75,4 +75,4 @@ environments.
 
 For more information, please refer to the following link:
 
-- [<FontIcon icon="fa-solid fa-file-lines" /> Abstract (ION)](https://www.ion.org/gnss/abstracts.cfm?paperID=13666)
+- [<FontIcon icon="fa-solid fa-file-lines" /> Conference Program (ION)](https://www.ion.org/gnss/upload/GNSS24-Onsite-Small.pdf)
