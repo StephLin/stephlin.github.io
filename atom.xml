@@ -3,15 +3,60 @@
   <id>https://stephlin.github.io/</id>
   <title>StephLin&amp;apos;s Personal Blog</title>
   <subtitle>StephLin&amp;apos;s Personal Blog</subtitle>
-  <updated>2025-01-19T09:19:33.516Z</updated>
+  <updated>2026-05-30T06:13:35.088Z</updated>
   <generator>@vuepress/plugin-feed</generator>
   <link rel="self" href="https://stephlin.github.io/atom.xml"/>
   <link rel="alternate" href="https://stephlin.github.io/"/>
-  <category term="Python"/>
   <category term="Research"/>
+  <category term="Python"/>
   <category term="MediaTek"/>
   <category term="Optimization"/>
   <category term="C++"/>
+  <entry>
+    <title type="text">2026 - Semantic Segmentation Using Scene Flow Estimation</title>
+    <id>https://stephlin.github.io/projects/2026-Semantic-Segmentation.html</id>
+    <link href="https://stephlin.github.io/projects/2026-Semantic-Segmentation.html"/>
+    <updated>2026-05-30T06:06:53.000Z</updated>
+    <summary type="html"><![CDATA[<p>You-Jun Li,
+<a href="/" target="_blank">Yu-Kai Lin</a>,
+<a href="https://dgbshien.com/" target="_blank" rel="noopener noreferrer">Bang-Shien Chen</a>,
+<a href="https://sites.google.com/ce.ncu.edu.tw/cwhuang/" target="_blank" rel="noopener noreferrer">Chih-Wei Huang</a>,
+<a href="https://math.ntnu.edu.tw/~chern/" target="_blank" rel="noopener noreferrer">Jann-Long Chern</a>,
+<a href="https://www.dop.ncu.edu.tw/en/Faculty/faculty_more/9" target="_blank" rel="noopener noreferrer">Ching-Cherng Sun</a>,
+<strong>Open-Vocabulary Semantic Segmentation for Dynamic 3D Scenes Using Scene Flow Estimation</strong>.
+<em>IEEE Robotics and Automation Letters (RA-L)</em>, vol. 11, no. 7, pp. 8140 -- 8147, Jul. 2026.</p>]]></summary>
+    <content type="html"><![CDATA[<p>You-Jun Li,
+<a href="/" target="_blank">Yu-Kai Lin</a>,
+<a href="https://dgbshien.com/" target="_blank" rel="noopener noreferrer">Bang-Shien Chen</a>,
+<a href="https://sites.google.com/ce.ncu.edu.tw/cwhuang/" target="_blank" rel="noopener noreferrer">Chih-Wei Huang</a>,
+<a href="https://math.ntnu.edu.tw/~chern/" target="_blank" rel="noopener noreferrer">Jann-Long Chern</a>,
+<a href="https://www.dop.ncu.edu.tw/en/Faculty/faculty_more/9" target="_blank" rel="noopener noreferrer">Ching-Cherng Sun</a>,
+<strong>Open-Vocabulary Semantic Segmentation for Dynamic 3D Scenes Using Scene Flow Estimation</strong>.
+<em>IEEE Robotics and Automation Letters (RA-L)</em>, vol. 11, no. 7, pp. 8140 -- 8147, Jul. 2026.</p>
+<figure><img src="/assets/images/projects/Semantic-Segmentation-Scene-Flow-Estimation-Banner.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<p>3D open-vocabulary semantic segmentation has shown great potential in
+applications such as autonomous driving and mixed reality. However, achieving
+accurate segmentation in dynamic environments remains challenging due to
+motion-induced inconsistencies. To address this issue, we incorporate scene
+flow as temporal information into a static semantic backbone to enhance
+semantic consistency and accuracy over time. Our method captures inter-frame
+motion cues from point cloud sequences and leverages them, together with a
+local clustering mechanism, to refine semantic label consistency in consecutive
+frames. Furthermore, we introduce a two-way scene flow-based data augmentation
+strategy that exploits both forward and backward motion to jointly train the
+model in bidirectional temporal contexts. On the large-scale nuScenes
+autonomous driving dataset, our method achieves a 0.4% overall improvement in
+hIoU and a 2.37% gain under high-motion scenes. On the synthetic object-centric
+dataset, it achieves a 4.53% overall hIoU improvement and a 6.09% gain in
+high-motion scenes, while reducing the ID switch rate by 0.5%.</p>
+<p>For more details, please refer to the following links:</p>
+<ul>
+<li><a href="https://doi.org/10.1109/LRA.2026.3693993" target="_blank" rel="noopener noreferrer"></a></li>
+</ul>
+]]></content>
+    <category term="Research"/>
+    <published>2026-05-15T00:00:00.000Z</published>
+  </entry>
   <entry>
     <title type="text">從陷阱案例中理解 Python 變數綁定機制</title>
     <id>https://stephlin.github.io/posts/Python/Python-variable-binding.html</id>
@@ -288,7 +333,7 @@ and 4.21% of odometry accuracy.</p>
     <title type="text">2024 - AI-Enhanced GNSS/INS</title>
     <id>https://stephlin.github.io/projects/2024-MTK-GNSS.html</id>
     <link href="https://stephlin.github.io/projects/2024-MTK-GNSS.html"/>
-    <updated>2024-09-15T15:20:08.000Z</updated>
+    <updated>2026-05-30T06:06:53.000Z</updated>
     <summary type="html"><![CDATA[<p>An-Lin Tao,
 <a href="/" target="_blank">Yu-Kai Lin</a>,
 Hau-Hsiang Chan,
@@ -359,7 +404,7 @@ furnish mobile phone users with more precise navigation services across various
 environments.</p>
 <p>For more information, please refer to the following link:</p>
 <ul>
-<li><a href="https://www.ion.org/gnss/abstracts.cfm?paperID=13666" target="_blank" rel="noopener noreferrer"></a></li>
+<li><a href="https://www.ion.org/gnss/upload/GNSS24-Onsite-Small.pdf" target="_blank" rel="noopener noreferrer"></a></li>
 </ul>
 ]]></content>
     <category term="MediaTek"/>
@@ -573,6 +618,24 @@ complexity w.r.t. total degree is exponential.</p>
 ]]></content>
     <category term="Optimization"/>
     <published>2020-10-03T00:00:00.000Z</published>
+  </entry>
+  <entry>
+    <title type="text">C++ Traits 不專業使用心得</title>
+    <id>https://stephlin.github.io/posts/Cpp/Cpp-traits.html</id>
+    <link href="https://stephlin.github.io/posts/Cpp/Cpp-traits.html"/>
+    <updated>2024-09-15T15:10:50.000Z</updated>
+    <summary type="html"><![CDATA[<p>近期在閱讀一些 C++ Library 的過程中發現了 C++ Traits 的使用概念，於是乎來整理一下他的想法以及實現方法。</p>
+]]></summary>
+    <content type="html"><![CDATA[<p>近期在閱讀一些 C++ Library 的過程中發現了 C++ Traits 的使用概念，於是乎來整理一下他的想法以及實現方法。</p>
+<!-- more -->
+<p>Traits 簡單來講就是一個程式碼片段，而我們希望透過一些機制，把他當作補丁一般地，貼到某塊程式碼內。</p>
+<p>這個概念若使用得當，最大的好處在於我們不用重複實作相同的功能 (或是相似的架構)，進而提升程式碼的重複利用度、以及簡潔程度。</p>
+<blockquote>
+<p><em>Think of a trait as a small object whose main purpose is to carry information used by another object or algorithm to determine "policy" or "implementation details".</em></p>
+</blockquote>
+]]></content>
+    <category term="C++"/>
+    <published>2021-11-13T00:00:00.000Z</published>
   </entry>
   <entry>
     <title type="text">Context Management in Python</title>
@@ -1071,23 +1134,5 @@ complexity w.r.t. total degree is exponential.</p>
 ]]></content>
     <category term="Python"/>
     <published>2022-08-07T00:00:00.000Z</published>
-  </entry>
-  <entry>
-    <title type="text">C++ Traits 不專業使用心得</title>
-    <id>https://stephlin.github.io/posts/Cpp/Cpp-traits.html</id>
-    <link href="https://stephlin.github.io/posts/Cpp/Cpp-traits.html"/>
-    <updated>2024-09-15T15:10:50.000Z</updated>
-    <summary type="html"><![CDATA[<p>近期在閱讀一些 C++ Library 的過程中發現了 C++ Traits 的使用概念，於是乎來整理一下他的想法以及實現方法。</p>
-]]></summary>
-    <content type="html"><![CDATA[<p>近期在閱讀一些 C++ Library 的過程中發現了 C++ Traits 的使用概念，於是乎來整理一下他的想法以及實現方法。</p>
-<!-- more -->
-<p>Traits 簡單來講就是一個程式碼片段，而我們希望透過一些機制，把他當作補丁一般地，貼到某塊程式碼內。</p>
-<p>這個概念若使用得當，最大的好處在於我們不用重複實作相同的功能 (或是相似的架構)，進而提升程式碼的重複利用度、以及簡潔程度。</p>
-<blockquote>
-<p><em>Think of a trait as a small object whose main purpose is to carry information used by another object or algorithm to determine "policy" or "implementation details".</em></p>
-</blockquote>
-]]></content>
-    <category term="C++"/>
-    <published>2021-11-13T00:00:00.000Z</published>
   </entry>
 </feed>
